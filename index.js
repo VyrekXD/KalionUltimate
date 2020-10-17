@@ -10,7 +10,7 @@ const player = new Player(bot);
 bot.player = player;
 
 let canal
-
+ 
 const moment = require('moment')
 moment.updateLocale('es', {
   months: 'Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre'.split('_'),
