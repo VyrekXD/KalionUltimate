@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const puppeteer = require('puppeteer');
 const used = new Map();
+const { milisegFromSeconds } = require('../../util/Functions/convertTime')
 
 module.exports = {
 aliases: ['cloudfarestatus','cstatus','cloudfarest'],
@@ -18,7 +19,7 @@ run: async(client, message, args) => {
 			});  
 		 }
 		else{
-      const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+      const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
       
       const page = await browser.newPage();
   

@@ -5,10 +5,8 @@ const hlapi = require('hype-list-api')
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
-  run: async(bot, message, args) => {
+  run: async(bot, message, args, send) => {
       
-      let widget = hlapi.getWidget(bot.user.id)
-
       let elc = args[0]
 
       const e = new Discord.MessageEmbed()
@@ -202,7 +200,7 @@ module.exports = {
 
         return message.channel.send(e)
       } else {
-    message.channel.send(e);
+    send(e);
     }
   }
 }

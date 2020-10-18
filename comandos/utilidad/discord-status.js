@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const puppeteer = require('puppeteer');
 const used = new Map();
+const { milisegFromSeconds } = require('../../util/Functions/convertTime')
 
 module.exports = {
 aliases: ['discordstatus','dstatus','discordst'],
@@ -26,6 +27,7 @@ run: async(client, message, args) => {
   
       const img = await page.screenshot({path: 'example.png'});
   
+      let mensaje = await message.channel.send({embed: {color: 'RANDOM', description: '<a:loadingoogle:744334507242422302> Cargando...'}})
       setTimeout(async () => {
       
         const attach = new Discord.MessageAttachment(img)
