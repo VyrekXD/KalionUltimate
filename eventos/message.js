@@ -63,7 +63,9 @@ module.exports.run = bot => {
 
         let send = (text) => message.channel.send(text)
 
-        cmd.run(bot, message, args, send)
+        cmd.run(bot, message, args, send).catch((err) => {
+          console.log(`Hubo un error en el comando: ${cmd.help.name}\nError:\n${err}`)
+        })
       }
  
   });

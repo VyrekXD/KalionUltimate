@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const prefixModel = require('../../database/models/guildPrefix');
 let beautify = require("beautify")
-const hlapi = require('hype-list-api')
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
