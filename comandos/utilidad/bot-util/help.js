@@ -169,7 +169,7 @@ module.exports = {
           )
           .addField(
             ":page_facing_up: Comandos:",
-            "```pokedex | fortniteuser | avatar | botinfo | bugreport | calc | canales | clear | comandos | help | invite | ping | say | serverinfo | soporte | userinfo | youtube | lyrics | morse | reverse | shortlink | steamuser | cloudfare-status | discord-status | seeon | qr | tag | canvassay | djsdocs```"
+            "```pokedex | fortniteuser | avatar | botinfo | bugreport | calc | canales | clear | comandos | help | invite | ping | say | serverinfo | soporte | userinfo | youtube | lyrics | morse | reverse | shortlink | steamuser | cloudfare-status | discord-status | seeon | qr | tag | canvassay | djsdocs | member-status```"
           )
           .setFooter(
             "Para ver informacion detallada de un comando usa k!help (comando)"

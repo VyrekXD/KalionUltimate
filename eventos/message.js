@@ -65,7 +65,7 @@ module.exports.run = bot => {
 
         cmd.run(bot, message, args, send).catch((err) => {
           let cmdname = cmd.help.name ? cmd.help.name : undefined
-          console.log(`Hubo un error en el comando: ${cmd.help.name}\nError:\n${err}`)
+          console.log(`Hubo un error en el comando: ${cmdname}\nError:\n${err}`)
         })
       }
  
