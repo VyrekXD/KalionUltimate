@@ -73,7 +73,7 @@ module.exports.run = (bot, statcord) => {
         let send = (text) => message.channel.send(text)
 
         cmd.run(bot, message, args, send).catch((err) => {
-          let cmdname = cmd.help.name ? cmd.help.name : undefined
+          let cmdname = cmd.help ? cmd.help.name : undefined
           console.log(`Hubo un error en el comando: ${cmdname}\nError:\n${err}`)
         })
 
