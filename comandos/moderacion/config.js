@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const prefixModel = require('../../database/models/guildPrefix');
 const logsModel = require('../../database/models/logs')
-const devModel = require('../../database/models/developer')
+const devModel = require('../../database/models/developers')
 const automodModel = require('../../database/models/automod')
 const { checkPerms } = require('../../util/Functions/checkPermissions')
 
