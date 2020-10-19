@@ -10,6 +10,9 @@ run: async (bot, message, args) => {
     setTimeout(async () => {
 
         const e = new Discord.MessageEmbed()
+        .setTitle('Links')
+        .setAuthor(bot.user.tag, bot.user.displayAvatarURL())
+        .setColor('RANDOM')
         .setDescription(`:one: [Hype Discord List](https://hypelist.glitch.me/bots/724749468418703432/)
         :two: [Statcord](https://statcord.com/bot/724749468418703432)`)
         let msg = await message.channel.send(e)
@@ -19,7 +22,7 @@ run: async (bot, message, args) => {
         await msg.react('🗑️')
 
         const filter = (reaction, user) => {return ['1️⃣','2️⃣','🗑️'].includes(reaction.emoji.name) && user.id === message.author.id}
-        const collector = info.createReactionCollector(filter, { time: 60000})
+        const collector = msg.createReactionCollector(filter, { time: 60000})
 
         collector.on('collect', async reaction =>{
             if(reaction.emoji.name === '1️⃣'){
