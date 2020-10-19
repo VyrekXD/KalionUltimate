@@ -5,9 +5,8 @@ module.exports.run = async(client, message, args) => {
 
     let consulta = await devModel.findOne({developer: message.author.id})
 
-    if(!consulta){
-        return message.channel.send(`Solo **Developers** pueden usar este comando!`)
-    }
+    if(!consulta)return message.channel.send(`Solo **Developers** pueden usar este comando!`)
+    
 
     let nicka = args.join(' ')
     if(!nicka)return message.channel.send(`Debes ingresar mi nuevo nick de el servidor!`)
