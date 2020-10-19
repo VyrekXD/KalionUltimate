@@ -5,9 +5,9 @@ const moment = require('moment')
 module.exports.run = bot => {
     bot.on("roleUpdate",async (oldRole, newRole) => {
       
-        let consulta = await configModel.findOne({guildID: oldRole.guild.id}).logsConfig
-        if(!consulta)return
-        if(!consulta.roleUpdate)return
+        let find = await configModel.findOne({guildID: oldRole.guild.id}).logsConfig
+        if(!find)return
+        if(!find.roleUpdate)return
 
         const e = new Discord.MessageEmbed()
         .setColor(`#1291af`)
@@ -55,7 +55,7 @@ module.exports.run = bot => {
             }
         }
         
-        log = await consulta.channelID
+        log = await find.channelID
         
         let canal = bot.channels.cache.get(log)
         canal.send(e)

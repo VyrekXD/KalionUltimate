@@ -14,7 +14,7 @@ module.exports.run = bot => {
     .addField(`**Boosts**`, `${boost.oldBoost} => ${boost.newBoost}`)
     .setColor('RED')
 
-    log = await consulta.channelID
+    log = await find.channelID
         
     let canal = bot.channels.cache.get(log)
     canal.send(e)

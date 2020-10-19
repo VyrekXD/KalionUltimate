@@ -8,17 +8,17 @@ module.exports.run = bot => {
   if(message.channel.type === "dm")return
   if(!message.content)return
 
-  let consultaSnipe = await snipeModel.findOne({servidor: message.guild.id})
-  if(consultaSnipe){
+  let findSnipe = await snipeModel.findOne({servidor: message.guild.id})
+  if(findSnipe){
     await snipeModel.updateOne({servidor: message.guild.id}, {$set: {mensaje: message.content, hora: message.createdTimestamp, usuario: message.author.id}})
   }else {
     let nuevo = new snipeModel({usuario: message.author.id, servidor: message.guild.id, mensaje: message.content, hora: message.createdTimestamp})
     nuevo.save()
   }
 
-  let consulta = await configModel.findOne({guildID: message.guild.id}).logsConfig
-  if(!consulta)return
-  if(!consulta.messageDelete)return
+  let find = await configModel.findOne({guildID: message.guild.id}).logsConfig
+  if(!find)return
+  if(!find.messageDelete)return
 
   
   const efe = new Discord.MessageEmbed()
@@ -30,7 +30,7 @@ module.exports.run = bot => {
   
   
   
-  log = await consulta.channelID
+  log = await find.channelID
         
   let canal = bot.channels.cache.get(log)
   canal.send(e)

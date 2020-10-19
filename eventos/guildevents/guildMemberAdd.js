@@ -5,9 +5,9 @@ const configModel = require('../../database/models/guildConfig')
 module.exports.run = bot => {
   bot.on("guildMemberAdd", async member => {
 
-    let consulta = await configModel.findOne({guildID: member.guild.id}).logsConfig
-    if(!consulta)return
-    if(!consulta.memberAdd)return
+    let find = await configModel.findOne({guildID: member.guild.id}).logsConfig
+    if(!find)return
+    if(!find.memberAdd)return
 
     const e = new Discord.MessageEmbed()
     .setColor("#37ff00")
@@ -20,7 +20,7 @@ module.exports.run = bot => {
     
 
 
-    log = await consulta.channelID
+    log = await find.channelID
         
     let canal = bot.channels.cache.get(log)
     canal.send(e)

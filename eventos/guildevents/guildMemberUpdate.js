@@ -4,9 +4,9 @@ const configModel = require('../../database/models/guildConfig')
 module.exports.run = bot => {
   bot.on("guildMemberUpdate", async (oldMember, newMember) => {
 
-    let consulta = await configModel.findOne({guildID: newMember.guild.id}).logsConfig
-    if(!consulta)return
-    if(!consulta.memberUpdate)return
+    let find = await configModel.findOne({guildID: newMember.guild.id}).logsConfig
+    if(!find)return
+    if(!find.memberUpdate)return
     
     const e = new Discord.MessageEmbed()
     .setColor("#1291af")
@@ -35,14 +35,14 @@ module.exports.run = bot => {
       }else{
         e.addField(`**Roles Removidos**`, `<@&${executor.changes[0].new[0].id}>\n${executor.changes[0].new[0].id}`, true)
       }
-      log = await consulta.channelID
+      log = await find.channelID
         
       let canal = bot.channels.cache.get(log)
       canal.send(e)
     }
 
     if(e.fields.length === 1)return
-    log = await consulta.channelID
+    log = await find.channelID
         
     let canal = bot.channels.cache.get(log)
     canal.send(e)

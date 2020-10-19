@@ -4,9 +4,9 @@ const configModel = require('../../database/models/guildConfig')
 module.exports.run = bot => {
   bot.on("guildBanRemove", async (guild, user) => {
 
-    let consulta = await configModel.findOne({guildID: guild.id}).logsConfig
-    if(!consulta)return
-    if(!consulta.banRemove)return
+    let find = await configModel.findOne({guildID: guild.id}).logsConfig
+    if(!find)return
+    if(!find.banRemove)return
 
     const e = new Discord.MessageEmbed()
     .setColor('#FF0000')
@@ -23,7 +23,7 @@ module.exports.run = bot => {
         
         e.addField(`**Moderador**`, `${u.executor.tag}\n${u.executor.id}`, true)
     }
-    log = await consulta.channelID
+    log = await find.channelID
         
     let canal = bot.channels.cache.get(log)
     canal.send(e)

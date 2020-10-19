@@ -7,9 +7,9 @@ module.exports.run = bot => {
     if(newMessage.channel.type === "dm")return
     if(oldMessage.author.bot) return;
 
-    let consulta = await configModel.findOne({guildID: oldMessage.guild.id}).logsConfig
-    if(!consulta)return
-    if(!consulta.messageUpdate)return
+    let find = await configModel.findOne({guildID: oldMessage.guild.id}).logsConfig
+    if(!find)return
+    if(!find.messageUpdate)return
 
     const e = new Discord.MessageEmbed()
     .setColor(`BLUE`)
@@ -18,7 +18,7 @@ module.exports.run = bot => {
     .addField(`**Mensaje Antiguo**`, oldMessage.content || 'Vacio')
     .addField(`**Mensaje Nuevo**`, newMessage.content || 'Vacio')
  
-    log = await consulta.canals
+    log = await find.canals
         
     bot.channels.cache.get(log)
     let canal1 = bot.channels.cache.get(log)

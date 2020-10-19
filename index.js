@@ -39,7 +39,8 @@ bot.colors = bot.utilconfig.colors;
 
 bot.invite = bot.utilconfig.invite;
 bot.support = bot.utilconfig.support;
- 
+bot.updates = require('./util/update.json')
+
 // -| Comandos |- //
 
 (async function handleCommands(dir = "comandos") {

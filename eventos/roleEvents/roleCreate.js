@@ -5,9 +5,9 @@ const moment = require('moment')
 module.exports.run = bot => {
     bot.on("roleCreate", async role => {
            
-    let consulta = await configModel.findOne({guildID: role.guild.id}).logsConfig
-    if(!consulta)return
-    if(!consulta.roleCreate)return
+    let find = await configModel.findOne({guildID: role.guild.id}).logsConfig
+    if(!find)return
+    if(!find.roleCreate)return
 
 
         const e = new Discord.MessageEmbed()
@@ -28,7 +28,7 @@ module.exports.run = bot => {
             }
 
             
-            log = await consulta.channelID
+            log = await find.channelID
         
             let canal = bot.channels.cache.get(log)
             canal.send(e)

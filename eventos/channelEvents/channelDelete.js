@@ -6,9 +6,9 @@ module.exports.run = bot => {
 
   if (channel.type === "dm") return
 
-  let consulta = await configModel.findOne({guildID: channel.guild.id}).logsConfig
-  if(!consulta)return
-  if(!consulta.channelDelete)return
+  let find = await configModel.findOne({guildID: channel.guild.id}).logsConfig
+  if(!find)return
+  if(!find.channelDelete)return
 
   let tipo = {
     "text":"Texto",
@@ -31,8 +31,8 @@ module.exports.run = bot => {
   
   
   embed.addField(`Tipo`, tipo[channel.type])
-  if(consulta){
-    log = await consulta.channelID
+  if(find){
+    log = await find.channelID
         
     let canal = bot.channels.cache.get(log)
     canal.send(e)

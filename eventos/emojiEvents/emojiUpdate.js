@@ -6,9 +6,9 @@ module.exports.run = bot => {
 
     if(!oldEmoji.guild) return;
 
-    let consulta = await configModel.findOne({guildID: oldEmoji.guild.id}).logsConfig
-    if(!consulta)return
-    if(!consulta.emojiUpdate)return
+    let find = await configModel.findOne({guildID: oldEmoji.guild.id}).logsConfig
+    if(!find)return
+    if(!find.emojiUpdate)return
 
     if(message.guild.me.hasPermissions('VIEW_AUDIT_LOG')){
         oldEmoji.guild.fetchAuditLogs().then(async logs => {
@@ -22,7 +22,7 @@ module.exports.run = bot => {
                 .addField('**Usuario**', `${userL}\n${userL.id}`, true)
                 .addField('**Emoji**', `${oldEmoji.name}(${oldEmoji.id}) => ${newEmoji.name}(${oldEmoji.id})`, true)
 
-                log = await consulta.canals
+                log = await find.canals
         
                 let canal1 = bot.channels.cache.get(log)
                 canal1.send(e)

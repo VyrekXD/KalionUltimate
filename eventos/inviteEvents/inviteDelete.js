@@ -4,9 +4,9 @@ const configModel = require('../../database/models/guildConfig')
 module.exports.run = bot => {
   bot.on("inviteDelete", async invite => {
 
-    let consulta = await configModel.findOne({guildID: invite.guild.id}).logsConfig
-    if(!consulta)return
-    if(!consulta.inviteDelete)return
+    let find = await configModel.findOne({guildID: invite.guild.id}).logsConfig
+    if(!find)return
+    if(!find.inviteDelete)return
 
     const e = new Discord.MessageEmbed()
     .setTitle('__**Invitacion Eliminada**__')
@@ -15,7 +15,7 @@ module.exports.run = bot => {
     .addField(`Canal:`, invite.channel)
     .setColor(`ca1313`)
 
-    log = await consulta.channelID
+    log = await find.channelID
         
     let canal = bot.channels.cache.get(log)
     canal.send(e)
