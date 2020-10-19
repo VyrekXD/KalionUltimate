@@ -5,6 +5,7 @@ const nsfwModel = require('../../database/models/nsfwConfig')
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: ['rule34'],
+guildOnly: true,
 nsfw: true,
 run: async (bot, message, args, send) => {
 

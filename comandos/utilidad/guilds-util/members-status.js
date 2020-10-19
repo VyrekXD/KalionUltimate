@@ -3,6 +3,7 @@ const { MessageEmbed } = require('discord.js')
 
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+guildOnly: true,
 aliases: ['mstatus'],
 run: async (bot, message, args, send) => {
 

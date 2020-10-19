@@ -6,6 +6,7 @@ const nsfwModel = require('../../../database/models/nsfwConfig')
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: ['furgfuck'],
+guildOnly: true,
 run: async (bot, message, args, send) => {
 
     let find = await nsfwModel.findOne({guildID: message.guild.id})

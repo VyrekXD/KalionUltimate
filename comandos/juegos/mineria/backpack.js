@@ -3,6 +3,7 @@ const mineriaModel = require('../../../database/models/mineria')
 
 module.exports = {
     aliases: ['b', 'bp'],
+    guildOnly: true,
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
     run: async(client, message, args) => {
 

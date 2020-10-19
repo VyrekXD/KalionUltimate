@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: [],
+guildOnly: true,
 run: async (bot, message, args, send) => {
 
     let usuario = client.users.cache.get(args[0]) || message.mentions.users.first() || message.author

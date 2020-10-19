@@ -6,6 +6,7 @@ const { milisegFromDays } = require('../../../util/Functions/convertTime')
 
 module.exports = {
 aliases: [],
+guildOnly: true,
 run: async (client, message, args) => {
  
     if(!checkPerms(message.member, `ADMINISTRATOR`))return message.channel.send(`Permisos insuficientes`)

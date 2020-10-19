@@ -5,6 +5,7 @@ const fetch = require('node-fetch')
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: ['ulinks'],
+guildOnly: true,
 run: async (bot, message, args, send) => {
 
     let user = message.mentions.users.first() || bot.users.resolve(args[0])

@@ -3,6 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','BAN_MEMBERS'],
+  guildOnly: true,
   run: async(client, message, args) => {
   let memberx = message.mentions.members.first() ||
       message.guild.members.cache.get(args[0])

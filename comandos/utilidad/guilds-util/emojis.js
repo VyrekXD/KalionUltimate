@@ -4,6 +4,7 @@ const used = new Map();
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','ADD_REACTIONS'],
+  guildOnly: true,
   run: async(client, message, args) => {
 
   const Duration = require("humanize-duration");

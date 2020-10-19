@@ -3,6 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+  guildOnly: true,
   run: async(client, message, args) => {
     
 let mentioned = message.mentions.members.first() ||

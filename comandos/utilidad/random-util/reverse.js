@@ -3,6 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES'],
+    guildOnly: true,
     run: async(client, message, args) => {
         
     let mensaje = args.slice(0).join(' ')

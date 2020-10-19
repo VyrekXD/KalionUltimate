@@ -3,6 +3,7 @@ const warnModel = require('../../database/models/warns')
 
 module.exports = {
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+    guildOnly: true,
     run: async(client, message, args) => {
 
     if(message.author.id !== message.guild.ownerID)return message.channel.send('Solo el owner de el server puede borrar todos los warns de el server!')

@@ -3,6 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+  guildOnly: true,
   run: async(client, message, args) => {
     let frases = [
       "**" + message.author.username +"**" +", Esta muy enojado talvez sera mejor dejarlo en paz :c",

@@ -5,6 +5,7 @@ const used = new Map();
 module.exports = {
 aliases: ['cloudfarestatus','cstatus','cloudfarest'],
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+guildOnly: true,
 run: async(client, message, args) => {
 
   const Duration = require("humanize-duration");

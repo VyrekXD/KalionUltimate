@@ -4,6 +4,7 @@ const moneyModel = require('../../../database/models/dinero')
 module.exports = {
     aliases: ['with'],
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+    guildOnly: true,
     run: async(client, message, args) => {
 
         let usuario = message.author

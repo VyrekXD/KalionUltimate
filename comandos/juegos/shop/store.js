@@ -3,6 +3,7 @@ const shopModel = require('../../../database/models/serverShop')
 
 module.exports = {
 aliases: [],
+guildOnly: true,
 run: async (client, message, args) => {
 
 

@@ -3,6 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','BAN_MEMBERS'],
+  guildOnly: true,
   run: async(client, message, args) => {
   
       if (!message.guild.me.hasPermission("BAN_MEMBERS")) {

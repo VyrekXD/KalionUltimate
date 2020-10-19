@@ -4,6 +4,7 @@ const client = new Discord.Client();
 module.exports = {
     aliases: ['xfonts'],
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+    guildOnly: true,
     run: async(client, message, args) => {
         
         let elec1 = args[0]

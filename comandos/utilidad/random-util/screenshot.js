@@ -4,6 +4,7 @@ const puppeteer = require('puppeteer');
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: ['ss'],
+guildOnly: true,
 run: async (bot, message, args) => {
 
     if(!args[0])return message.channel.send('Necesitas ingresar una url!')

@@ -5,6 +5,7 @@ const { milisegFromSeconds } = require('../../../util/Functions/convertTime')
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','MANAGE_MESSAGES'],
+  guildOnly: true,
   run: async(client, message, args) => {
 
   const Duration = require("humanize-duration");

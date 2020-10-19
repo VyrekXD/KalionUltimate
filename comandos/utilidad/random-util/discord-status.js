@@ -4,6 +4,7 @@ const used = new Map();
 
 module.exports = {
 aliases: ['discordstatus','dstatus','discordst'],
+guildOnly: true,
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 run: async(client, message, args) => {
 

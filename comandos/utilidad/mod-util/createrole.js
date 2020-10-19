@@ -4,6 +4,7 @@ const { checkPerms } = require('../../../util/Functions/checkPermissions')
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','MANAGE_ROLES'],
 aliases: [],
+guildOnly: true,
 run: async (bot, message, args, send) => {
 
     if(!checkPerms(message.member, 'MANAGE_ROLES'))return send('No tienes permisos para crear un rol')

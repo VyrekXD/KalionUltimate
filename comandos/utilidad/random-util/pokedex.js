@@ -3,6 +3,7 @@ const fetch = require('node-fetch')
 
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+guildOnly: true,
 aliases: ['dex'],
 run: async (bot, message, args, send) => {
 

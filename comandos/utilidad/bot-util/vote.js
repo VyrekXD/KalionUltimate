@@ -4,6 +4,7 @@ const fetch = require('node-fetch')
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: [],
+guildOnly: true,
 run: async (bot, message, args) => {
 
     let mensaje = await message.channel.send({embed: {color: 'RANDOM', description: `<a:loadingoogle:744334507242422302> Cargando todos los links y demas...`}})

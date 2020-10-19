@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const used = new Map();
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+  guildOnly: true,
   run: async(client, message, args) => {
 
   const Duration = require("humanize-duration");

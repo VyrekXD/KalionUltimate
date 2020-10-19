@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS',"MANAGE_NICKNAMES"],
 aliases: [],
+guildOnly: true,
 run: async (bot, message, args, send) => {
 
     if(!message.member.hasPermission("MANAGE_NICKNAMES"))return send('No tienes permisos') //lo que dice si no tiene permisos

@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js')
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: [],
+guildOnly: true,
 run: async (bot, message, args, send) => {
 
     let find = await configModel.findOne({guildID: message.guild.id})

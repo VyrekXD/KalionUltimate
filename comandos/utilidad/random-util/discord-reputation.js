@@ -4,6 +4,7 @@ const fetch = require('node-fetch')
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: ['discordrep'],
+guildOnly: true,
 run: async (bot, message, args) => {
 
     let user = message.mentions.users.first() ||

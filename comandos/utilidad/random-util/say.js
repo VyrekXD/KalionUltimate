@@ -4,6 +4,7 @@ const used = new Map();
 const { milisegFromSeconds } = require('../../../util/Functions/convertTime')
 
 module.exports = {
+	guildOnly: true,
 	permisos: ['VIEW_CHANNEL','SEND_MESSAGES'],
 	run: async(client, message, args) => {
   

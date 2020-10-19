@@ -5,6 +5,7 @@ const prefixModel = require('../../../database/models/guildPrefix')
 module.exports = {
     aliases: ['dep'],
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+    guildOnly: true,
     run: async(client, message, args) => {
 
         let servidor = message.guild;

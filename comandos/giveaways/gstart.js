@@ -4,6 +4,7 @@ const ms = require("ms")
 
 module.exports = {
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+    guildOnly: true,
     run: async(client, message, args) => {
 
     let objeto = args.slice(2).join(" ")

@@ -4,6 +4,7 @@ const moneyModel = require('../../../database/models/dinero')
 module.exports = {
 aliases: ['top'],
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+guildOnly: true,
 run: async (client, message, args) => {
  
     const consulta = await moneyModel.find({servidor: message.guild.id}).sort({dinerotot: -1 })

@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     aliases: ['rps'],
+    guildOnly: true,
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
     run: async(client, message, args) => {
         if(!args[0])return message.channel.send("Opciones: `piedra`, `papel` o `tijera`")

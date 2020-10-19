@@ -3,6 +3,7 @@ const prefixModel = require('../../../database/models/guildPrefix');
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+  guildOnly: true,
   run: async(bot, message, args) => {
       let elc = args[0]
 

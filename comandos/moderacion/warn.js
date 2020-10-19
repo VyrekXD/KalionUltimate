@@ -5,6 +5,7 @@ const { checkPerms } = require('../../util/Functions/checkPermissions')
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+  guildOnly: true,
   run: async(client, message, args) => {
 
     let memberx = message.mentions.members.first() ||

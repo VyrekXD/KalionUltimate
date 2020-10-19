@@ -4,6 +4,7 @@ const logsModel = require('../../database/models/logs')
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','MANAGE_ROLES'],
+  guildOnly: true,
   run: async(client, message, args) => {
 
     if(!checkPerms(message.member, 'MANAGE_MESSAGES'))return message.channel.send(`Permisos insuficientes`) 

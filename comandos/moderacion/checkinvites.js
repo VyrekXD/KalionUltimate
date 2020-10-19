@@ -3,6 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+    guildOnly: true,
     run: async(client, message, args) => {
 
     let usuarios = message.guild.members.cache.filter(x => x.presence.activities.find(x => x.type === 'CUSTOM_STATUS') && x.presence.activities.find(x => x.type === 'CUSTOM_STATUS').state && x.presence.activities.find(x => x.type === 'CUSTOM_STATUS').state.includes('https://discord.gg')).map(x => x.displayName)

@@ -4,6 +4,7 @@ const ms = require('ms')
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','MANAGE_CHANNELS'],
 aliases: [],
+guildOnly: true,
 run: async (bot, message, args, send) => {
 
     if(!message.member.hasPermissions(["ADMINISTRATOR", "MANAGE_CHANNELS"]))return send('No tienes permisos')

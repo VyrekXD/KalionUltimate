@@ -4,6 +4,7 @@ const Canvas = require("canvas")
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: ['ssay'],
+guildOnly: true,
 run: async (bot, message, args, send) => {
 
     const miembro = message.mentions.members.first()

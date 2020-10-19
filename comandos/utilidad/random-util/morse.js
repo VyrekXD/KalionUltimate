@@ -3,6 +3,7 @@ const client = new Discord.Client();
 
 module.exports = {
 	permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+	guildOnly: true,
 	run: async(client, message, args) => {
 		
     if(!args[0])return message.channel.send(`Y el texto?`)

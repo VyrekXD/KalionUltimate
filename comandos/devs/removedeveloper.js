@@ -5,6 +5,7 @@ const devModel = require('../../database/models/developers')
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: [],
+guildOnly: true,
 run: async (bot, message, args, send) => {
 
     let consulta = await devModel.findOne({userID: message.author.id})

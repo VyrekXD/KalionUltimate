@@ -7,6 +7,7 @@ module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: [],
 nsfw: true,
+guildOnly: true,
 run: async (bot, message, args, send) => {
 
     let find = await nsfwModel.findOne({guildID: message.guild.id})

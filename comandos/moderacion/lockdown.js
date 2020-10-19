@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','ADMINISTRATOR'],
 aliases: [],
+guildOnly: true,
 run: async (bot, message, args, send) => {
 
     if(!message.member.permissions.has("ADMINISTRATOR"))return send('Permisos insuficientes');

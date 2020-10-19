@@ -4,6 +4,7 @@ const { checkPerms } = require('../../util/Functions/checkPermissions')
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','MANAGE_ROLES'],
+  guildOnly: true,
   run: async(client, message, args) => {
 
     if(!checkPerms(message.member, 'MANAGE_ROLES'))return message.channel.send(`Permisos insuficientes`)

@@ -3,6 +3,7 @@ const filters = require("../../util-config").filters;
 
 module.exports = {
 aliases: [],
+guildOnly: true,
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','CONNECT','SPEAK'],
 run: async (client, message, args) => {
  

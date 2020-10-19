@@ -3,7 +3,9 @@ const devModel = require('../../database/models/developers')
 const blackModel = require('../../database/models/ublacklist')
 const sblackModel = require('../../database/models/sblacklist')
 
-module.exports.run = async(client, message, args) => {
+module.exports = {
+guildOnly: true,
+run: async(client, message, args) => {
 
     let consulta = await devModel.findOne({userID: message.author.id})
 
@@ -59,4 +61,5 @@ module.exports.run = async(client, message, args) => {
     }else {
         return message.channel.send(`Debes de decir que quieres unblacklistear ejemplo "k!unblacklist (server/usuario) (id/mencion)"`)
     }
-    }
+}
+}

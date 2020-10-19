@@ -3,6 +3,7 @@ const { checkPerms } = require('../../util/Functions/checkPermissions')
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','KICK_MEMBERS'],
+  guildOnly: true,
   run: async(client, message, args) => {
 let user = message.mentions.users.first();
     let razon = args.slice(1).join(" ");

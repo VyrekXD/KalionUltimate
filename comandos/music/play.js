@@ -3,6 +3,7 @@ const { separateNumbers } = require('../../util/Functions/numbers')
 
 module.exports = {
     aliases: ['p','pl'],
+    guildOnly: true,
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','CONNECT','SPEAK'],
     run: async(client, message, args) => {
 

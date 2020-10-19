@@ -5,6 +5,7 @@ const dig = require("discord-image-generation");
 module.exports = {
     aliases: ['dstonks'],
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+    guildOnly: true,
     run: async(client, message, args) => {
 
     let user = message.mentions.users.first()
