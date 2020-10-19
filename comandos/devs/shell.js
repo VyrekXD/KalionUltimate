@@ -16,7 +16,7 @@ run: async (bot, message, args, send) => {
         }
 
         send(command, {code: '', split: { maxLength: 1900}})
-
+console.log(command)
     } catch(err) {
         let e = new Discord.MessageEmbed()
         .setTimestamp()
