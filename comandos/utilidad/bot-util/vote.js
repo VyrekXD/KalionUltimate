@@ -39,7 +39,7 @@ run: async (bot, message, args) => {
                 msg.reactions.cache.find(r => r.emoji.name == '2️⃣').users.remove(message.author.id).catch(() => {})
 
                 let pet = await fetch(`https://bots.discordlabs.org/v2/bot/${bot.user.id}`, {method: 'GET'})
-                let json = pet.json()
+                let json = await pet.json()
 
                 const e = new Discord.MessageEmbed()
                 .setColor('RANDOM')
