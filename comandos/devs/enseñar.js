@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const devModel = require('../../database/models/developer')
+const devModel = require('../../database/models/developers')
 const chatbot = require("espchatbotapi")
 
 module.exports = {
@@ -7,7 +7,7 @@ permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: [],
 run: async (bot, message, args) => {
 
-    let consulta = await devModel.findOne({developer: message.author.id})
+    let consulta = await devModel.findOne({userID: message.author.id})
 
     if(!consulta){
         return message.channel.send(`Solo **Developers** pueden usar este comando!`)

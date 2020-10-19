@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
-const devModel = require('../../database/models/developer')
+const devModel = require('../../database/models/developers')
 
 module.exports.run = async(client, message, args) => {
 
-    let consulta = await devModel.findOne({developer: message.author.id})
+    let consulta = await devModel.findOne({userID: message.author.id})
 
     if(!consulta)return message.channel.send(`Solo **Developers** pueden usar este comando!`)
     
