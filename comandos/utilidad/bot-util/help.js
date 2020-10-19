@@ -167,10 +167,16 @@ module.exports = {
             ":wrench: Utilidad",
             "Para ayuda adicional entra al: \n[Servidor de soporte](https://discord.gg/3RdZ9mD)"
           )
-          .addField(
-            ":page_facing_up: Comandos:",
-            "```pokedex | fortniteuser | avatar | botinfo | bugreport | calc | canales | clear | comandos | help | invite | ping | say | serverinfo | soporte | userinfo | youtube | lyrics | morse | reverse | shortlink | steamuser | cloudfare-status | discord-status | seeon | qr | tag | canvassay | djsdocs | member-status```"
-          )
+          .addField(`:page_facing_up: Comandos Bot:`, 
+          `\`\`\`botinfo | botsuggest | bugreport | help | invite | ping | seeon | soporte | vote\`\`\``)
+          .addField(`:page_facing_up: Comandos DSC.GG:`, 
+          `\`\`\`link-info | link-user-info | user-links\`\`\``)
+          .addField(`:page_facing_up: Comandos Guilds:`, 
+          `\`\`\`canales | emojis | members-status | userinfo\`\`\``)
+          .addField(`:page_facing_up: Comandos Mod:`, 
+          `\`\`\`clear | createrole | nickname\`\`\``)
+          .addField(`:page_facing_up: Comandos General:`, 
+          `\`\`\`avatar | calc | canvassay | cloudfare-status | discord-status | djsdocs | discord-reputation | fortnite-store | fortnite-user | geometryfont | hex | jumbo | lyrics | morse | pokedex | qr | reverse | say | screenshot | serverinfo | shortlink | steamuser | tag | usersay | xboxlogro | youtube\`\`\``)
           .setFooter(
             "Para ver informacion detallada de un comando usa k!help (comando)"
           )
