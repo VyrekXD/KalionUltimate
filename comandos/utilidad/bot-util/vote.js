@@ -26,7 +26,7 @@ run: async (bot, message, args) => {
 
         collector.on('collect', async reaction =>{
             if(reaction.emoji.name === '1️⃣'){
-                info.reactions.cache.find(r => r.emoji.name == '1️⃣').users.remove(message.author.id).catch(() => {})
+                msg.reactions.cache.find(r => r.emoji.name == '1️⃣').users.remove(message.author.id).catch(() => {})
 
                 const e = new Discord.MessageEmbed()
                 .setAuthor(bot.user.tag, bot.user.displayAvatar)
@@ -36,7 +36,7 @@ run: async (bot, message, args) => {
                 collector.stop()
 
             }else if(reaction.emoji.name === '2️⃣'){
-                info.reactions.cache.find(r => r.emoji.name == '2️⃣').users.remove(message.author.id).catch(() => {})
+                msg.reactions.cache.find(r => r.emoji.name == '2️⃣').users.remove(message.author.id).catch(() => {})
 
                 let pet = await fetch(`https://bots.discordlabs.org/v2/bot/${bot.user.id}`, {method: 'GET'})
                 let json = pet.json()
@@ -51,6 +51,8 @@ run: async (bot, message, args) => {
                 
                 msg.edit(e)
 
+                collector.stop()
+            }else {
                 collector.stop()
             }
         })

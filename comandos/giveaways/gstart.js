@@ -22,17 +22,7 @@ module.exports = {
     if(parseInt(winners) < 0 )return message.channel.send(`No puedes elegir esos ganadores`)
     if(objeto.length >= 256) return message.channel.send("El titulo es muy largo")
     
-    if(!MongoClient.isConnected()) await MongoClient.connect();
-    let db = MongoClient.db("giveaways");
-    let servidor = message.guild;
-    let DbServidor = await db.collection("guildsgiveaways").findOne({servidor: servidor.id})
 
-    if(DbServidor){
-        db.collection("guildsgiveaways").insertOne(
-            {
-            servidor: servidor.id,
-            })
-    }
     let titotal = Date.now() + ms(tiempo)
     const embed = new Discord.MessageEmbed()
     .setTitle(objeto)
