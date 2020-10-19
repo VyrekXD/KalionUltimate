@@ -5,6 +5,12 @@ const bot = new Discord.Client();
 
 const path = require("path")
 
+const Statcord = require("statcord.js");
+const statcord = new Statcord.Client({
+  client: bot,
+  key: "statcord.com-Nh93RmOMRb17s1yznEhD",
+});
+
 const { Player } = require("discord-player");
 const player = new Player(bot);
 bot.player = player;
@@ -65,7 +71,7 @@ bot.support = bot.utilconfig.support;
           if (!file.endsWith(".js")) return;
           
           let event = require(path.join(__dirname, dir, file));
-          event.run(bot);
+          event.run(bot, statcord);
       }
 
 
@@ -86,6 +92,8 @@ bot.on("ready", async () => {
   ];
   let Estado = OpcionesDeEstados[Math.floor(Math.random() * OpcionesDeEstados.length)];
 
+  statcord.autopost();
+
   setInterval(() => {
     bot.user.setActivity(Estado, { url: null, type: "WATCHING", status: "dnd" });
   }, 10000)
@@ -96,6 +104,15 @@ rootdb.then(() => console.log("Kalion Ultimate conectado a MongoDB"))
 
 
 //- Otros Eventos -//
+
+statcord.on("autopost-start", () => {
+  console.log("Autopost de statcord ha sido activado");
+});
+
+statcord.on("post", status => {
+  if(status)console.log(status)
+});
+
 bot.on("error", e => {
   canal.send("Error: \n```"+ e + "```")
   console.log(e)

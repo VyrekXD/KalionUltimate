@@ -21,7 +21,8 @@ module.exports = {
       [Server De Soporte](https://discord.gg/3RdZ9mD) ✦ 
       [Invita Al Bot](https://discord.com/api/oauth2/authorize?client_id=724749468418703432&permissions=8&scope=bot) ✦ 
       [Vota En DiscordBotsList](https://discordbotlist.com/bots/kalion-ultimate) ✦ 
-      [Ve HypeDiscordList](https://hypelist.glitch.me/bots/724749468418703432/)`)
+      [Ve HypeDiscordList](https://hypelist.glitch.me/bots/724749468418703432/)
+      [Ve Statcord](https://statcord.com/bot/724749468418703432)`)
 
     message.channel.send(embed);
 

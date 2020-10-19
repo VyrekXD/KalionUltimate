@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const configModel = require('../../database/models/guildConfig')
+const { MessageEmbed } = require('discord.js')
 
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
@@ -11,6 +12,24 @@ run: async (bot, message, args, send) => {
         let nuevo = new configModel({guildID: message.guild.id})
         nuevo.save()
         find = await configModel.findOne({guildID: message.guild.id})
+    }
+
+    if(!args[0]){
+       
+        const ec = new MessageEmbed()
+        .setColor('BLUE')
+        .setAuthor(message.guild.name, message.guild.iconURL())
+        if(find.logsConfig.status){
+            let channel = message.guild.channels.cache.get(find.logsConfig.channelID)
+            ec.addField(`**Logs**`, `
+            - Status: ${find.logsConfig.status}
+            - Canal: ${channel.name} (${channel.id})`)
+        } else {
+            ec.addField(`**Logs**`, `
+            - Status: ${find.logsConfig.status}`)
+        }
+
+        return send(ec)
     }
 
     let categorias = ['A','B','C','D']
@@ -165,7 +184,7 @@ run: async (bot, message, args, send) => {
 }
 
 module.exports.help = {
-name: 'config',
+name: 'config2',
 description: 'Configuracion de el servidor',
 cooldown: [],
 alias: [],

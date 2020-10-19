@@ -3,7 +3,7 @@ const configModel = require('../database/models/guildConfig')
 const blackModel = require('../database/models/ublacklist')
 const sblackModel = require('../database/models/sblacklist')
 
-module.exports.run = bot => {
+module.exports.run = (bot, statcord) => {
   bot.on("message", async message => {
 
       if (!message.guild) return;
@@ -67,6 +67,11 @@ module.exports.run = bot => {
           let cmdname = cmd.help.name ? cmd.help.name : undefined
           console.log(`Hubo un error en el comando: ${cmdname}\nError:\n${err}`)
         })
+
+        let cmdname = cmd.help.name ? cmd.help.name : 'private'
+
+        statcord.postCommand(cmdname, message.author.id)
+
       }
  
   });
