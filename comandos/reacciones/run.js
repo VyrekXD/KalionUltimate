@@ -4,7 +4,7 @@ const client = new Discord.Client();
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
   guildOnly: true,
-  run: async(client, message, args) => {
+  run: async(client, message, args, send) => {
 
     const images = require("../../util/gifs/run.json")
 
@@ -22,13 +22,13 @@ module.exports = {
       .setColor("RANDOM")
       .setImage(captura);
       
-    message.channel.send(embed);
+    return send(embed);
     }
-        const embed = new Discord.MessageEmbed()
+      const embed = new Discord.MessageEmbed()
       .setDescription("**" + message.author.username + "**"+ "Intenta correr lo mas lejos que puede de "+ "**" + miembro.username + "**")
       .setColor("RANDOM")
       .setImage(captura);
       
-    message.channel.send(embed);
+    send(embed);
 }
 }
