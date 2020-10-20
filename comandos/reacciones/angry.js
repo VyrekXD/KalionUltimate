@@ -24,3 +24,12 @@ module.exports = {
     message.channel.send(embed);
 }
 }
+
+module.exports.help = {
+  name: 'angry',
+  description: 'No estes enojado pana :(',
+  cooldown: [],
+  alias: [],
+  usage: 'angry',
+  example: 'angry'
+  }

@@ -4,7 +4,7 @@ const prefixModel = require('../../../database/models/guildPrefix');
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
   guildOnly: true,
-  run: async(bot, message, args) => {
+  run: async(bot, message, args, send) => {
       let elc = args[0]
 
       const e = new Discord.MessageEmbed()
@@ -187,7 +187,7 @@ module.exports = {
         const searchCommand = bot.comandos.find(command => 
           command.help && command.help.name === args[0].toLowerCase()
         )
-        if(!searchCommand) return;
+        if(!searchCommand) return send('No encontre el comando que solicitaste');
       
         if(searchCommand.nsfw)return message.channel.send('Necesitas estar en un canal nsfw para usar este comando!')
 
@@ -198,7 +198,12 @@ module.exports = {
 
         const e = new Discord.MessageEmbed()
         .setTitle(`Comando ${prefix}${help.name}`)
-        .setDescription(`**Descripcion:** ${help.description}\n**Uso:** ${prefix}${help.usage}\n**Cooldown:** ${help.cooldown}\n**Ejemplo:** ${prefix}${help.example}`)
+        .setDescription(`
+        **Descripcion:** ${help.description}
+        **Uso:** ${prefix}${help.usage}
+        ${help.cooldown ? `**Cooldown:** ${help.cooldown}` : ''}
+        ${help.aliases ? `**Alias:** ${help.aliases}` : ''}
+        **Ejemplo:** ${prefix}${help.example}`)
         .setFooter("[] = Obligatorio, () = opcional | No debes incluir los signos al usar el comando!")
         .setColor("RED");
 

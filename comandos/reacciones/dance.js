@@ -34,3 +34,12 @@ module.exports = {
 
 }
 }
+
+module.exports.help = {
+  name: 'dance',
+  description: 'Baila como un desquisiado!',
+  cooldown: [],
+  alias: [],
+  usage: 'run (Usuario)',
+  example: 'run @VYREK'
+  }

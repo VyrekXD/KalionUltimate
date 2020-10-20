@@ -12,10 +12,11 @@ module.exports = {
 
     const captura = images[Math.floor(Math.random() * images.length)]
     
-    if(miembro.id === message.author.id)return message.channel.send("**" +message.author.username + "**" + ", Eres don comedia acaso? No puedes correr de ti mismo XD.");
+    if(miembro){
+    if(miembro.id === message.author.id)return send("**" +message.author.username + "**" + ", Eres don comedia acaso? No puedes correr de ti mismo XD.");
+    if(miembro.id === client.user.id)return send("**" +message.author.username + "**" + ", Intentas huir de mi? unu");
+    }
 
-    if(miembro.id === client.user.id)return message.channel.send("**" +message.author.username + "**" + ", Intentas huir de mi? unu");
-  
     if(!miembro){
           const embed = new Discord.MessageEmbed()
       .setDescription("**" + message.author.username +"**" +", Corre por tu vida! :0")
@@ -31,4 +32,13 @@ module.exports = {
       
     send(embed);
 }
+}
+
+module.exports.help = {
+name: 'run',
+description: 'Corre!!',
+cooldown: [],
+alias: [],
+usage: 'run (Usuario)',
+example: 'run @VYREK'
 }
