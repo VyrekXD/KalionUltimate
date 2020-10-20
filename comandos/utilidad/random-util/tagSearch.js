@@ -10,7 +10,7 @@ run: async (bot, message, args, send) => {
     if(isNaN(discriminator))return send("Eso no es un numero")
 
     if(discriminator.length > 4 || discriminator.length < 4)return send("Las tags solo tienen 4 numeros")
-    const filtro = bot.users.filter(user => user.discriminator === discriminator && user.tag !== message.author.tag)
+    const filtro = bot.users.cache.filter(user => user.discriminator === discriminator && user.tag !== message.author.tag)
 
     if(filtro.size == 0)return send("No encontre a nadie")
 

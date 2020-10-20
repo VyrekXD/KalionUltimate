@@ -176,7 +176,7 @@ module.exports = {
           .addField(`:page_facing_up: Comandos Mod:`, 
           `\`\`\`clear | createrole | nickname\`\`\``)
           .addField(`:page_facing_up: Comandos General:`, 
-          `\`\`\`avatar | calc | canvassay | cloudfare-status | discord-status | djsdocs | discord-reputation | fortnite-store | fortnite-user | geometryfont | hex | jumbo | lyrics | morse | pokedex | qr | reverse | say | screenshot | serverinfo | shortlink | steamuser | tag | usersay | xboxlogro | youtube\`\`\``)
+          `\`\`\`avatar | calc | canvassay | cloudfare-status | discord-status | djsdocs | discord-reputation | fortnite-store | fortnite-user | geometryfont | hex | jumbo | lyrics | morse | pokedex | qr | reverse | say | screenshot | serverinfo | shortlink | steamuser | tagSearch | usersay | xboxlogro | youtube\`\`\``)
           .setFooter(
             "Para ver informacion detallada de un comando usa k!help (comando)"
           )
