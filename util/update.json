@@ -1,5 +1,0 @@
-[        
-    {
-    "1.0.10":"Se ha añadido un sistema para poner las actualizaciones!\nSe ha actualizado los eventos ahora contienen un sistema de logs mejorado\nSe esta planeando modificar el comando config\nSe han añadido 2 nuevos eventos de logs! **guildBoostAdd** & **guildBoostRemove**"
-    }
-]
