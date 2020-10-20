@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const prefixModel = require('../../../database/models/guildPrefix');
-const updates = require('../../../util/update.json')
+let updates = require('../../../util/update.json')[0]
+updates = updates[0]
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
@@ -12,7 +13,7 @@ module.exports = {
       if(message.channel.nsfw){
         e.setThumbnail(bot.user.displayAvatarURL())
         .setTitle(`:page_facing_up: Comandos de el bot`)
-        .setDescription(`**Updates**\n\`\`\`${updates[0]}\`\`\``)
+        .setDescription(`**Updates**\n\`\`\`${updates}\`\`\``)
         .addField(`:pencil: Informacion`, `Actualmente la cantidad de comandos que tengo es: **${bot.comandos.size}**`)
         .addField(`:closed_book: Categorias:`, 
         '» `k!help economy`\n» `k!help eadmin`\n» `k!help premium`\n» `k!help miner`\n» `k!help util`\n» `k!help admin`\n» `k!help fun`\n» `k!help react`\n» `k!help music`\n» `k!help nsfw`')
