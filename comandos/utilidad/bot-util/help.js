@@ -6,7 +6,7 @@ module.exports = {
   guildOnly: true,
   run: async(bot, message, args, send) => {
 
-    let elc = args[0]
+      let elc = args[0]
       const e = new Discord.MessageEmbed()
       if(message.channel.nsfw){
         e.setThumbnail(bot.user.displayAvatarURL())
@@ -21,7 +21,6 @@ module.exports = {
       }else {
         e.setThumbnail(bot.user.displayAvatarURL())
         .setTitle(`:page_facing_up: Comandos de el bot`)
-        .setDescription(`**Updates**\n\`\`\`${bot.updates[0]}\`\`\``)
         .addField(`:pencil: Informacion`, `Actualmente la cantidad de comandos que tengo es: **${bot.comandos.size}**`)
         .addField(`:closed_book: Categorias:`, 
         '» `k!help economy`\n» `k!help eadmin`\n» `k!help premium`\n» `k!help miner`\n» `k!help util`\n» `k!help admin`\n» `k!help fun`\n» `k!help react`\n» `k!help music`')
@@ -172,11 +171,11 @@ module.exports = {
           .addField(`:page_facing_up: Comandos DSC.GG:`, 
           `\`\`\`link-info | link-user-info | user-links\`\`\``)
           .addField(`:page_facing_up: Comandos Guilds:`, 
-          `\`\`\`canales | emojis | members-status | userinfo\`\`\``)
+          `\`\`\`canales | emojis | members-status | userinfo | serverinfo\`\`\``)
           .addField(`:page_facing_up: Comandos Mod:`, 
           `\`\`\`clear | createrole | nickname\`\`\``)
           .addField(`:page_facing_up: Comandos General:`, 
-          `\`\`\`avatar | calc | canvassay | cloudfare-status | discord-status | djsdocs | discord-reputation | fortnite-store | fortnite-user | geometryfont | hex | jumbo | lyrics | morse | pokedex | qr | reverse | say | screenshot | serverinfo | shortlink | steamuser | tagSearch | usersay | xboxlogro | youtube\`\`\``)
+          `\`\`\`avatar | calc | canvassay | cloudfare-status | discord-status | djsdocs | discord-reputation | fortnite-store | fortnite-user | geometryfont | hex | jumbo | lyrics | morse | pokedex | qr | reverse | say | screenshot | shortlink | steamuser | tagSearch | usersay | xboxlogro | youtube\`\`\``)
           .setFooter(
             "Para ver informacion detallada de un comando usa k!help (comando)"
           )
