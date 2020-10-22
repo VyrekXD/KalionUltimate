@@ -79,7 +79,7 @@ module.exports.run = (bot, statcord) => {
 
         let cmdname = cmd.help ? cmd.help.name : 'private'
 
-        statcord.postCommand(cmdname, message.author.id)
+        //statcord.postCommand(cmdname, message.author.id)
 
       }
  

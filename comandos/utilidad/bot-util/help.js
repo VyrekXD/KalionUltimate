@@ -173,7 +173,7 @@ module.exports = {
           .addField(`:page_facing_up: Comandos Guilds:`, 
           `\`\`\`canales | emojis | members-status | userinfo | serverinfo\`\`\``)
           .addField(`:page_facing_up: Comandos Mod:`, 
-          `\`\`\`clear | createrole | nickname\`\`\``)
+          `\`\`\`clear | createrole | nickname | setnsfw\`\`\``)
           .addField(`:page_facing_up: Comandos General:`, 
           `\`\`\`avatar | calc | canvassay | cloudfare-status | discord-status | djsdocs | discord-reputation | fortnite-store | fortnite-user | geometryfont | hex | jumbo | lyrics | morse | pokedex | qr | reverse | say | screenshot | shortlink | steamuser | tagSearch | usersay | xboxlogro | youtube\`\`\``)
           .setFooter(

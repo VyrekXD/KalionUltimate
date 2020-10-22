@@ -11,6 +11,8 @@ const statcord = new Statcord.Client({
   key: "statcord.com-Nh93RmOMRb17s1yznEhD",
 });
 
+const fetch = require('node-fetch')
+
 const { Player } = require("discord-player");
 const player = new Player(bot);
 bot.player = player;
@@ -71,7 +73,7 @@ bot.support = bot.utilconfig.support;
           if (!file.endsWith(".js")) return;
           
           let event = require(path.join(__dirname, dir, file));
-          event.run(bot, statcord);
+          event.run(bot);
       }
 
 
@@ -93,6 +95,16 @@ bot.on("ready", async () => {
   let Estado = OpcionesDeEstados[Math.floor(Math.random() * OpcionesDeEstados.length)];
 
   statcord.autopost();
+
+  let data = {
+    guildCount: bot.guilds.cache.size
+  }
+
+  const pet = await fetch(`https://discord.bots.gg/api/v1/bots/${bot.user.id}/stats`, {
+    method: 'POST', 
+    headers: {'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiNTM4NDIxMTIyOTIwNzQyOTQyIiwiaWF0IjoxNjAzMzc3NTkxfQ.elvkykgD6UXStlIQWw25_BUMaUSBPVQq-IyYVjb6gmY'},
+    body: JSON.stringify(data)}
+  )
 
   setInterval(() => {
     bot.user.setActivity(Estado, { url: null, type: "WATCHING", status: "dnd" });
