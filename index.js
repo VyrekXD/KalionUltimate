@@ -100,7 +100,7 @@ bot.on("ready", async () => {
     guildCount: bot.guilds.cache.size
   }
 
-  const pet = await fetch(`https://discord.bots.gg/api/v1/bots/${bot.user.id}/stats`, {
+  await fetch(`https://discord.bots.gg/api/v1/bots/${bot.user.id}/stats`, {
     method: 'POST', 
     headers: {'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiNTM4NDIxMTIyOTIwNzQyOTQyIiwiaWF0IjoxNjAzMzc3NTkxfQ.elvkykgD6UXStlIQWw25_BUMaUSBPVQq-IyYVjb6gmY'},
     body: JSON.stringify(data)}

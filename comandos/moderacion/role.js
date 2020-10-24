@@ -9,18 +9,6 @@ module.exports = {
 
     if(!checkPerms(message.member, 'MANAGE_ROLES'))return message.channel.send(`Permisos insuficientes`)
 
-    if (!message.member.hasPermission("MANAGE_ROLES")) {
-      const embed4 = new Discord.MessageEmbed()
-        .setTitle("<a:error:721475630688108554> ERROR Permisos Insuficientes")
-        .setThumbnail(
-          "https://media.giphy.com/media/3osxY9kuM2NGUfvThe/giphy.gif"
-        )
-        .setDescription("Permisos insuficientes para ejecutar este comando ")
-        .setColor("RANDOM");
-
-      return message.channel.send(embed4);
-    }
-
     let persona = message.mentions.members.first();
     if (!persona) return message.channel.send("Debes mencionar a alguien.");
 
