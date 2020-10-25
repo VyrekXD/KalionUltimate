@@ -73,7 +73,7 @@ bot.support = bot.utilconfig.support;
           if (!file.endsWith(".js")) return;
           
           let event = require(path.join(__dirname, dir, file));
-          event.run(bot);
+          event.run(bot, statcord);
       }
 
 
