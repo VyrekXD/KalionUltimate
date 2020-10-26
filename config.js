@@ -1,6 +1,7 @@
 
 let config = {
     token: "NzI0NzQ5NDY4NDE4NzAzNDMy.XvEtig.7HtkDH8uhE2yuVhEYUZRrQX-rSg",
+    deepai: "3a5e59c1-2157-4c76-ac0c-42a4b865db7e",
     prefix: "k!",
   
   }

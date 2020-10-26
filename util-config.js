@@ -1,6 +1,6 @@
 module.exports = {
     "emojis": {
-        "music": "<a:music:751167251423428698>",
+        "music": "<:music:770306141354983484>",
         "queue": "<a:discord:751134602118037684>",
         "error": "<a:no:751166244971085896>",
         "success": "<a:verified:751165892297228358>",
@@ -17,7 +17,6 @@ module.exports = {
         "warning": "0xFFD100"
       },
       "filters": {
-        
             "bassboost": "Bassboost",
             "8D": "8D",
             "vaporwave": "Vaporwave",
@@ -36,7 +35,6 @@ module.exports = {
             "gate": "Gate",
             "haas": "Haas",
             "mcompand": "Mcompand"
-          
       },
       'stats': {
         "invite": "https://discord.com/api/oauth2/authorize?client_id=724749468418703432&permissions=8&scope=bot",
