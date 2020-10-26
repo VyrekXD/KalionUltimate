@@ -11,7 +11,7 @@ run: async (bot, message, args) => {
 
     if(!args[0])return message.channel.send('Necesitas ingresar una url!')
 
-    await pup(message, args[1].startsWith("http://") || args[1].startsWith("https://") ? args[1] : `http://${args[1]}`);
+    await pup(message, args[0].startsWith("http://") || args[0].startsWith("https://") ? args[0] : `http://${args[0]}`);
     }
 } 
 
