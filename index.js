@@ -33,8 +33,6 @@ moment.locale("es");
 const fs = require("fs").promises;
 
 const puppeteer = require('puppeteer')
-const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
-global.browser = browser
 
 bot.comandos = new Discord.Collection();
 bot.config = require('./config.js');
@@ -90,6 +88,8 @@ bot.support = bot.utilconfig.support;
 bot.on("ready", async () => {
   
   canal = bot.channels.cache.get("748546391013457970")
+  const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+  global.browser = browser
   console.log(`Kalion Ultimate esta en ${bot.guilds.cache.size} servidores.`);
   var OpcionesDeEstados = [
     `Moderando y Jugando con ${bot.users.cache.size} usuarios.`,
