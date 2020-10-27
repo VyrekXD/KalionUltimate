@@ -1,7 +1,7 @@
 // -| Kalion Organizado |- //
 
 const Discord = require('discord.js');
-const bot = new Discord.Client();
+const bot = new Discord.Client({ ws: { intents: Discord.Intents.ALL } });
 
 const path = require("path")
 
@@ -88,8 +88,14 @@ bot.support = bot.utilconfig.support;
 bot.on("ready", async () => {
   
   canal = bot.channels.cache.get("748546391013457970")
-  const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+  const browser = await puppeteer.launch({
+    headless: true, defaultViewport: {
+      width: 1440,
+      height: 900
+    }, args: ["--disable-gpu", "--no-sandbox", "--disable-setuid-sandbox"]
+  });
   global.browser = browser
+  
   console.log(`Kalion Ultimate esta en ${bot.guilds.cache.size} servidores.`);
   var OpcionesDeEstados = [
     `Moderando y Jugando con ${bot.users.cache.size} usuarios.`,

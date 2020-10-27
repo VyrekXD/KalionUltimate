@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
 const { checkPerms } = require('../../util/Functions/checkPermissions')
 
 module.exports = {

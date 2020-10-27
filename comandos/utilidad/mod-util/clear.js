@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
 const used = new Map();
 const { milisegFromSeconds } = require('../../../util/Functions/convertTime')
 

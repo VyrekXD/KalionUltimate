@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
 const moneyModel = require('../../database/models/dinero')
 const mineriaModel = require('../../database/models/mineria')
 

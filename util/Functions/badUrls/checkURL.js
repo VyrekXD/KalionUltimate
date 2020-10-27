@@ -1,4 +1,3 @@
-const sites = require('./badassets/nosites.json')
 const doYouThinkIsPorn = require('is-porn')
 const { promisify } = require('util')
 const watIsPorn = promisify(doYouThinkIsPorn)

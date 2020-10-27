@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
 const dig = require("discord-image-generation");
 
 module.exports = {

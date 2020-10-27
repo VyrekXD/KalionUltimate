@@ -38,6 +38,7 @@ async function pup(message, url){
     setTimeout(() => {
       message.channel.stopTyping(true);
     }, 40000);
+    
     page = await global.browser.newPage();
     page.on("error", async error => {
       message.channel.stopTyping(true);
