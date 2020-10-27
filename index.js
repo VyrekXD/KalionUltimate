@@ -1,7 +1,7 @@
 // -| Kalion Organizado |- //
 
 const Discord = require('discord.js');
-const bot = new Discord.Client({ ws: { intents: Discord.Intents.ALL } });
+const bot = new Discord.Client({partials : ['GUILDS', "MESSAGE", "CHANNEL", "REACTION", 'USER'], ws: { intents: Discord.Intents.ALL } });
 
 const path = require("path")
 
