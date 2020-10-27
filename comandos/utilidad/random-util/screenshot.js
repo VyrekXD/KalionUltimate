@@ -26,7 +26,7 @@ example: 'screenshot https://www.google.com'
 
 async function pup(message, url){
   const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
-  const result = checkSingleCleanURL(url)
+  const result = await checkSingleCleanURL(url)
   if (result && !message.channel.nsfw) return message.channel.send("Debes estar en un canal NSFW para ver cosas NSFW!");
   let form = await message.channel.send("Espera un momento!").catch(() => { });
   message.channel.startTyping().catch(() => { });
