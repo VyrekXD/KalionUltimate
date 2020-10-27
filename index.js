@@ -32,6 +32,10 @@ moment.locale("es");
 
 const fs = require("fs").promises;
 
+const puppeteer = require('puppeteer')
+const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+global.browser = browser
+
 bot.comandos = new Discord.Collection();
 bot.config = require('./config.js');
 

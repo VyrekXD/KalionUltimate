@@ -25,7 +25,6 @@ example: 'screenshot https://www.google.com'
 }
 
 async function pup(message, url){
-  const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
   const result = await checkSingleCleanURL(url)
 
   if (result && !message.channel.nsfw) return message.channel.send("Debes estar en un canal NSFW para ver cosas NSFW!");
@@ -39,16 +38,16 @@ async function pup(message, url){
     setTimeout(() => {
       message.channel.stopTyping(true);
     }, 40000);
-    page = await browser.newPage();
+    page = await global.browser.newPage();
     page.on("error", async error => {
       message.channel.stopTyping(true);
       await message.channel.send(`Hubo un error abriendo la web: ${error}`).catch(() => { });
       await form.delete().catch(() => { });
     });
-
+    
     if (!page) return;
 
-    await page.goto(url);
+    await page.goto(url, { waitUntil: "networkidle2" });
     let screenshot = await page.screenshot({ type: "png" });
 
     if (!message.channel.nsfw) {
