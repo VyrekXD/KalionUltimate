@@ -45,10 +45,10 @@ async function pup(message, url){
       await message.channel.send(`Hubo un error abriendo la web: ${error}`).catch(() => { });
       await form.delete().catch(() => { });
     });
-    
+
     if (!page) return;
 
-    await page.goto(url, { waitUntil: "networkidle2" });
+    await page.goto(url);
     let screenshot = await page.screenshot({ type: "png" });
 
     if (!message.channel.nsfw) {
