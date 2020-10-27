@@ -12,7 +12,6 @@ run: async (bot, message, args, send) => {
 
     if(!consulta)return message.channel.send(`Solo **Developers** pueden usar este comando!`)
     
-
     let user2 = message.mentions.users.first()
 
     if(!user2)return message.channel.send(`Necesitas mencionar a alguien!`)
