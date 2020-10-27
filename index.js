@@ -117,7 +117,7 @@ bot.on("ready", async () => {
   )
 
   setInterval(() => {
-    bot.user.setActivity(Estado, { url: null, type: "WATCHING", status: "dnd" });
+    bot.user.setPresence({activity: { name: Estado, type: "PLAYING"}, status: 'dnd'})
   }, 10000)
 
 })
