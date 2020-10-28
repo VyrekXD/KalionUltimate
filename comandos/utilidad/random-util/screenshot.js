@@ -11,7 +11,7 @@ run: async (bot, message, args) => {
 
   if(!args[0])return message.channel.send('Necesitas ingresar una url!')
 
-  let url = args[0]
+  let url = args[0].startsWith("http://") || args[0].startsWith("https://")? args[0] : `http://${args[0]}`
 
   const result = await checkSingleCleanURL(url)
 
