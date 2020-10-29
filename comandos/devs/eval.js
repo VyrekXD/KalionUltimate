@@ -29,7 +29,13 @@ run: async (bot, message, args, send) => {
 
         if(typeof(evaluated) !== String)evaluated = require('util').inspect(evaluated, {depth: 0});
 
-        evaluated = evaluated.replace(bot.token, 'Pinche puto que ves');
+        function remplazar(text, rempl){
+          let XD = text.split(rempl);
+          XD = XD.join(`Que ves?`)
+          return XD;
+        }
+        
+        evaluated = remplazar(evaluated, bot.token)
 
         if(evaluated.length > 1024){
           let embed = new Discord.MessageEmbed()
