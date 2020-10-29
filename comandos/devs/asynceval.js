@@ -25,14 +25,10 @@ run: async (bot, message, args, send) => {
         try {
         
         let evaluated = await eval("(async () => { " + toEval + "})();")
+        
+        if(typeof(evaluated) !== String)evaluated = require('util').inspect(evaluated, {depth: 0});
 
-        if(typeof evaluated === String){
-          evaluated = evaluated.replace(bot.token, 'Pinche puto que ves')
-        }else {
-          evaluated = require('util').inspect(evaluated, {
-            depth: 0
-          });
-        }
+        evaluated = evaluated.replace(bot.token, 'Pinche puto que ves');
         
         if(evaluated.length > 1024){
           let embed = new Discord.MessageEmbed()
