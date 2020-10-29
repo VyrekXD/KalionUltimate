@@ -28,13 +28,9 @@ run: async (bot, message, args, send) => {
         
         if(typeof(evaluated) !== String)evaluated = require('util').inspect(evaluated, {depth: 0});
 
-        function remplazar(text, rempl){
-          let XD = text.split(rempl);
-          XD = XD.join(`Que ves?`)
-          return XD;
-        }
+        const regex = new RegExp(bot.token, 'gi');
         
-        evaluated = remplazar(evaluated, bot.token)
+        evaluated = evaluated.replce(regex, 'Que ves pinche chismoso >:(')
 
         if(evaluated.length > 1024){
           let embed = new Discord.MessageEmbed()
