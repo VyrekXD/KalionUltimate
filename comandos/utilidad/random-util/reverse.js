@@ -7,7 +7,7 @@ module.exports = {
         
     let mensaje = args.slice(0).join(' ')
 
-    let reversa = mensaje.split('').reverse()
+    let reversa = mensaje.split('').reverse().join('')
     message.channel.send(reversa)
 }
 }

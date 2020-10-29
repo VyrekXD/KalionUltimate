@@ -44,7 +44,7 @@ run: async (bot, message, args, send) => {
           .addField("Lo evaluado:", "```js\nVe tus md voludo"+"```")
           message.channel.send(embed)
 
-          return message.author.send(`\`\`\`js\n${evaluated}\`\`\``,  {maxLength: 1024})
+          return message.author.send(`\`\`\`js\n${evaluated}\`\`\``,  {code: 'js', maxLength: 1024})
         }
 
         let embed = new Discord.MessageEmbed()
