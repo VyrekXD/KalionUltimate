@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
-const exec = require("util").promisify(require("child_process").exec),
-  { Util } = require("discord.js");
+const exec = require("util").promisify(require("child_process").exec), { Util } = require("discord.js");
+const devModel = require('../../database/models/developers')
 
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
