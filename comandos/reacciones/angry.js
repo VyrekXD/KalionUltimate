@@ -9,7 +9,7 @@ module.exports = {
       "**" + message.author.username +"**" +", Esta muy enojado corran de el TnT"
       
     ];
-    const images = require("../../util/gifs/dancegif.json")
+    const images = require("../../util/gifs/angry.json")
 
     const captura = images[Math.floor(Math.random() * images.length)]
 
