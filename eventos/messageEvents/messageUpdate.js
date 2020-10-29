@@ -4,6 +4,9 @@ const configModel = require('../../database/models/guildConfig')
 module.exports.run = bot => {
   bot.on("messageUpdate", async (oldMessage, newMessage) => {
 
+    await oldMessage.fetch()
+    await newMessage.fetch()
+    
     if(newMessage.channel.type === "dm")return
     if(oldMessage.author.bot) return;
 

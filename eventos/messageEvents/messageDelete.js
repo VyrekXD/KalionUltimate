@@ -5,6 +5,7 @@ const snipeModel = require('../../database/models/snipes')
 module.exports.run = bot => {
   bot.on("messageDelete", async message => { 
 
+  await message.fetch()
   if(message.channel.type === "dm")return
   if(!message.content)return
 
