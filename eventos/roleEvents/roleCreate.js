@@ -5,7 +5,7 @@ const moment = require('moment')
 module.exports.run = bot => {
     bot.on("roleCreate", async role => {
            
-    let find = await configModel.findOne({guildID: role.guild.id}).logsConfig
+    let find = (await configModel.findOne({guildID: role.guild.id})).logsConfig
     if(!find)return
     if(!find.roleCreate)return
 

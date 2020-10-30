@@ -4,7 +4,7 @@ const configModel = require('../../database/models/guildConfig')
 module.exports.run = bot => {
   bot.on("guildBoostRemove", async boost => {
 
-    let find = await configModel.findOne({guildID: boost.guild.id}).logsConfig
+    let find = (await configModel.findOne({guildID: boost.guild.id})).logsConfig
 
     if(!find.status)return 
     if(!find.guildBoostRemove)return

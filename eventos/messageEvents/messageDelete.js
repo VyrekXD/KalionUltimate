@@ -8,7 +8,7 @@ module.exports.run = bot => {
   if(message.channel.type === "dm")return
   if(!message.content)return
 
-  let findSnipe = await snipeModel.findOne({servidor: message.guild.id})
+  let findSnipe = (await snipeModel.findOne({servidor: message.guild.id}))
   if(findSnipe){
     await snipeModel.updateOne({servidor: message.guild.id}, {$set: {mensaje: message.content, hora: message.createdTimestamp, usuario: message.author.id}})
   }else {
@@ -16,7 +16,7 @@ module.exports.run = bot => {
     nuevo.save()
   }
 
-  let find = await configModel.findOne({guildID: message.guild.id}).logsConfig
+  let find = (await configModel.findOne({guildID: message.guild.id})).logsConfig
   if(!find)return
   if(!find.messageDelete)return
 

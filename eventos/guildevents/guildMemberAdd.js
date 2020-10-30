@@ -5,7 +5,7 @@ const configModel = require('../../database/models/guildConfig')
 module.exports.run = bot => {
   bot.on("guildMemberAdd", async member => {
 
-    let find = await configModel.findOne({guildID: member.guild.id}).logsConfig
+    let find = (await configModel.findOne({guildID: member.guild.id})).logsConfig
     if(!find)return
     if(!find.memberAdd)return
 

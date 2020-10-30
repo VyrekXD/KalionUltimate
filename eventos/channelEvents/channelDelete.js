@@ -6,7 +6,7 @@ module.exports.run = bot => {
 
   if (channel.type === "dm") return
 
-  let find = await configModel.findOne({guildID: channel.guild.id}).logsConfig
+  let find = await (configModel.findOne({guildID: channel.guild.id})).logsConfig
   if(!find)return
   if(!find.channelDelete)return
 

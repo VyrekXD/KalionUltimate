@@ -4,7 +4,7 @@ const configModel = require('../../database/models/guildConfig')
 module.exports.run = bot => {
   bot.on("inviteDelete", async invite => {
 
-    let find = await configModel.findOne({guildID: invite.guild.id}).logsConfig
+    let find = await (configModel.findOne({guildID: invite.guild.id})).logsConfig
     if(!find)return
     if(!find.inviteDelete)return
 

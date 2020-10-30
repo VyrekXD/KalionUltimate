@@ -10,7 +10,7 @@ module.exports.run = bot => {
     if(newMessage.channel.type === "dm")return
     if(oldMessage.author.bot) return;
 
-    let find = await configModel.findOne({guildID: oldMessage.guild.id}).logsConfig
+    let find = (await configModel.findOne({guildID: oldMessage.guild.id})).logsConfig
     if(!find)return
     if(!find.messageUpdate)return
 

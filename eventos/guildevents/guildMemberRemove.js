@@ -5,8 +5,9 @@ const configModel = require('../../database/models/guildConfig')
 module.exports.run = bot => {
   bot.on("guildMemberRemove", async member => {
 
-    let find = await configModel.findOne({guildID: member.guild.id}).logsConfig
+    let find = (await configModel.findOne({guildID: member.guild.id}))
 
+    if(!find)return
     if(find.automodConfig.evasiveMute === true){
 
       let rol = member.guild.roles.find(r => r.name == "Muted")
@@ -28,9 +29,7 @@ module.exports.run = bot => {
       }
     }
     
-
-    if(!find)return
-    if(!find.memberRemove)return
+    if(!find.logsConfig.memberRemove)return
 
     const e = new Discord.MessageEmbed()
     .setColor("#FF0000")
@@ -42,7 +41,7 @@ module.exports.run = bot => {
     
     
 
-    log = await find.channelID
+    log = await find.logsConfig.channelID
         
     let canal = bot.channels.cache.get(log)
     canal.send(e)
