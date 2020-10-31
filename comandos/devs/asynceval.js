@@ -30,7 +30,7 @@ run: async (bot, message, args, send) => {
 
         const regex = new RegExp(bot.token, 'gi');
         
-        evaluated = evaluated.replce(regex, 'Que ves pinche chismoso >:(')
+        evaluated = evaluated.replace(regex, 'Que ves pinche chismoso >:(')
 
         if(evaluated.length > 1024){
           let embed = new Discord.MessageEmbed()

@@ -15,10 +15,10 @@ module.exports.run = bot => {
         .addField(`**Rol**`, `${role.name}\n${role.id}`)
 
     
-        console.log(role)
         log = await find.channelID
         
         let canal = bot.channels.cache.get(log)
+        if(!canal)return;
         canal.send(e)
 
     })

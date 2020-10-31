@@ -25,6 +25,7 @@ module.exports.run = bot => {
                 log = await find.canals
         
                 let canal1 = bot.channels.cache.get(log)
+                if(!canal)return;
                 canal1.send(e)
             }
         })

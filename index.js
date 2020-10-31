@@ -118,8 +118,13 @@ bot.on("ready", async () => {
 
   setInterval(() => {
     bot.user.setPresence({activity: { name: Estado, type: "PLAYING"}, status: 'dnd'})
-  }, 10000)
+  }, 60000)
 
+  const snipeModel = require('./database/models/snipes')
+
+  setInterval(async() => {
+    await snipeModel.deleteMany()
+  }, 10000);
 })
 const rootdb = require("./database/connect");
 rootdb.then(() => console.log("Kalion Ultimate conectado a MongoDB"))

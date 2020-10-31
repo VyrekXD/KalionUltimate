@@ -19,6 +19,7 @@ module.exports.run = bot => {
   .setColor("#ac0d0d")
   .addField("Canal", `${channel.name}\n${channel.id}`, true)
   .addField(`Categoria`, `${channel.parent}\n${channel.parent.id}`, true)
+
   if(channel.guild.me.hasPermission('VIEW_AUDIT_LOGS')){
   const log = await channel.guild.fetchAuditLogs({
     limit: 1,
@@ -31,11 +32,12 @@ module.exports.run = bot => {
   
   
   embed.addField(`Tipo`, tipo[channel.type])
-  if(find){
-    log = await find.channelID
+
+    log = find.channelID
         
     let canal = bot.channels.cache.get(log)
+    if(!canal)return;
     canal.send(e)
-      }
+      
   })
 }

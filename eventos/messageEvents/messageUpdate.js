@@ -21,10 +21,14 @@ module.exports.run = bot => {
     .addField(`**Mensaje Antiguo**`, oldMessage.content || 'Vacio')
     .addField(`**Mensaje Nuevo**`, newMessage.content || 'Vacio')
  
-    log = await find.canals
+    log = await find.channelID
         
     bot.channels.cache.get(log)
-    let canal1 = bot.channels.cache.get(log)
-    canal1.send(e)
+
+    let canal = bot.channels.cache.get(log)
+
+    if(!canal)return;
+
+    canal.send(e)
   })
 }

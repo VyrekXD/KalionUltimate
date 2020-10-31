@@ -21,7 +21,7 @@ module.exports.run = bot => {
   if(!find.messageDelete)return
 
   
-  const efe = new Discord.MessageEmbed()
+  const e = new Discord.MessageEmbed()
   .setTitle("__**Mensaje eliminado**__")
   .setColor("ac0d0d")
   .addField("Autor: ", message.author.tag + '\n'+ message.author.id, true)
@@ -30,9 +30,10 @@ module.exports.run = bot => {
   
   
   
-  log = await find.channelID
+  log = find.channelID
         
   let canal = bot.channels.cache.get(log)
+  if(!canal)return;
   canal.send(e)
 
   })
