@@ -10,9 +10,10 @@ module.exports.run = bot => {
     if(newMessage.channel.type === "dm")return
     if(oldMessage.author.bot) return;
 
-    let find = (await configModel.findOne({guildID: oldMessage.guild.id})).logsConfig
-    if(!find)return
-    if(!find.messageUpdate)return
+    let find = (await configModel.findOne({guildID: message.guild.id}))
+    if(!find)return;
+    find = find.logsConfig
+    if(!find.messageUpdate)return;
 
     const e = new Discord.MessageEmbed()
     .setColor(`BLUE`)

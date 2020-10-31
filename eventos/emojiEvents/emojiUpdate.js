@@ -6,8 +6,9 @@ module.exports.run = bot => {
 
     if(!oldEmoji.guild) return;
 
-    let find = await (configModel.findOne({guildID: oldEmoji.guild.id})).logsConfig
-    if(!find)return
+    let find = (await configModel.findOne({guildID: oldEmoji.guild.id}))
+    if(!find)return;
+    find = find.logsConfig
     if(!find.emojiUpdate)return
 
     if(message.guild.me.hasPermissions('VIEW_AUDIT_LOG')){

@@ -16,9 +16,10 @@ module.exports.run = bot => {
     nuevo.save()
   }
 
-  let find = (await configModel.findOne({guildID: message.guild.id})).logsConfig
-  if(!find)return
-  if(!find.messageDelete)return
+  let find = (await configModel.findOne({guildID: message.guild.id}))
+  if(!find)return;
+  find = find.logsConfig
+  if(!find.messageDelete)return;
 
   
   const e = new Discord.MessageEmbed()

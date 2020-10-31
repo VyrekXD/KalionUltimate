@@ -5,9 +5,10 @@ const moment = require('moment')
 module.exports.run = bot => {
     bot.on("roleUpdate",async (oldRole, newRole) => {
       
-        let find = (await configModel.findOne({guildID: oldRole.guild.id})).logsConfig
-        if(!find)return
-        if(!find.roleUpdate)return
+        let find = (await configModel.findOne({guildID: role.guild.id}))
+        if(!find)return;
+        find = find.logsConfig
+        if(!find.roleUpdate)return;
 
         const e = new Discord.MessageEmbed()
         .setColor(`#1291af`)

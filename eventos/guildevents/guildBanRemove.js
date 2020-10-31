@@ -4,8 +4,9 @@ const configModel = require('../../database/models/guildConfig')
 module.exports.run = bot => {
   bot.on("guildBanRemove", async (guild, user) => {
 
-    let find = (await configModel.findOne({guildID: guild.id})).logsConfig
-    if(!find)return
+    let find = (await configModel.findOne({guildID: guild.id}))
+    if(!find)return;
+    find = find.logsConfig
     if(!find.banRemove)return
 
     const e = new Discord.MessageEmbed()

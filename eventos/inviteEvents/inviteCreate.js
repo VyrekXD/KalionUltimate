@@ -4,8 +4,9 @@ const configModel = require('../../database/models/guildConfig')
 module.exports.run = bot => {
   bot.on("inviteCreate", async invite => {
 
-    let find = await (configModel.findOne({guildID: invite.guild.id})).logsConfig
-    if(!find)return
+    let find = (await configModel.findOne({guildID: invite.guild.id}))
+    if(!find)return;
+    find = find.logsConfig
     if(!find.inviteCreate)return
 
     const e = new Discord.MessageEmbed()

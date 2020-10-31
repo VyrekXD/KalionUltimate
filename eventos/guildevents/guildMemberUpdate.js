@@ -4,8 +4,9 @@ const configModel = require('../../database/models/guildConfig')
 module.exports.run = bot => {
   bot.on("guildMemberUpdate", async (oldMember, newMember) => {
 
-    let find = (await configModel.findOne({guildID: newMember.guild.id})).logsConfig
-    if(!find)return
+    let find = (await configModel.findOne({guildID: newMember.guild.id}))
+    if(!find)return;
+    find = find.logsConfig
     if(!find.memberUpdate)return
     
     const e = new Discord.MessageEmbed()

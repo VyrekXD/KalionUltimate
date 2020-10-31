@@ -5,8 +5,9 @@ const moment = require('moment')
 module.exports.run = bot => {
     bot.on("roleDelete", async role => {
 
-        let find = (await configModel.findOne({guildID: role.guild.id})).logsConfig
-        if(!find)return
+        let find = (await configModel.findOne({guildID: role.guild.id}))
+        if(!find)return;
+        find = find.logsConfig
         if(!find.roleDelete)return
 
         const e = new Discord.MessageEmbed()

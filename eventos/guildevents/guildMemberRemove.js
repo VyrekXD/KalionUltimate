@@ -6,8 +6,8 @@ module.exports.run = bot => {
   bot.on("guildMemberRemove", async member => {
 
     let find = (await configModel.findOne({guildID: member.guild.id}))
-
-    if(!find)return
+    if(!find)return;
+    find = find.logsConfig
     if(find.automodConfig.evasiveMute === true){
 
       let rol = member.guild.roles.find(r => r.name == "Muted")
