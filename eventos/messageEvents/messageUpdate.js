@@ -32,4 +32,4 @@ module.exports.run = bot => {
 
     canal.send(e)
   })
-}
+} 
