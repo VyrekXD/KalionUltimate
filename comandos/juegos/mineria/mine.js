@@ -9,7 +9,7 @@ module.exports = {
   run: async(client, message, args) => {
 
   const Duration = require("humanize-duration");
-	if (used.has(message.author.id)) { 
+	if (used.has(message.author.id)) {
     const cooldown = used.get(message.author.id);          
 		 const remaining = Duration(cooldown - Date.now(), { units: ['h','m','s'], language: 'es', conjunction: ' y ', serialComma: false, round: true});
 		 return message.channel.send(`Necesitas esperar ${remaining} para volver a usar este comando`).then(async(msg) => {
