@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const configModel = require('../../database/models/guildConfig')
 
-module.exports.run = (bot, channel) => {
+module.exports.run = async(bot, channel) => {
 
   if (channel.type === "dm") return
 

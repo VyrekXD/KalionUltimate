@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const configModel = require('../../database/models/guildConfig')
 
-module.exports.run = (bot, oldMember, newMember) => {
+module.exports.run = async(bot, oldMember, newMember) => {
 
     let find = (await configModel.findOne({guildID: newMember.guild.id}))
     if(!find)return;

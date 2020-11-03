@@ -4,7 +4,7 @@ const blackModel = require('../database/models/ublacklist')
 const sblackModel = require('../database/models/sblacklist')
 const moment = require('moment')
 
-module.exports.run = (bot, statcord, message) => {
+module.exports.run = async(bot, statcord, message) => {
       if (!message.guild) return;
 
       let server = message.guild

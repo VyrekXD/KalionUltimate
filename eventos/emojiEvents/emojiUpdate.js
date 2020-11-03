@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const configModel = require('../../database/models/guildConfig')
 
-module.exports.run = (bot, oldEmoji, newEmoji) => {
+module.exports.run = async(bot, oldEmoji, newEmoji) => {
 
     if(!oldEmoji.guild) return;
 

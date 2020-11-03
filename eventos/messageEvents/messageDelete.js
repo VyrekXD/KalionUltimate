@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const configModel = require('../../database/models/guildConfig')
 const snipeModel = require('../../database/models/snipes')
 
-module.exports.run = (bot, message) => {
+module.exports.run = async(bot, message) => {
 
   if(message.channel.type === "dm")return
   if(!message.content)return

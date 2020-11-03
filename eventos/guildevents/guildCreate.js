@@ -1,6 +1,6 @@
 ﻿const Discord = require('discord.js');
 
-module.exports.run = (bot, guild) => {
+module.exports.run = async(bot, guild) => {
 
       let canal = bot.channels.cache.get("748547036139225229");
       let servidor = guild;
