@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
 const configModel = require('../../database/models/guildConfig')
 
-module.exports.run = bot => {
-  bot.on("inviteCreate", async invite => {
+module.exports.run = (bot, invite) => {
 
     let find = (await configModel.findOne({guildID: invite.guild.id}))
     if(!find)return;
@@ -22,5 +21,5 @@ module.exports.run = bot => {
     let canal = bot.channels.cache.get(log)
     if(!canal)return;
     canal.send(e)
-  })
+
 }

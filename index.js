@@ -78,9 +78,20 @@ bot.support = bot.utilconfig.support;
           handleEvents(path.join(dir, file));
       } else {
           if (!file.endsWith(".js")) return;
-          
-          let event = require(path.join(__dirname, dir, file));
-          event.run(bot, statcord);
+          let eventName = file.substring(0, file.indexOf(".js"));
+
+          try {
+            if(eventName === 'message'){
+              let event = require(path.join(__dirname, dir, file));
+              bot.on(eventName, event.bind(null, bot, statcord));
+            } else {
+              let event = require(path.join(__dirname, dir, file));
+              bot.on(eventName, event.bind(null, bot));
+            }
+          } catch (err) {
+            process.exitCode = 1
+            console.log(`Hubo un error cargando el evento ${eventName}, error:\n${err}`)
+          }
       }
 
 

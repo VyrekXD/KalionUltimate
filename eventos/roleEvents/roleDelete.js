@@ -2,8 +2,7 @@ const Discord = require('discord.js');
 const configModel = require('../../database/models/guildConfig')
 const moment = require('moment')
 
-module.exports.run = bot => {
-    bot.on("roleDelete", async role => {
+module.exports.run = (bot, role) => {
 
         let find = (await configModel.findOne({guildID: role.guild.id}))
         if(!find)return;
@@ -22,5 +21,4 @@ module.exports.run = bot => {
         if(!canal)return;
         canal.send(e)
 
-    })
 }

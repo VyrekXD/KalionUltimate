@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
 const configModel = require('../../database/models/guildConfig')
 
-module.exports.run = bot => {
-  bot.on("channelCreate", async channel => {
+module.exports.run = (bot, channel) => {
 
   if (channel.type === "dm") return
 
@@ -42,5 +41,4 @@ module.exports.run = bot => {
   if(!canal)return;
   canal.send(e)
       
-})
 }

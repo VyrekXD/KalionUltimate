@@ -2,8 +2,7 @@ const Discord = require('discord.js');
 const a = new Date().toLocaleDateString()
 const configModel = require('../../database/models/guildConfig')
 
-module.exports.run = bot => {
-  bot.on("guildMemberRemove", async member => {
+module.exports.run = (bot, member) => {
 
     let find = (await configModel.findOne({guildID: member.guild.id}))
     if(!find)return;
@@ -46,5 +45,4 @@ module.exports.run = bot => {
     if(!canal)return;
     canal.send(e)
 
-})
 }

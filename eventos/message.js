@@ -4,9 +4,7 @@ const blackModel = require('../database/models/ublacklist')
 const sblackModel = require('../database/models/sblacklist')
 const moment = require('moment')
 
-module.exports.run = (bot, statcord) => {
-  bot.on("message", async message => {
-
+module.exports.run = (bot, statcord, message) => {
       if (!message.guild) return;
 
       let server = message.guild
@@ -79,6 +77,4 @@ module.exports.run = (bot, statcord) => {
         statcord.postCommand(cmdname, message.author.id)
 
       }
- 
-  });
 }

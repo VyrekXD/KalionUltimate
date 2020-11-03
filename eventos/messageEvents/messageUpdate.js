@@ -1,14 +1,13 @@
 const Discord = require('discord.js');
 const configModel = require('../../database/models/guildConfig')
 
-module.exports.run = bot => {
-  bot.on("messageUpdate", async (oldMessage, newMessage) => {
+module.exports.run = async(bot, oldMessage, newMessage) => {
 
     await oldMessage.fetch()
     await newMessage.fetch()
     
     if(newMessage.channel.type === "dm")return
-    if(oldMessage.author.bot) return;
+    if(newMessage.author.bot) return;
 
     let find = (await configModel.findOne({guildID: oldMessage.guild.id}))
     if(!find)return;
@@ -31,5 +30,5 @@ module.exports.run = bot => {
     if(!canal)return;
 
     canal.send(e)
-  })
+  
 } 

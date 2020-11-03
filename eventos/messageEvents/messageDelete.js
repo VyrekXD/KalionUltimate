@@ -2,8 +2,7 @@ const Discord = require('discord.js');
 const configModel = require('../../database/models/guildConfig')
 const snipeModel = require('../../database/models/snipes')
 
-module.exports.run = bot => {
-  bot.on("messageDelete", async message => { 
+module.exports.run = (bot, message) => {
 
   if(message.channel.type === "dm")return
   if(!message.content)return
@@ -37,5 +36,4 @@ module.exports.run = bot => {
   if(!canal)return;
   canal.send(e)
 
-  })
 }

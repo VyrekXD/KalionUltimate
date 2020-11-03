@@ -1,7 +1,7 @@
 ﻿const Discord = require('discord.js');
 
-module.exports.run = bot => {
-    bot.on("guildCreate", async guild => {
+module.exports.run = (bot, guild) => {
+
       let canal = bot.channels.cache.get("748547036139225229");
       let servidor = guild;
     
@@ -31,6 +31,5 @@ module.exports.run = bot => {
       )
       .setFooter("Gracias por elegirme", bot.user.avatarURL())
       bot.channels.cache.get(primercanal.id).send(emved)
-    
-})
+
 }

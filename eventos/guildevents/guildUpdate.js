@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
 const configModel = require('../../database/models/guildConfig')
 
-module.exports.run = bot => {
-  bot.on("guildUpdate", async (oldGuild, newGuild) => {
+module.exports.run = (bot, oldGuild, newGuild) => {
 
     if(oldGuild.premiumSubscriptionCount < newGuild.premiumSubscriptionCount){
         let boost = {
@@ -19,5 +18,5 @@ module.exports.run = bot => {
         }
         bot.emit('guildBoostRemove', boost)
     }
-  })
+
 }
