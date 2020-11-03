@@ -89,7 +89,8 @@ bot.support = bot.utilconfig.support;
               bot.on(eventName, event.run.bind(null, bot));
             }
           } catch (err) {
-            console.log(`Hubo un error cargando el evento ${eventName}, error:\n${err}`)
+            console.log(`Hubo un error cargando el evento ${eventName}`)
+            console.log(err)
           }
       }
 
