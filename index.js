@@ -86,7 +86,7 @@ bot.support = bot.utilconfig.support;
               bot.on(eventName, event.bind(null, bot, statcord));
             } else {
               let event = require(path.join(__dirname, dir, file));
-              bot.on(eventName, event.bind(null, bot));
+              bot.on(eventName, event.run.bind(null, bot));
             }
           } catch (err) {
             process.exitCode = 1
