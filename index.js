@@ -2,6 +2,7 @@
 
 const Discord = require('discord.js');
 const bot = new Discord.Client({partials : ['GUILDS', "MESSAGE", "CHANNEL", "REACTION", 'USER'], ws: { intents: 32767} });
+const { registerStructures } = require('./util/Functions/registry')
 
 const path = require("path")
 
@@ -82,8 +83,11 @@ bot.support = bot.utilconfig.support;
   }
 })();
 
-// -| Evento Ready |- //
+// -| Estructuras Extendidas |- //
 
+registerStructures(Discord, "./structures");
+
+// -| Evento Ready |- //
 
 bot.on("ready", async () => {
   
