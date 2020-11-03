@@ -1,8 +1,12 @@
 // -| Kalion Organizado |- //
 
+const registerStructures = require('./util/Functions/registry')
 const Discord = require('discord.js');
+
+// -| Estructuras Extendidas |- //
+registerStructures(Discord, "structures");
+
 const bot = new Discord.Client({partials : ['GUILDS', "MESSAGE", "CHANNEL", "REACTION", 'USER'], ws: { intents: 32767} });
-const { registerStructures } = require('./util/Functions/registry')
 
 const path = require("path")
 
@@ -83,10 +87,6 @@ bot.support = bot.utilconfig.support;
   }
 })();
 
-// -| Estructuras Extendidas |- //
-
-registerStructures(Discord, "./structures");
-
 // -| Evento Ready |- //
 
 bot.on("ready", async () => {
@@ -129,10 +129,10 @@ bot.on("ready", async () => {
   setInterval(async() => {
     await snipeModel.deleteMany()
   }, 10000);
+
 })
 const rootdb = require("./database/connect");
 rootdb.then(() => console.log("Kalion Ultimate conectado a MongoDB"))
-
 
 //- Otros Eventos -//
 

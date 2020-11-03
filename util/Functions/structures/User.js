@@ -1,5 +1,5 @@
-const mineriaModel = require('../database/models/mineria')
-const coolModel = require('../database/models/userCooldowns')
+const mineriaModel = require('../../../database/models/mineria')
+const coolModel = require('../../../database/models/userCooldowns')
 
 module.exports = User => {
     return class extends User {
