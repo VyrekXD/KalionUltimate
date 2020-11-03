@@ -14,3 +14,5 @@ function registerStructures(Discord, dir) {
       }
     }
   }
+
+module.exports = registerStructures;
