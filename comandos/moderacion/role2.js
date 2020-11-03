@@ -81,7 +81,7 @@ run: async (bot, message, args, send) => {
             if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes dar a nadie`)
             if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
 
-            let timenow = new Date.now()
+            let timenow = Date.now()
             let totalh = messsage.guild.members.cache.filter((m) => !m.user.bot).array()
 
             const e = new MessageEmbed()
@@ -103,7 +103,7 @@ run: async (bot, message, args, send) => {
                         msg.edit({embed: {color: 'RED', description: `Agregando roles... <a:loadingoogle:744334507242422302>\n${i}/${totalh.length}\n\nEspere porfavor...`, footer: `Este proceso puede tardar un poco depende de la cantidad de miembros`}})
                     }
                 }else if(i === totalh.length){
-                    let timefin = (new Date.now() - timenow) 
+                    let timefin = (Date.now() - timenow) 
                     msg.edit({embed: {color: 'RED', description: `Roles agregados!\n${i}/${totalh.length}\n\nEl proceso a terminado tiempo total: ${ms(timefin)}`, footer: `Proceso terminado...`}})
                 }
 
