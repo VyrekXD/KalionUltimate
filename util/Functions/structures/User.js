@@ -5,6 +5,8 @@ module.exports = User => {
     return class extends User {
         constructor(client, data) {
             super(client, data)
+            this.lastGuildID = client.channels.resolve(this.lastMessageChannelID).guild.id
+            this.lastMessageURL = `https://canary.discord.com/channels/${this.lastGuildID}/${this.lastMessageChannelID}/${this.lastMessageID}`
         }
         /**
          * 
