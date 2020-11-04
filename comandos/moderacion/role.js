@@ -39,6 +39,8 @@ run: async (bot, message, args, send) => {
             k!role bots @goodboys
             k!role clone @badboys
             `)
+
+            return send(e)
         }
         if(!a.includes(ex.toLowerCase())){
             let u = message.mentions.members.first() || message.guild.members.resolve(args[0])
