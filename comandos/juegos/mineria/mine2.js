@@ -38,58 +38,58 @@ run: async (bot, message, args, send) => {
 
     switch (c) {
         case 'piedra':
-            let ca = Math.floor(Math.random() * 100) + 1
+            let c7 = Math.floor(Math.random() * 100) + 1
             ef = new Discord.MessageEmbed()
             .setAuthor(usuario.tag, usuario.displayAvatarURL())
-            .setDescription(`Encontraste:\n<:piedra:741084392696446976> Piedra: ${ca}`)
+            .setDescription(`Encontraste:\n<:piedra:741084392696446976> Piedra: ${c7}`)
             .setColor('6b6969')
             .setFooter(`Dato Curioso: Es piedra -_-`)
 
-            await message.author.setMineral(message.guild.id, 'piedra', ca)
+            await message.author.setMineral(message.guild.id, 'piedra', c7)
             break;
         case 'carbon':
             
-            let ca = Math.floor(Math.random() * 75) + 1
-            const embed1 = new Discord.MessageEmbed()
+            let c6 = Math.floor(Math.random() * 75) + 1
+            ef = new Discord.MessageEmbed()
             .setAuthor(usuario.tag, usuario.displayAvatarURL())
             .setColor('2b2727')
-            .setDescription(`Encontraste:\n<:carbon:741084392444919980> Carbon: ${ca}`)
+            .setDescription(`Encontraste:\n<:carbon:741084392444919980> Carbon: ${c6}`)
             .setFooter(`Dato Curioso: Si el carbon se calienta a cierta temperatura se puede crear diamante O.o`)
 
-            await message.author.setMineral(message.guild.id, 'carbon', ca)
+            await message.author.setMineral(message.guild.id, 'carbon', c6)
             break;
         case 'hierro':
             
-            let ca = Math.floor(Math.random() * 80) + 1
-            const embed1 = new Discord.MessageEmbed()
+            let c5 = Math.floor(Math.random() * 80) + 1
+            ef = new Discord.MessageEmbed()
             .setAuthor(usuario.tag, usuario.displayAvatarURL())
-            .setDescription(`Encontraste:\n<:ironingot:741084392927002755> Hierro: ${ca}`)
+            .setDescription(`Encontraste:\n<:ironingot:741084392927002755> Hierro: ${c5}`)
             .setColor('6b6969')
             .setFooter(`Dato Curioso: El hierro fue unos de los primeros materiales encontrados`)
 
-            await message.author.setMineral(message.guild.id, 'hierro', ca)
+            await message.author.setMineral(message.guild.id, 'hierro', c5)
             break;
         case 'esmeralda':
 
-            let ca = Math.floor(Math.random() * 30) + 1
-            const embed1 = new Discord.MessageEmbed()
+            let c4 = Math.floor(Math.random() * 30) + 1
+            ef = new Discord.MessageEmbed()
             .setAuthor(usuario.tag, usuario.displayAvatarURL())
             .setColor('28a012')
-            .setDescription(`Encontraste:\n<:esmeralda:741084391983415398> Esmeralda: ${ca}`)
+            .setDescription(`Encontraste:\n<:esmeralda:741084391983415398> Esmeralda: ${c4}`)
             .setFooter(`Dato Curioso: Las esmeraldas son tan raras que se toleran inclusiones`)
 
-            await message.author.setMineral(message.guild.id, 'esmeralda', ca)
+            await message.author.setMineral(message.guild.id, 'esmeralda', c4)
             break;
         case 'diamante':
             
-            let ca = Math.floor(Math.random() * 30) + 1
-            const embed1 = new Discord.MessageEmbed()
+            let c1 = Math.floor(Math.random() * 30) + 1
+            ef = new Discord.MessageEmbed()
             .setAuthor(usuario.tag, usuario.displayAvatarURL())
             .setColor('2287b8')
-            .setDescription(`Encontraste:\n<:diamante:741084392667217950> Diamante: ${ca}`)
+            .setDescription(`Encontraste:\n<:diamante:741084392667217950> Diamante: ${c1}`)
             .setFooter(`Dato Curioso: Aunque se dice que el diamante es la piedra preciosa mas rara es mentira hay piedras preciosas mas raras y caras`)
 
-            await message.author.setMineral(message.guild.id, 'diamante', ca)
+            await message.author.setMineral(message.guild.id, 'diamante', c1)
             break;
         case 'zafiro':
             
@@ -103,28 +103,28 @@ run: async (bot, message, args, send) => {
                 .setFooter(`Dato curioso: Si tienes una piedra preciosa pero se te daña el valor disminuye muchisimo o literalmente ya no vale nada`)
                 
             }else {
-                let ca = Math.floor(Math.random() * 7)
+                let c3 = Math.floor(Math.random() * 7)
                 ef = new Discord.MessageEmbed()
                 .setAuthor(usuario.tag, usuario.displayAvatarURL())
-                .setDescription(`Encontraste:\n<:zafiro:741084392449114183> Zafiro: ${ca}`)
+                .setDescription(`Encontraste:\n<:zafiro:741084392449114183> Zafiro: ${c3}`)
                 .setColor('264cc0')
                 .setFooter(`Dato Curioso: El zafiro es la segunda piedra con un color y precio mas escepcional de el mundo`)
 
-                await message.author.setMineral(message.guild.id, 'zafiro', ca)
+                await message.author.setMineral(message.guild.id, 'zafiro', c3)
             }
             
             break;
         case 'ruby':
             let u = Math.floor(Math.random() * 2) + 1
             if(u === 1){
-                let ca = Math.floor(Math.random() * 5)
+                let c2 = Math.floor(Math.random() * 5)
                 ef = new Discord.MessageEmbed()
                 .setAuthor(usuario.tag, usuario.displayAvatarURL())
-                .setDescription(`Encontraste:\n<:ruby:741084392490795029> Ruby: ${ca}`)
+                .setDescription(`Encontraste:\n<:ruby:741084392490795029> Ruby: ${c2}`)
                 .setColor('af1b18')
                 .setFooter(`Dato curioso: El ruby es la piedra preciosa mas cara y rara de el planeta`)
 
-                await message.author.setMineral(message.guild.id, 'ruby', ca)
+                await message.author.setMineral(message.guild.id, 'ruby', c2)
             }else {
                 ef = new Discord.MessageEmbed()
                 .setAuthor(usuario.tag, usuario.displayAvatarURL())
