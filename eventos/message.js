@@ -74,7 +74,7 @@ module.exports.run = async(bot, statcord, message) => {
 
         let cmdname = cmd.help ? cmd.help.name : 'private'
 
-        statcord.postCommand(cmdname, message.author.id)
+        //statcord.postCommand(cmdname, message.author.id)
 
       }
 }

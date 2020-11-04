@@ -4,7 +4,7 @@ const { checkPerms } = require('../../util/Functions/checkPermissions')
 const ms = require('ms')
 
 module.exports = {
-permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
+permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','MANAGE_ROLES'],
 aliases: [],
 guildOnly: true,
 run: async (bot, message, args, send) => {
@@ -24,6 +24,7 @@ run: async (bot, message, args, send) => {
             if(!role)return send('Debes mencionar al menos un role')
             if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes dar a nadie`)
             if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
+            if(!role.editable)return send(`No le puedo otorgar a nadie ese role`)
 
             if(u.roles.cache.has(role.id)){
                 await u.roles.remove(role).catch(err => {
@@ -52,6 +53,7 @@ run: async (bot, message, args, send) => {
             if(!role)return send(`Debes mencionar un rol o poner su ID`)
             if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes dar a nadie`)
             if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
+            if(!role.editable)return send(`No puedo clonar ese role, es mayor que todos mis roles`)
 
             let newrole = await message.guild.roles.create({
                 data: {
@@ -75,44 +77,249 @@ run: async (bot, message, args, send) => {
             return send(e)
         }else if(ex === 'humans'){
 
-            let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1])
+            if(message.content.endsWith('--remove')){
+
+                let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1])
+
+                if(!role)return send(`Debes mencionar un rol o poner su ID`)
+                if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes remover a nadie`)
+                if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
+                if(!role.editable)return send(`No le puedo otorgar a nadie ese role`)
+
+                let timenow = Date.now()
+                let totalh = message.guild.members.cache.filter((m) => !m.user.bot).array()
+    
+                const e = new MessageEmbed()
+                .setColor('RED')
+                .setDescription(`
+                Removiendo roles... <a:loadingoogle:744334507242422302>
+                0/${totalh.length}
+                
+                Espere porfavor...`)
+                .setFooter(`Este proceso puede tardar un poco depende de la cantidad de miembros`)
+    
+                let msg = await send(e)
+    
+                for(let i = 0, k = 2; i < totalh.length; i++){
+    
+                    if(i === k){
+                        if(i !== totalh.length){
+                            const a = new MessageEmbed()
+                            .setColor('RED')
+                            .setDescription(`Removiendo roles... <a:loadingoogle:744334507242422302>\n${i}/${totalh.length}\n\nEspere porfavor...`)
+                            .setFooter(`Este proceso puede tardar un poco depende de la cantidad de miembros`)
+                            await msg.edit({embed: a})
+                        }
+                        k += 2
+                    }else if(i === totalh.length - 1){
+                        let timefin = (Date.now() - timenow)
+                        const w = new MessageEmbed()
+                        .setColor('RED')
+                        .setDescription(`Roles removidos!\n${i + 1}/${totalh.length}\n\nEl proceso a terminado tiempo total: ${ms(timefin)}`)
+                        .setFooter(`Proceso terminado...`)
+                        await msg.edit({embed: w})
+                    }
+    
+                    let check = await totalh[i].roles.remove(role).catch(a=>{});
+                    if(!check){
+                        send(`Ocurrio un error dando los roles a los usuarios`)
+                        break;
+                    }
+                    await Discord.Util.delayFor(2000)
+    
+                    
+                }
+                return;
+            }else {
+
+                let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1])
+
+                if(!role)return send(`Debes mencionar un rol o poner su ID`)
+                if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes remover a nadie`)
+                if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
+                if(!role.editable)return send(`No le puedo remover a nadie ese role`)
+
+                let timenow = Date.now()
+                let totalh = message.guild.members.cache.filter((m) => !m.user.bot).array()
+    
+                const e = new MessageEmbed()
+                .setColor('RED')
+                .setDescription(`
+                Agregando roles... <a:loadingoogle:744334507242422302>
+                0/${totalh.length}
+                
+                Espere porfavor...`)
+                .setFooter(`Este proceso puede tardar un poco depende de la cantidad de miembros`)
+    
+                let msg = await send(e)
+    
+                for(let i = 0, k = 2; i < totalh.length; i++){
+    
+                    if(i === totalh.length - 1){
+                        let timefin = (Date.now() - timenow)
+                        const w = new MessageEmbed()
+                        .setColor('RED')
+                        .setDescription(`Roles agregados!\n${i + 1}/${totalh.length}\n\nEl proceso a terminado tiempo total: ${ms(timefin)}`)
+                        .setFooter(`Proceso terminado...`)
+                        await msg.edit({embed: w})
+                    } else if(i === k){
+                        if(i !== totalh.length){
+                            const a = new MessageEmbed()
+                            .setColor('RED')
+                            .setDescription(`Agregando roles... <a:loadingoogle:744334507242422302>\n${i}/${totalh.length}\n\nEspere porfavor...`)
+                            .setFooter(`Este proceso puede tardar un poco depende de la cantidad de miembros`)
+                            await msg.edit({embed: a})
+                        }
+                        k += 2
+                    }
+    
+                    let check = await totalh[i].roles.add(role).catch(a=>{});
+                    if(!check){
+                        send(`Ocurrio un error dando los roles a los usuarios`)
+                        break;
+                    }
+                    
+                    await Discord.Util.delayFor(2000)
+    
+                    
+                }
+                return;
+            }
+        } else if(ex === 'bots'){
+
+            if(message.content.endsWith('--remove')){
+
+                let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1])
+
+                if(!role)return send(`Debes mencionar un rol o poner su ID`)
+                if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes remover a nadie`)
+                if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
+                if(!role.editable)return send(`No le puedo otorgar a nadie ese role`)
+
+                let timenow = Date.now()
+                let totalh = message.guild.members.cache.filter((m) => m.user.bot).array()
+    
+                const e = new MessageEmbed()
+                .setColor('RED')
+                .setDescription(`
+                Removiendo roles... <a:loadingoogle:744334507242422302>
+                0/${totalh.length}
+                
+                Espere porfavor...`)
+                .setFooter(`Este proceso puede tardar un poco depende de la cantidad de miembros`)
+    
+                let msg = await send(e)
+    
+                for(let i = 0, k = 2; i < totalh.length; i++){
+    
+                    if(i === k){
+                        if(i !== totalh.length){
+                            const a = new MessageEmbed()
+                            .setColor('RED')
+                            .setDescription(`Removiendo roles... <a:loadingoogle:744334507242422302>\n${i}/${totalh.length}\n\nEspere porfavor...`)
+                            .setFooter(`Este proceso puede tardar un poco depende de la cantidad de miembros`)
+                            await msg.edit({embed: a})
+                        }
+                        k += 2
+                    }else if(i === totalh.length - 1){
+                        let timefin = (Date.now() - timenow)
+                        const w = new MessageEmbed()
+                        .setColor('RED')
+                        .setDescription(`Roles removidos!\n${i + 1}/${totalh.length}\n\nEl proceso a terminado tiempo total: ${ms(timefin)}`)
+                        .setFooter(`Proceso terminado...`)
+                        await msg.edit({embed: w})
+                    }
+    
+                    let check = await totalh[i].roles.remove(role).catch(a=>{});
+                    if(!check){
+                        send(`Ocurrio un error dando los roles a los usuarios`)
+                        break;
+                    }
+                    await Discord.Util.delayFor(2000)
+    
+                    
+                }
+                return;
+            }else {
+
+                let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1])
+
+                if(!role)return send(`Debes mencionar un rol o poner su ID`)
+                if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes remover a nadie`)
+                if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
+                if(!role.editable)return send(`No le puedo remover a nadie ese role`)
+
+                let timenow = Date.now()
+                let totalh = message.guild.members.cache.filter((m) => !m.user.bot).array()
+    
+                const e = new MessageEmbed()
+                .setColor('RED')
+                .setDescription(`
+                Agregando roles... <a:loadingoogle:744334507242422302>
+                0/${totalh.length}
+                
+                Espere porfavor...`)
+                .setFooter(`Este proceso puede tardar un poco depende de la cantidad de miembros`)
+    
+                let msg = await send(e)
+    
+                for(let i = 0, k = 2; i < totalh.length; i++){
+    
+                    if(i === totalh.length - 1){
+                        let timefin = (Date.now() - timenow)
+                        const w = new MessageEmbed()
+                        .setColor('RED')
+                        .setDescription(`Roles agregados!\n${i + 1}/${totalh.length}\n\nEl proceso a terminado tiempo total: ${ms(timefin)}`)
+                        .setFooter(`Proceso terminado...`)
+                        await msg.edit({embed: w})
+                    } else if(i === k){
+                        if(i !== totalh.length){
+                            const a = new MessageEmbed()
+                            .setColor('RED')
+                            .setDescription(`Agregando roles... <a:loadingoogle:744334507242422302>\n${i}/${totalh.length}\n\nEspere porfavor...`)
+                            .setFooter(`Este proceso puede tardar un poco depende de la cantidad de miembros`)
+                            await msg.edit({embed: a})
+                        }
+                        k += 2
+                    }
+    
+
+                    let check = await totalh[i].roles.add(role).catch(a=>{});
+                    if(!check){
+                        send(`Ocurrio un error dando los roles a los usuarios`)
+                        break;
+                    }
+                    await Discord.Util.delayFor(2000)
+    
+                    
+                }
+                return;
+            }
+        } else if(ex === 'withrole'){
+
+            let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1]) || message.guild.roles.cache.filter(x => x.name === args[1])
 
             if(!role)return send(`Debes mencionar un rol o poner su ID`)
-            if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes dar a nadie`)
+            if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes remover a nadie`)
             if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
+            if(!role.editable)return send(`No le puedo remover a nadie ese role`)
+            if(role.members.array().size === 0)return send(`No hay miembros con ese rol!`)
 
-            let timenow = Date.now()
-            let totalh = messsage.guild.members.cache.filter((m) => !m.user.bot).array()
+            await message.guild.members.fetch()
+            console.log(role.members.cache)
+            let totalh = []
+
+            for(let mem of role.members.array()){
+                totalh.push(mem.tag)
+            }
 
             const e = new MessageEmbed()
             .setColor('RED')
-            .setDescription(`
-            Agregando roles... <a:loadingoogle:744334507242422302>
-            0/${totalh.length}
-            
-            Espere porfavor...`)
-            .setFooter(`Este proceso puede tardar un poco depende de la cantidad de miembros`)
+            .setDescription(`Miembros con el role: ${role.toString()}\n
+            \`\`\`\n${totalh.join('\n')}\`\`\``)
 
-            let msg = await send(e)
+            send(e, {split: {maxLenght: 1024}})
 
-            for(let i, k = 3; totalh.length; i++){
-                let u = totalh[i]
-                if(i === k){
-                    k += 3
-                    if(!i === totalh.length){
-                        msg.edit({embed: {color: 'RED', description: `Agregando roles... <a:loadingoogle:744334507242422302>\n${i}/${totalh.length}\n\nEspere porfavor...`, footer: `Este proceso puede tardar un poco depende de la cantidad de miembros`}})
-                    }
-                }else if(i === totalh.length){
-                    let timefin = (Date.now() - timenow) 
-                    msg.edit({embed: {color: 'RED', description: `Roles agregados!\n${i}/${totalh.length}\n\nEl proceso a terminado tiempo total: ${ms(timefin)}`, footer: `Proceso terminado...`}})
-                }
-
-                setTimeout(() => {
-                    u.roles.add(role)
-                }, 2000);
-
-                
-            }
         }
     }
 }
