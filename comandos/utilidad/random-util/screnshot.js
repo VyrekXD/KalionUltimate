@@ -67,7 +67,7 @@ run: async (bot, message, args) => {
 
       message.channel.stopTyping(true);
 
-      await message.channel.send(`Un error ocurrio aqui lo puedes ver: ${error}`).catch(() => { });
+      await message.channel.send(`Un error ocurrio aqui lo puedes ver: ${err}`).catch(() => { });
 
       return await form.delete().catch(() => { });
     }
