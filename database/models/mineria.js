@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
-    servidor: {type: String},
-    usuario: {type: String},
+    guildID: {type: String},
+    userID: {type: String},
     piedra: {type: Number, default: 0},
     carbon: {type: Number, default: 0},
     hierro: {type: Number, default: 0},

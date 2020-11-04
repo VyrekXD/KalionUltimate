@@ -6,9 +6,29 @@ module.exports = Guild => {
         super(client, data);
         this.prefix = 'k!'
       }
-
+    /**
+    * @returns {object} - Devuelve el documento de mongoose
+    */
     async getPrefix(){
+      let find = await configModel.updateOne({guildID: this.id})
 
+      if(!find)return undefined;
+      this.prefix = find.prefix
+      return this.prefix;
+    }
+    /**
+     * 
+     * @param {string} newprefix - El nuevo prefix
+     * @returns {object} - Devuelve el documento de mongoose
+     */
+    async setPrefix(newprefix){
+      let find = await configModel.findOne({guildID: this.id})
+
+      if(!find)return undefined;
+
+      let doc = await configModel.updateOne({guildID: this.id}, {$set: {prefix: newprefix}}).catch(a=>{})
+
+      return doc;
     }
     }
 }

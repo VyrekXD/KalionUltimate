@@ -9,9 +9,5 @@ module.exports = {
 
    message.channel.send(`Usuarios con invites en el estado: ${usuarios.join('\n')}`)
 
-    
-    message.channel.send(`Puedes poner una configuracion de el servidor en kalion para automaticamente warnearlos o banearlos o kickearlos en cuanto se unan`)
-    
-
 }
 }

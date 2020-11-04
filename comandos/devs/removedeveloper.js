@@ -26,7 +26,7 @@ run: async (bot, message, args, send) => {
     .setTitle(`<:dev:733445890609512478> Developer Eliminado!`)
     .setColor(`RED`)
     .setDescription(`<:dev:733445890609512478> El developer era:\nUsuario: ${user2}\nUsuario Tag: ${user2.tag}\nID: ${user2.id}`)
-    .setFooter(`Comando ejecutado por ${usuario.username}`)
+    .setFooter(`Comando ejecutado por ${user2.username}`)
     .setTimestamp()
     
     send(embed)

@@ -61,7 +61,7 @@ module.exports.run = async(bot, statcord, message) => {
       let cmd = bot.comandos.get(command) || bot.comandos.find(c => c.aliases && c.aliases.includes(command))
       if(cmd){
         if (!message.guild.me.permissionsIn(message.channel).has(cmd.permisos)) {
-          return message.channel.send(`No tengo alguno de estos permisos: \n\`${cmd.permisos.join(', ')}\``)
+          return message.channel.send(`No tengo alguno de estos permisos: \n\`${message.guild.me.permissionsIn(message.channel).missing(cmd.permisos)}\``)
         }
         
         if(cmd.nsfw){

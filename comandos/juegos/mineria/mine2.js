@@ -10,7 +10,19 @@ aliases: [],
 guildOnly: true,
 run: async (bot, message, args, send) => {
  
-    let cf = await coolModel.findOne({guildID: message.guild.id, userID: message.author.id})
+    let cul = await message.author.getCooldown(message.guild.id)
+
+    if(cul?.cooldowns.mine){
+        if(Date.now() < cul.cooldowns.mine){
+            const remaining = Duration(cul.cooldowns.mine - Date.now(), { units: ['h','m','s'], language: 'es', conjunction: ' y ', serialComma: false, round: true})
+            return send(`Necesitas esperar ${remaining}, para volver a usar el comando`).then(async(msg)=> {
+                setTimeout(() => {
+                    msg.delete()
+                }, 5000);
+            })
+        }
+    }
+    
    }
 }
 
