@@ -25,7 +25,7 @@ run: async (bot, message, args, send) => {
     .setTitle(`<:dev:733445890609512478> Nuevo Developer!`)
     .setColor(`GREEN`)
     .setDescription(`<:dev:733445890609512478> El nuevo developer es:\nUsuario: ${user2}\nUsuario Tag: ${user2.tag}\nID: ${user2.id}`)
-    .setFooter(`Comando ejecutado por ${usuario.username}`)
+    .setFooter(`Comando ejecutado por ${message.author.username}`)
     .setTimestamp()
     
     message.channel.send(embed)
