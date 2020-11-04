@@ -19,27 +19,29 @@ module.exports.run = async(bot, oldMember, newMember) => {
         
     }
     if (oldMember.roles.cache.size !== newMember.roles.cache.size) {
-      const fetchedLogs = await newMember.guild.fetchAuditLogs({ type: "MEMBER_ROLE_UPDATE", limit: 1 })
-      const executor = fetchedLogs.entries.first();
-
-      if (!executor) return;
-
-      const e = new Discord.MessageEmbed()
-      .setColor("#1291af")
-      .setTitle(`__**Roles Agregados/Removidos**__`)
-      .addField(`**Usuario**`, `${newMember.user.tag}\n${newMember.user.id}`, true)
-      .addField(`**Moderador**`, `${executor.executor.tag}\n${executor.executor.id}`, true)
-      .setThumbnail(newMember.user.displayAvatarURL({ dynamic: true }))
-      if(oldMember.roles.cache.size < newMember.roles.cache.size){
-        e.addField(`**Roles Agregados**`, `<@&${executor.changes[0].new[0].id}>\n${executor.changes[0].new[0].id}`, true)
-      }else{
-        e.addField(`**Roles Removidos**`, `<@&${executor.changes[0].new[0].id}>\n${executor.changes[0].new[0].id}`, true)
+      if(newMember.guild.me.hasPermission('VIEW_AUDIT_LOG')){
+        const fetchedLogs = await newMember.guild.fetchAuditLogs({ type: "MEMBER_ROLE_UPDATE", limit: 1 })
+        const executor = fetchedLogs.entries.first();
+  
+        if (!executor) return;
+  
+        const e = new Discord.MessageEmbed()
+        .setColor("#1291af")
+        .setTitle(`__**Roles Agregados/Removidos**__`)
+        .addField(`**Usuario**`, `${newMember.user.tag}\n${newMember.user.id}`, true)
+        .addField(`**Moderador**`, `${executor.executor.tag}\n${executor.executor.id}`, true)
+        .setThumbnail(newMember.user.displayAvatarURL({ dynamic: true }))
+        if(oldMember.roles.cache.size < newMember.roles.cache.size){
+          e.addField(`**Roles Agregados**`, `<@&${executor.changes[0].new[0].id}>\n${executor.changes[0].new[0].id}`, true)
+        }else{
+          e.addField(`**Roles Removidos**`, `<@&${executor.changes[0].new[0].id}>\n${executor.changes[0].new[0].id}`, true)
+        }
+        log = await find.channelID
+          
+        let canal = bot.channels.cache.get(log)
+        if(!canal)return;
+        canal.send(e)
       }
-      log = await find.channelID
-        
-      let canal = bot.channels.cache.get(log)
-      if(!canal)return;
-      canal.send(e)
     }
 
     if(e.fields.length === 1)return
