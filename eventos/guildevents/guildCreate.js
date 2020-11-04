@@ -14,7 +14,7 @@ module.exports.run = async(bot, guild) => {
       .addField(`Miembros del server:`, servidor.memberCount)
       .addField("Invitame a tu servidor!", '[Link de invitacion](https://discord.com/api/oauth2/authorize?client_id=724749468418703432&permissions=8&scope=bot)')
       .setColor('bd0e0e')
-      .setFooter("Kalion Games Bot", bot.user.avatarURL())
+      .setFooter("Kalion Ultimate", bot.user.avatarURL())
       
       canal.send(newserver);
       
