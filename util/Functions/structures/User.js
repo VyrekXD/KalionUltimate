@@ -4,9 +4,8 @@ const coolModel = require('../../../database/models/userCooldowns')
 module.exports = User => {
     return class extends User {
         constructor(client, data) {
-            super(client, data)
-            this.lastGuildID = client.channels.resolve(this.lastMessageChannelID).guild.id
-            this.lastMessageURL = `https://canary.discord.com/channels/${this.lastGuildID}/${this.lastMessageChannelID}/${this.lastMessageID}`
+            super(client, data);
+
         }
         /**
          * 
@@ -36,13 +35,17 @@ module.exports = User => {
             if(!op.includes(option.toLowerCase()))throw new Error('No incluiste una opcion correcta: '+op)
 
             let find = await coolModel.findOne({guildID: guildid, userID: this.id})
+            let doc;
             if(!find){
-                let nuev = new coolModel({guildID: guildid, userID: this.id})
-                nuev.save()
+                doc = new coolModel({guildID: guildid, userID: this.id})
+                doc.cooldowns[option] = time
+                doc.save()
+            }else {
+                doc = await coolModel.findOne({guildID: guildid, userID: this.id})
+                doc.cooldowns[option] = time
+                doc.save()
             }
             
-            let doc = await coolModel.updateOne({guildID: guildid, userID: this.id}, {$set: {[cooldowns[option]]: time}})
-
             return doc;
         }
         /**
@@ -54,6 +57,8 @@ module.exports = User => {
             if(!guildid)throw new Error('No incluiste la ID de el servidor')
 
             let find = await mineriaModel.findOne({guildID: guildid, userID: this.id})
+            
+            if(!find)return undefined;
 
             return find;
         }
@@ -71,12 +76,16 @@ module.exports = User => {
             if(!minerals.includes(mineral))throw new Error(`Debes de incluir un mineral valido: ${minerals}`)
             if(cantity.isNaN)throw new Error(`La cantidad debe ser un numero`)
 
-            let find = await mineriaModel.findOne({guildID: guildid, userID: this.id})
+            let find = await mineriaModel.findOne({guildID: guildid, userID: this.id}), doc;
+            
             if(!find){
-                let nue = new mineriaModel({guildID: guildid, userID: this.id})
+                doc = new mineriaModel({guildID: guildid, userID: this.id})
+                doc[mineral] = parseInt(cantity)
+                doc.save()
+            } else {
+                doc = await mineriaModel.updateOne({guildID: guildid, userID: this.id}, {$inc: {[mineral]: parseInt(cantity)}}).catch(a=>{})
             }
 
-            let doc = await mineriaModel.updateOne({guildID: guildid, userID: this.id}, {$inc: {[mineral]: parseInt(cantity)}}).catch(a=>{})
             return doc;
         }
     }
