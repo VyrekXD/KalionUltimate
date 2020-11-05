@@ -22,9 +22,9 @@ run: async (bot, message, args, send) => {
     
 
     const embed = new Discord.MessageEmbed()
-    .setTitle(`<:dev:733445890609512478> Nuevo Developer!`)
+    .setTitle(`<:dev:698308735495569489> Nuevo Developer!`)
     .setColor(`GREEN`)
-    .setDescription(`<:dev:733445890609512478> El nuevo developer es:\nUsuario: ${user2}\nUsuario Tag: ${user2.tag}\nID: ${user2.id}`)
+    .setDescription(`<:dev:698308735495569489> El nuevo developer es:\nUsuario: ${user2}\nUsuario Tag: ${user2.tag}\nID: ${user2.id}`)
     .setFooter(`Comando ejecutado por ${message.author.username}`)
     .setTimestamp()
     

@@ -23,10 +23,10 @@ run: async (bot, message, args, send) => {
     
 
     const embed = new Discord.MessageEmbed()
-    .setTitle(`<:dev:733445890609512478> Developer Eliminado!`)
+    .setTitle(`<:dev:698308735495569489> Developer Eliminado!`)
     .setColor(`RED`)
-    .setDescription(`<:dev:733445890609512478> El developer era:\nUsuario: ${user2}\nUsuario Tag: ${user2.tag}\nID: ${user2.id}`)
-    .setFooter(`Comando ejecutado por ${user2.username}`)
+    .setDescription(`<:dev:698308735495569489> El developer era:\nUsuario: ${user2}\nUsuario Tag: ${user2.tag}\nID: ${user2.id}`)
+    .setFooter(`Comando ejecutado por ${message.author.username}`)
     .setTimestamp()
     
     send(embed)
