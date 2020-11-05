@@ -37,5 +37,6 @@ module.exports = {
             
             let nuevo = new blackModel({userID: user.id, devID: message.author.id, reason: raz, date: Date.now()})
             nuevo.save()
+            bot.channels.resolve('773946739144654889').send(e)
         }
 }
