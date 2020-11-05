@@ -6,4 +6,4 @@ const schema = new mongoose.Schema({
     date: {type: Number, required: true},
 })
 
-module.exports = mongoose.model("GuildPrefixes", schema );
+module.exports = mongoose.model("marrys", schema );
