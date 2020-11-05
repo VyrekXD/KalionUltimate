@@ -3,7 +3,6 @@ const configModel = require('../../database/models/guildConfig')
 
 module.exports.run = async(bot, oldMessage, newMessage) => {
 
-    await oldMessage.fetch()
     await newMessage.fetch()
     
     if(newMessage.channel.type === "dm")return
