@@ -40,3 +40,8 @@ module.exports = {
             bot.channels.resolve('773946739144654889').send(e)
         }
 }
+
+module.exports.help = {
+    name: 'asynceval',
+    aliases: ['bl'],
+}

@@ -50,7 +50,8 @@ run: async (bot, message, args, send) => {
 
     collector.on('end', (reason, collected) => {
         if(reason === 'si')return;
-        else return send(`Se acabo el tiempo! ${mem.user.toString()} no respondio lo siento..`)
+        
+        return send(`Se acabo el tiempo! ${mem.user.toString()} no respondio lo siento..`)
     })
 
    }

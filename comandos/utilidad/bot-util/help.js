@@ -151,7 +151,7 @@ module.exports = {
           ":hammer: Administrador ",
           "Para ayuda adicional entra al: \n[Servidor de soporte](https://discord.gg/3RdZ9mD)"
         )
-        .addField(":page_facing_up: Comandos:", "```ban | unban | kick | warns | warn | delwarn | clearwarns | role | config | checkinvites | lockdown | cooldown ```")
+        .addField(":page_facing_up: Comandos:", "```ban | unban | kick | warns | warn | delwarn | clearwarns | config | checkinvites | lockdown | cooldown ```")
         .setFooter(
           "Para ver informacion detallada de un comando usa k!help (comando)"
         )
@@ -173,7 +173,7 @@ module.exports = {
           .addField(`:page_facing_up: Comandos Guilds:`, 
           `\`\`\`canales | emojis | members-status | userinfo | serverinfo\`\`\``)
           .addField(`:page_facing_up: Comandos Mod:`, 
-          `\`\`\`clear | createrole | nickname | setnsfw\`\`\``)
+          `\`\`\`clear | createrole | nickname | setnsfw | role\`\`\``)
           .addField(`:page_facing_up: Comandos General:`, 
           `\`\`\`avatar | calc | canvassay | cloudfare-status | discord-status | djsdocs | discord-reputation | fortnite-store | fortnite-user | geometryfont | hex | jumbo | lyrics | morse | pokedex | qr | reverse | say | screenshot | shortlink | steamuser | tagSearch | usersay | xboxlogro | youtube\`\`\``)
           .setFooter(

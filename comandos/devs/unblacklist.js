@@ -34,3 +34,8 @@ run: async(bot, message, args, send) => {
 
 }
 }
+
+module.exports.help = {
+    name: 'unblacklist',
+    aliases: ['unbl'],
+}

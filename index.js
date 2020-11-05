@@ -40,6 +40,7 @@ const fs = require("fs").promises;
 const puppeteer = require('puppeteer')
 
 bot.comandos = new Discord.Collection();
+bot.devcomandos = new Discord.Collection();
 bot.config = require('./config.js');
 
 bot.utilconfig = require('./util-config');
@@ -62,6 +63,25 @@ bot.support = bot.utilconfig.support;
               let name = file.slice(0, file.length - 3);
               let properties = require(path.join(__dirname, dir, file));
                 bot.comandos.set(name, properties);
+          }
+      }
+
+  }
+})();
+
+// -| Dev Commands |- //
+
+(async function handleCommands(dir = "comandos/devs") {
+  let files = await fs.readdir(path.join(__dirname, dir));
+  for (let file of files) {
+      let stat = await fs.lstat(path.join(__dirname, dir, file));
+      if (stat.isDirectory()) {
+          handleCommands(path.join(dir, file));
+      } else {
+          if (file.endsWith(".js")) {
+              let name = file.slice(0, file.length - 3);
+              let properties = require(path.join(__dirname, dir, file));
+                bot.devcomandos.set(name, properties);
           }
       }
 

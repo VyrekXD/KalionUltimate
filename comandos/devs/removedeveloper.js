@@ -34,3 +34,7 @@ run: async (bot, message, args, send) => {
     await devModel.deleteOne({userID: user2.id})
     }
 }
+module.exports.help = {
+    name: 'removedeveloper',
+    aliases: ['removedev','rmdev'],
+}

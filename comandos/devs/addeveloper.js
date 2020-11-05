@@ -34,3 +34,8 @@ run: async (bot, message, args, send) => {
     nuevo.save()
     }
 }
+
+module.exports.help = {
+name: 'addeveloper',
+aliases: ['adev','addev']
+}

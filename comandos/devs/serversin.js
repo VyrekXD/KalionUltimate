@@ -15,3 +15,8 @@ module.exports.run = async(client, message, args) => {
   
   message.channel.send(e)
 }
+
+module.exports.help = {
+  name: 'serversin',
+  aliases: [],
+}

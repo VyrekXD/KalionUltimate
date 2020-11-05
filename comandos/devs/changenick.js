@@ -16,3 +16,7 @@ module.exports.run = async(client, message, args) => {
     message.guild.me.setNickname(nicka)
 
 }
+module.exports.help = {
+    name: 'changenick',
+    aliases: [],
+}

@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 const { MessageEmbed } = require('discord.js')
-const { checkPerms } = require('../../util/Functions/checkPermissions') 
+const { checkPerms } = require('../../../util/Functions/checkPermissions') 
 const ms = require('ms')
 
 module.exports = {
-permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','MANAGE_ROLES'],
+permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: [],
 guildOnly: true,
 run: async (bot, message, args, send) => {

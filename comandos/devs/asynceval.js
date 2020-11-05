@@ -64,3 +64,7 @@ run: async (bot, message, args, send) => {
   }
 }
 
+module.exports.help = {
+  name: 'asynceval',
+  aliases: ['aeval','aseval','ae'],
+}
