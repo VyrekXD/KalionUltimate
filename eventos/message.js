@@ -35,9 +35,9 @@ module.exports.run = async(bot, statcord, message) => {
         .setColor(`RED`)
         .setDescription(`Al estar blacklisteado no puedes usar al bot!\nSi deseas apelar tu blacklist entra a el [server](https://discord.gg/3RdZ9mD) de soporte`)
         .addField(`**Detalles**`, `
-        - Moderator: ${bot.users.resolve(blackusuario.devID).tag}
-        - Razon: ${blackusuario.reason}
-        - Fecha: ${moment(blackusuario.date)}`)
+        - Moderator: ${bot.users.resolve(bl.devID).tag}
+        - Razon: ${bl.reason}
+        - Fecha: ${moment(bl.date).format('L')}`)
         return message.channel.send(e)
       }
 
