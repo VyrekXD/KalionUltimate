@@ -8,10 +8,6 @@ permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: [],
 guildOnly: true,
 run: async (bot, message, args, send) => {
- 
-    if(!checkPerms(message.member, 'MANAGE_ROLES'))return message.channel.send(`Permisos insuficientes`)
-    if(!message.guild.me.hasPermission('MANAGE_ROLES'))return send(`No tengo permisos`)
-
 
     let ex = args[0]
     let a = ['clone','humans','bots','withrole','everyone']
@@ -47,6 +43,7 @@ run: async (bot, message, args, send) => {
             let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1])
 
             if(!message.member.hasPermission('MANAGE_ROLES'))return send(`No tienes permisos de manejar roles`)
+            if(!message.guild.me.hasPermission('MANAGE_ROLES'))return send(`No tengo permisos`)
             if(!u)return send(`Debes mencionar al menos un usuario`)
             if(!role)return send('Debes mencionar al menos un role')
             if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes dar a nadie`)
@@ -78,6 +75,7 @@ run: async (bot, message, args, send) => {
             let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1])
 
             if(!message.member.hasPermission('MANAGE_ROLES'))return send(`No tienes permisos de manejar roles`)
+            if(!message.guild.me.hasPermission('MANAGE_ROLES'))return send(`No tengo permisos`)
             if(!role)return send(`Debes mencionar un rol o poner su ID`)
             if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes dar a nadie`)
             if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
@@ -110,6 +108,7 @@ run: async (bot, message, args, send) => {
                 let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1])
 
                 if(!message.member.hasPermission('MANAGE_ROLES'))return send(`No tienes permisos de manejar roles`)
+                if(!message.guild.me.hasPermission('MANAGE_ROLES'))return send(`No tengo permisos`)
                 if(!role)return send(`Debes mencionar un rol o poner su ID`)
                 if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes remover a nadie`)
                 if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
@@ -164,6 +163,7 @@ run: async (bot, message, args, send) => {
                 let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1])
 
                 if(!message.member.hasPermission('MANAGE_ROLES'))return send(`No tienes permisos de manejar roles`)
+                if(!message.guild.me.hasPermission('MANAGE_ROLES'))return send(`No tengo permisos`)
                 if(!role)return send(`Debes mencionar un rol o poner su ID`)
                 if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes remover a nadie`)
                 if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
@@ -222,6 +222,7 @@ run: async (bot, message, args, send) => {
                 let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1])
 
                 if(!message.member.hasPermission('MANAGE_ROLES'))return send(`No tienes permisos de manejar roles`)
+                if(!message.guild.me.hasPermission('MANAGE_ROLES'))return send(`No tengo permisos`)
                 if(!role)return send(`Debes mencionar un rol o poner su ID`)
                 if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes remover a nadie`)
                 if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
@@ -276,6 +277,7 @@ run: async (bot, message, args, send) => {
                 let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1])
 
                 if(!message.member.hasPermission('MANAGE_ROLES'))return send(`No tienes permisos de manejar roles`)
+                if(!message.guild.me.hasPermission('MANAGE_ROLES'))return send(`No tengo permisos`)
                 if(!role)return send(`Debes mencionar un rol o poner su ID`)
                 if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes remover a nadie`)
                 if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
@@ -355,6 +357,7 @@ run: async (bot, message, args, send) => {
             let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1]) || message.guild.roles.cache.filter(x => x.name === args[1])
 
             if(!message.member.hasPermission('MANAGE_ROLES'))return send(`No tienes permisos de manejar roles`)
+            if(!message.guild.me.hasPermission('MANAGE_ROLES'))return send(`No tengo permisos`)
             if(!role)return send(`Debes mencionar un rol o poner su ID`)
             if(role.managed)return send(`Ese rol es manejado por un bot, no se lo puedes remover a nadie`)
             if(role.comparePositionTo(message.member.roles.highest) > 0)return send(`Ese rol es mayor que todos los que tienes no lo puedes usar`)
