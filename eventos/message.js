@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const configModel = require('../database/models/guildConfig')
-const blackModel = require('../database/models/ublacklist')
-const sblackModel = require('../database/models/sblacklist')
+const blackModel = require('../database/models/blacklist')
 const moment = require('moment')
 
 module.exports.run = async(bot, statcord, message) => {
@@ -28,26 +27,15 @@ module.exports.run = async(bot, statcord, message) => {
       
       if(!message.content.startsWith(prefix)) return; 
 
-      let blackusuario = await blackModel.findOne({userID: message.author.id})
-      let blackservidor = await sblackModel.findOne({guildID: message.guild.id})
+      let bl = await message.author.getBlacklist()
 
-      if(blackusuario){
+      if(bl){
         const e = new Discord.MessageEmbed()
         .setTitle(`❌ Estas Blacklisteado!`)
         .setColor(`RED`)
         .setDescription(`Al estar blacklisteado no puedes usar al bot!\nSi deseas apelar tu blacklist entra a el [server](https://discord.gg/3RdZ9mD) de soporte`)
         .addField(`**Detalles**`, `
         - Moderator: ${bot.users.resolve(blackusuario.devID).tag}
-        - Razon: ${blackusuario.reason}
-        - Fecha: ${moment(blackusuario.date)}`)
-        return message.channel.send(e)
-      }else if(blackservidor){
-        const e = new Discord.MessageEmbed()
-        .setTitle(`❌ Servidor Blacklisteado!`)
-        .setColor(`RED`)
-        .setDescription(`Al estar blacklisteado no puedes usar al bot en este servidor!\nSi deseas apelar tu blacklist entra a el [server](https://discord.gg/3RdZ9mD) de soporte`)
-        .addField(`**Detalles**`, `
-        - Moderator: ${bot.users.resolve(blackservidor).tag}
         - Razon: ${blackusuario.reason}
         - Fecha: ${moment(blackusuario.date)}`)
         return message.channel.send(e)

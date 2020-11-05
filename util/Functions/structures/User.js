@@ -1,10 +1,23 @@
 const mineriaModel = require('../../../database/models/mineria')
 const coolModel = require('../../../database/models/userCooldowns')
+const blackModel = require('../../../database/models/blacklist')
 
 module.exports = User => {
     return class extends User {
         constructor(client, data) {
             super(client, data);
+            this.blacklisted = false
+        }
+        /**
+         * @returns {Boolean || Doc} - Devuelve false si no encuentra al usuario y devuelve un documento si lo encuentra
+         */
+        async getBlacklist(){
+            let doc = await blackModel.findOne({userID: this.id})
+
+            if(!doc)return false;
+
+            this.blacklisted = true
+            return doc;
         }
         /**
          * 
