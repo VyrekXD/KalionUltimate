@@ -16,7 +16,7 @@ module.exports.run = async(bot, guild, user) => {
     if(user.bot === 'true'){
       e.setFooter(`El usuario baneado es un bot`)
     }
-    if(guild.me.hasPermission('VIEW_AUDIT_LOGS')){
+    if(guild.me.hasPermission('VIEW_AUDIT_LOG')){
       let x = await guild.fetchAuditLogs()
       let u = x.entries.first()
       

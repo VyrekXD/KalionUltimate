@@ -17,7 +17,7 @@ module.exports = {
         
             let raz = args.slice(1).join(" ")
         
-            if(!raz)return send('Necesitas pone runa razon >:(')
+            if(!raz)return send('Necesitas poner una razon >:(')
             
             let devcheck = await devModel.findOne({userID: user.id})
             if(devcheck)return send(`No puedes poner en la blacklist a los developers!`)
