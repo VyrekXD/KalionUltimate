@@ -5,7 +5,6 @@ module.exports = User => {
     return class extends User {
         constructor(client, data) {
             super(client, data);
-            this.pendejo = true
         }
         /**
          * 
