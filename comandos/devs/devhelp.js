@@ -12,7 +12,7 @@ run: async (bot, message, args, send) => {
 
     if(!consulta)return message.channel.send(`Solo **Developers** pueden usar este comando!`)
 
-    if(!args[0]){
+    if(args[0]){
         const searchCommand = bot.comandos.find(command => 
             command.help && command.help.name === args[0].toLowerCase()
         )
@@ -24,12 +24,15 @@ run: async (bot, message, args, send) => {
         .addField(`**Alias**`, help.aliases, true)
 
         return send(e)
-    }
+    }else{
 
     const e = new MessageEmbed()
     .setColor('RED')
     .addField(`**Dev**`, `\`\`\`\naddeveloper(adev) | asynceval(ae) | blacklist(bl) | changenick | checkvote | devhelp | enseñar | eval(e) | removedeveloper(rmdev) | serversin | shell | unblacklist(unbl) | update\`\`\``)
-   }
+   
+    return send(e)
+    }
+}
 }
 module.exports.help = {
     name: 'devhelp',
