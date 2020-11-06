@@ -331,11 +331,11 @@ run: async (bot, message, args, send) => {
             }
         } else if(ex === 'withrole'){
 
-            let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1]) || message.guild.roles.cache.filter(x => x.name === args[1])
+            let role = message.mentions.roles.first() || message.guild.roles.resolve(args[1]) || (message.guild.roles.cache.filter(x => x.name === args[1]).array())[0]
 
-            if(!role)return send(`Debes mencionar un rol o poner su ID`)
+            if(!role)return send(`Debes mencionar un rol o poner su ID o poner su nombre`)
             await message.guild.members.fetch()
-            if(role.members.cache.array().length === 0)return send(`No hay miembros con ese rol!`)
+            if(role.members.array().length === 0)return send(`No hay miembros con ese rol!`)
 
             let totalh = []
             let i = 0;
