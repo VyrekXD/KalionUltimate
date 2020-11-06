@@ -1,5 +1,7 @@
 // -| Clases |- //
 
+const fs = require("fs").promises;
+
 (async function handleCommands(dir = "classes") {
     let files = await fs.readdir(path.join(__dirname, dir));
     for (let file of files) {

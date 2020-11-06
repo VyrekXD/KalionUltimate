@@ -40,3 +40,12 @@ module.exports = {
     message.channel.send(e)
 }
 }
+
+module.exports.help = {
+name: 'steamuser',
+description: 'Muestra un usuario de steam',
+cooldown: [],
+alias: [],
+usage: 'steamuser [user]',
+example: 'steamuser VyrekXD'
+}
