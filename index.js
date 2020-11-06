@@ -3,8 +3,11 @@
 const registerStructures = require('./util/Functions/registry')
 const Discord = require('discord.js');
 
-// -| Estructuras Extendidas |- //
+// -| Estructuras/Clases Extendidas |- //
+
+const loadClases = require('./util/Functions/index.js')
 registerStructures(Discord, "structures");
+
 
 const bot = new Discord.Client({partials : ['GUILDS', "MESSAGE", "CHANNEL", "REACTION", 'USER'], ws: { intents: 32767} });
 

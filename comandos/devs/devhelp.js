@@ -32,7 +32,7 @@ run: async (bot, message, args, send) => {
    
     return send(e)
     }
-}
+    }
 }
 module.exports.help = {
     name: 'devhelp',
