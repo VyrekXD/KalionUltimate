@@ -31,10 +31,7 @@ module.exports = {
             send(e)
             bot.channels.resolve('773946739144654889').send(e)
 
-            await user.setBlacklist('rm').catch(err => {
-                send(`Ocurrio un error eliminando el documento: `)
-                return send(err, {code: 'js'})
-            })
+            await user.setBlacklist('rm')
 
         } else if(args[0].toLowerCase() === 'add'){
             let user = message.mentions.users.first() || bot.users.resolve(args[1])
@@ -61,10 +58,7 @@ module.exports = {
     
             send(e)
 
-            await user.setBlacklist('add', raz, message.author.id).catch(err => {
-                send(`Ocurrio un error añadiendo el documento: `)
-                return send(err, {code: 'js'})
-            })
+            await user.setBlacklist('add', raz, message.author.id)
 
             bot.channels.resolve('773946739144654889').send(e)
             } else {
