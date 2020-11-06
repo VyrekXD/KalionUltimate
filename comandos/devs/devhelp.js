@@ -28,7 +28,7 @@ run: async (bot, message, args, send) => {
 
     const e = new MessageEmbed()
     .setColor('RED')
-    .addField(`**Dev**`, `\`\`\`\naddeveloper(adev) | asynceval(ae) | blacklist(bl) | changenick | checkvote | devhelp | enseñar | eval(e) | removedeveloper(rmdev) | serversin | shell | unblacklist(unbl) | update\`\`\``)
+    .addField(`**Dev**`, `\`\`\`\ndeveloper(dev) | asynceval(ae) | blacklist(bl) | changenick | checkvote | devhelp | enseñar | eval(e) | serversin | shell | update\`\`\``)
    
     return send(e)
     }
