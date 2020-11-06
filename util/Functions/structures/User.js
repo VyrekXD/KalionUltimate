@@ -27,7 +27,7 @@ module.exports = User => {
          */
         async setBlacklist(elec, reason = undefined, dev){
             if(!elec)throw new Error(`Incluye una opcion: [rm/add]`)
-            if(['remove','rm','rem','add'].includes(elec.toLowerCase()))throw new Error(`Debes elegir una opcion correcta: [rm/add]`)
+            if(!['remove','rm','rem','add'].includes(elec.toLowerCase()))throw new Error(`Debes elegir una opcion correcta: [rm/add]`)
 
             if(['remove','rm','rem'].includes(elec)){
                 let find = await blackModel.findOne({userID: this.id})
