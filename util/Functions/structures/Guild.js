@@ -10,10 +10,10 @@ module.exports = Guild => {
     * @returns {object} - Devuelve el documento de mongoose
     */
     async getPrefix(){
-      let find = await configModel.updateOne({guildID: this.id})
+      let find = await configModel.findOne({guildID: this.id})
 
       if(!find)return undefined;
-      this.prefix = find.prefix
+      this.prefix = find.guildPrefix
       return this.prefix;
     }
     /**
@@ -26,7 +26,7 @@ module.exports = Guild => {
 
       if(!find)return undefined;
 
-      let doc = await configModel.updateOne({guildID: this.id}, {$set: {prefix: newprefix}}).catch(a=>{})
+      let doc = await configModel.updateOne({guildID: this.id}, {$set: {guildPrefix: newprefix}}).catch(a=>{})
 
       return doc;
     }
