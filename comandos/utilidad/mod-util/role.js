@@ -335,7 +335,7 @@ run: async (bot, message, args, send) => {
 
             if(!role)return send(`Debes mencionar un rol o poner su ID`)
             await message.guild.members.fetch()
-            if(!role.members.cache.array().length)return send(`No hay miembros con ese rol!`)
+            if(role.members.cache.array().length === 0)return send(`No hay miembros con ese rol!`)
 
             let totalh = []
             let i = 0;
