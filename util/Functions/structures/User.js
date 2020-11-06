@@ -21,6 +21,38 @@ module.exports = User => {
         }
         /**
          * 
+         * @param {string} elec - La eleccion: [rm/add]
+         * @param {string} reason - La razon de el blacklist
+         * @param {string} dev - La ID de el dev
+         */
+        async setBlacklist(elec, reason = undefined, dev){
+            if(!elec)throw new Error(`Incluye una opcion: [rm/add]`)
+            if(['remove','rm','rem','add'].includes(elec.toLowerCase()))throw new Error(`Debes elegir una opcion correcta: [rm/add]`)
+
+            if(['remove','rm','rem'].includes(elec)){
+                let find = await blackModel.findOne({userID: this.id})
+
+                if(!find)return undefined;
+
+                let doc = await blackModel.deleteOne({userID: this.id})
+                this.blacklisted = false
+                return doc;
+            }else {
+                let find = await blackModel.findOne({userID: this.id})
+
+                if(find)return undefined;
+                if(!dev)return undefined;
+                if(!reason)return undefined;
+
+                let nue = new blackModel({userID: this.id, date: Date.now(), reason: reason, devID: dev})
+                nue.save()
+
+                this.blacklisted = true
+                return nue;
+            }
+        }
+        /**
+         * 
          * @param {String} guildID - La ID de el servidor
          * @returns {object} - Devuelve el documento de mongoose
          */
