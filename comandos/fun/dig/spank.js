@@ -21,3 +21,12 @@ module.exports = {
     message.channel.send(attach)
 }
 }
+
+module.exports.help = {
+name: 'spank',
+description: 'Nalguea a alguien!',
+cooldown: [],
+alias: [],
+usage: 'spank [@user]',
+example: 'spank @kalion'
+}

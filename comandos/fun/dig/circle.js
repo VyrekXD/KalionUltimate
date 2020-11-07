@@ -16,3 +16,12 @@ module.exports = {
     message.channel.send(attach)
 }
 }
+
+module.exports.help = {
+name: 'circle',
+description: 'Muestra tu avatar como circulo',
+cooldown: [],
+alias: [],
+usage: 'circle (@user)',
+example: 'circle @kalion'
+}

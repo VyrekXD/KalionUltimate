@@ -19,3 +19,11 @@ module.exports = {
         message.channel.send(attach)
     }
 }
+module.exports.help = {
+name: 'lisapresentation',
+description: 'Pon texto en la presentacion de lisa',
+cooldown: [],
+alias: ['lpresentation'],
+usage: 'lpresentation [texto]',
+example: 'lpresentation Kalion Ultimate el mejor bot!'
+}

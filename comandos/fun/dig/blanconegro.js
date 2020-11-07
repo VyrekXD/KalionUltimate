@@ -17,3 +17,12 @@ module.exports = {
         message.channel.send(attach)
     }
 }
+
+module.exports.help = {
+name: 'blancoynegro',
+description: 'Muestra tu avatar en blanco y negro',
+cooldown: [],
+alias: ['byn'],
+usage: 'byn (@user)',
+example: 'byn @kalion'
+}

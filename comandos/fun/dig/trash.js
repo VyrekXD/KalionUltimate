@@ -16,3 +16,12 @@ module.exports = {
     message.channel.send(attach)
     }
 }
+
+module.exports.help = {
+name: 'trash',
+description: 'Tira a la basura a algun jugador',
+cooldown: [],
+alias: [],
+usage: 'trash (@user)',
+example: 'trash @codecats'
+}

@@ -16,3 +16,12 @@ module.exports = {
     message.channel.send(attach)
 }
 }
+
+module.exports.help = {
+name: 'bobross',
+description: 'Muestra tu avatar pintado por bobross',
+cooldown: [],
+alias: [],
+usage: 'bobross (@user)',
+example: 'bobross'
+}

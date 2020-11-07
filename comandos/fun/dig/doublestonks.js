@@ -22,3 +22,12 @@ module.exports = {
     message.channel.send(attach)
 }
 }
+
+module.exports.help = {
+name: 'doublestonks',
+description: 'Stonks con tu compañero, double stonks!',
+cooldown: [],
+alias: ['dstonks'],
+usage: 'dstonks [@user]',
+example: 'dstonks @kalion'
+}

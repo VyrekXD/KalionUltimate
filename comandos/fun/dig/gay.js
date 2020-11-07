@@ -16,3 +16,12 @@ module.exports = {
     message.channel.send(attach)
 }
 }
+
+module.exports.help = {
+name: 'gay',
+description: 'Puedes hacer que el avatar de una persona tenga la bandera gay',
+cooldown: [],
+alias: [],
+usage: 'gay (@user)',
+example: 'gay @kalion'
+}

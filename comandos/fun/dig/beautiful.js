@@ -17,3 +17,12 @@ module.exports = {
     }
 
 }
+
+module.exports.help = {
+name: 'beautiful',
+description: 'El comando beautiful en canvas',
+cooldown: [],
+alias: [],
+usage: 'beautiful [@user]',
+example: 'beautiful @kalion'
+}

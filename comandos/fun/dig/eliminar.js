@@ -16,3 +16,12 @@ module.exports = {
     message.channel.send(attach)
 }
 }
+
+module.exports.help = {
+name: 'eliminar',
+description: 'Elimina a un usuario',
+cooldown: [],
+alias: [],
+usage: 'eliminar (@user)',
+example: 'eliminar @kalion'
+}

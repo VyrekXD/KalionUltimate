@@ -20,3 +20,12 @@ module.exports = {
 
     message.channel.send(attach)
 }}
+
+module.exports.help = {
+name: 'batslap',
+description: 'Dale una cachetada a alguien como batman',
+cooldown: [],
+alias: [],
+usage: 'batslap [@user]',
+example: 'batslap @kalion'
+}

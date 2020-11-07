@@ -16,3 +16,12 @@ module.exports = {
     message.channel.send(attach)
 }
 }
+
+module.exports.help = {
+name: 'triggered',
+description: 'Has triggered tu imagen',
+cooldown: [],
+alias: [],
+usage: 'triggered (@user)',
+example: 'triggered'
+}

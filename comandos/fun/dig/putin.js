@@ -16,3 +16,12 @@ module.exports = {
     message.channel.send(attach)
     }
 }
+
+module.exports.help = {
+name: 'putin',
+description: 'Muestra a putin',
+cooldown: [],
+alias: [],
+usage: 'putin (@user)',
+example: 'putin'
+}

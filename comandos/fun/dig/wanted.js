@@ -28,3 +28,12 @@ module.exports = {
     
     }
 }
+
+module.exports.help = {
+name: 'wanted',
+description: 'Muestra a un usuario wanted',
+cooldown: [],
+alias: [],
+usage: 'wanted (@user)',
+example: 'wanted'
+}
