@@ -18,7 +18,7 @@ const statcord = new Statcord.Client({
   key: "statcord.com-Nh93RmOMRb17s1yznEhD",
 });
 
-const fetch = require('node-fetch')
+const postStats = require('./util/Functions/postStats')
 
 const { Player } = require("discord-player");
 const player = new Player(bot);
@@ -142,21 +142,13 @@ bot.on("ready", async () => {
   ];
   let Estado = OpcionesDeEstados[Math.floor(Math.random() * OpcionesDeEstados.length)];
 
-  statcord.autopost();
-
-  let data = {
-    guildCount: bot.guilds.cache.size
-  }
-
-  await fetch(`https://discord.bots.gg/api/v1/bots/${bot.user.id}/stats`, {
-    method: 'POST', 
-    headers: {'Content-Type': 'application/json', Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiNTM4NDIxMTIyOTIwNzQyOTQyIiwiaWF0IjoxNjAzMzc3NTkxfQ.elvkykgD6UXStlIQWw25_BUMaUSBPVQq-IyYVjb6gmY'},
-    body: JSON.stringify(data)}
-  )
-
   setInterval(() => {
     bot.user.setPresence({activity: { name: Estado, type: "PLAYING"}, status: 'dnd'})
   }, 60000)
+
+  setInterval(async() => {
+    await postStats(bot)
+  }, 60000 * 5);
 
   const snipeModel = require('./database/models/snipes')
 
