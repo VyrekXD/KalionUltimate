@@ -8,4 +8,4 @@ async function dateInt(str){
 return result;
 }
 
-module.exports = { dateInt }
+module.exports = dateInt;

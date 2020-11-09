@@ -6,6 +6,7 @@ module.exports = {
   run: async(bot, message, args, send) => {
 
       let elc = args[0]
+
       const e = new Discord.MessageEmbed()
       if(message.channel.nsfw){
         e.setThumbnail(bot.user.displayAvatarURL())
