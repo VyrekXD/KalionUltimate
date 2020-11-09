@@ -1,22 +1,10 @@
 const Discord = require('discord.js');
-const used = new Map();
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','ADD_REACTIONS'],
   guildOnly: true,
   run: async(client, message, args) => {
 
-  const Duration = require("humanize-duration");
-	if (used.has(message.author.id)) { 
-    const cooldown = used.get(message.author.id);          
-		 const remaining = Duration(cooldown - Date.now(), { units: ['h','m','s'], language: 'es', conjunction: ' y ', serialComma: false, round: true});
-		 return message.channel.send(`Necesitas esperar ${remaining} para volver a usar este comando`).then(async(msg) => {
-			  setTimeout(() => {
-			  msg.delete();
-			}, 5000)
-			});  
-		 }
-		else{
       if(message.guild.emojis.cache.size < 1) return message.channel.send('¡Este servidor no tiene emojis!')
 
       let emojis = []
@@ -107,8 +95,5 @@ module.exports = {
       }
     })
     
-        used.set(message.author.id, Date.now() + milisegFromSeconds(3));
-        setTimeout(()=> used.delete(message.author.id), milisegFromSeconds(3));
-      }
 }
 }
