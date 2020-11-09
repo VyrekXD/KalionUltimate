@@ -41,15 +41,18 @@ module.exports.run = async(bot, statcord, message) => {
 
       let cmd = bot.comandos.get(command) || bot.comandos.find(c => c.aliases && c.aliases.includes(command))
       if(cmd){
+        let send = (text) => message.channel.send(text)
+
+        if(cmd.guildOnly){
+          if(cmd.guildOnly === true && !message.guild)return send(`Este comando solo funciona en servidores!`)
+        }
         if (!message.guild.me.permissionsIn(message.channel).has(cmd.permisos)) {
-          return message.channel.send(`No tengo alguno de estos permisos: \n\`${message.guild.me.permissionsIn(message.channel).missing(cmd.permisos)}\``)
+          return send(`No tengo alguno de estos permisos: \n\`${message.guild.me.permissionsIn(message.channel).missing(cmd.permisos)}\``)
         }
         
         if(cmd.nsfw){
-          if(!message.channel.nsfw)return message.channel.send('Necesitas estar en un canal nsfw para usar este comando!')
+          if(!message.channel.nsfw)return send('Necesitas estar en un canal nsfw para usar este comando!')
         }
-
-        let send = (text) => message.channel.send(text)
 
         cmd.run(bot, message, args, send)
 
