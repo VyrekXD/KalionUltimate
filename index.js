@@ -147,7 +147,7 @@ bot.on("ready", async () => {
   }, 60000)
 
   setInterval(async() => {
-    await postStats(bot)
+    await postStats(bot, statcord)
   }, 60000 * 5);
 
   const snipeModel = require('./database/models/snipes')
