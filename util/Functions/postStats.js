@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 
 async function postStats(bot){
-    await fetch(`https://discordbotlist.com/api/v1/bots/${bot.user.id}/stats`, {method: 'POST', body: {
+    await fetch(`https://discordbotlist.com/api/v1/bots/${bot.user.id}/stats`, {method: 'POST', headers: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0IjoxLCJpZCI6IjcyNDc0OTQ2ODQxODcwMzQzMiIsImlhdCI6MTYwNDk1NjMyMn0.-M32bEso6dtp0bZIAh_SvxG2hW--sCtZFT2PthWHWjI",body: {
         voice_connections: bot.voice.connections.size,
         users: bot.users.cache.size,
         guilds: bot.guilds.cache.size
