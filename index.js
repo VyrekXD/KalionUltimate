@@ -21,7 +21,6 @@ const statcord = new Statcord.Client({
 const postStats = require('./util/Functions/postStats')
 
 const nekosLife = require('nekos.life')
-const tnaiapi = require('tnai');
 
 const { Player } = require("discord-player");
 const player = new Player(bot);
@@ -56,7 +55,6 @@ bot.colors = bot.utilconfig.colors;
 bot.invite = bot.utilconfig.invite;
 bot.support = bot.utilconfig.support;
 
-bot.tnai = new tnaiapi;
 bot.nekos = new nekosLife();
 
 // -| Comandos |- //
