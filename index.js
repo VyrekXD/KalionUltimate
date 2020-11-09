@@ -5,9 +5,8 @@ const Discord = require('discord.js');
 
 // -| Estructuras/Clases Extendidas |- //
 
-const loadClases = require('./util/Functions/index.js')
+require('./util/Functions/index.js')
 registerStructures(Discord, "structures");
-
 
 const bot = new Discord.Client({partials : ['GUILDS', "MESSAGE", "CHANNEL", "REACTION", 'USER'], ws: { intents: 32767} });
 
@@ -39,6 +38,7 @@ moment.updateLocale('es', {
 moment.locale("es");
 
 const fs = require("fs").promises;
+const nfs = require('fs');
 
 const puppeteer = require('puppeteer')
 
@@ -167,6 +167,30 @@ bot.on("ready", async () => {
 })
 const rootdb = require("./database/connect");
 rootdb.then(() => console.log("Kalion Ultimate conectado a MongoDB"))
+
+let totL = 0
+      
+function getLines(ruta){
+    const files = nfs.readdirSync(ruta, { withFileTypes: true})
+
+    for(const file of files){
+        let rutaArchivo = `./${ruta}/${file.name}`
+
+        if(file.name.endsWith('.js')){
+            let cantidad = (nfs.readFileSync(rutaArchivo).toString().split('\n').length)
+
+            totL += cantidad
+        }else if(file.isDirectory()){
+            if(file.name === 'node_modules' || file.name === 'etc') continue;
+
+            getLines(rutaArchivo)
+        }
+    }
+}      
+
+getLines('./')
+
+bot.allLines = totL;
 
 //- Otros Eventos -//
 
