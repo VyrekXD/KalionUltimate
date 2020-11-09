@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const prefixModel = require('../../../database/models/guildPrefix');
 
 module.exports = {
   permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
@@ -14,8 +13,8 @@ module.exports = {
         .addField(`**Updates**`, )
         .addField(`:pencil: Informacion`, `Actualmente la cantidad de comandos que tengo es: **${bot.comandos.size}**`)
         .addField(`:closed_book: Categorias:`, 
-        '» `k-help economy`\n» `k-help eadmin`\n» `k-help miner`\n» `k-help util`\n» `k-help admin`\n» `k-help fun`\n» `k-help react`\n» `k-help music`\n» `k-help nsfw`')
-        .setFooter(`Usa k-help [Comando] Para ver informacion especial!`)
+        `» \`${await message.guild.getPrefix()}help economy\`\n» \`${await message.guild.getPrefix()}help eadmin\`\n» \`${await message.guild.getPrefix()}help miner\`\n» \`${await message.guild.getPrefix()}help util\`\n» \`${await message.guild.getPrefix()}help admin\`\n» \`${await message.guild.getPrefix()}help fun\`\n» \`${await message.guild.getPrefix()}help react\`\n» \`${await message.guild.getPrefix()}help music\`\n» \`${await message.guild.getPrefix()}help nsfw\``)
+        .setFooter(`Usa ${await message.guild.getPrefix()}help [Comando] Para ver informacion especial!`)
         .setColor("RED")
         .setTimestamp()
       }else {
@@ -23,8 +22,8 @@ module.exports = {
         .setTitle(`:page_facing_up: Comandos de el bot`)
         .addField(`:pencil: Informacion`, `Actualmente la cantidad de comandos que tengo es: **${bot.comandos.size}**`)
         .addField(`:closed_book: Categorias:`, 
-        '» `k-help economy`\n» `k-help eadmin`\n» `k-help premium`\n» `k-help miner`\n» `k-help util`\n» `k-help admin`\n» `k-help fun`\n» `k-help react`\n» `k-help music`')
-        .setFooter(`Usa k-help [Comando] Para ver informacion especial!`)
+        `» \`${await message.guild.getPrefix()}help economy\`\n» \`${await message.guild.getPrefix()}help eadmin\`\n» \`${await message.guild.getPrefix()}help miner\`\n» \`${await message.guild.getPrefix()}help util\`\n» \`${await message.guild.getPrefix()}help admin\`\n» \`${await message.guild.getPrefix()}help fun\`\n» \`${await message.guild.getPrefix()}help react\`\n» \`${await message.guild.getPrefix()}help music\``)
+        .setFooter(`Usa ${await message.guild.getPrefix()}help [Comando] Para ver informacion especial!`)
         .setColor("RED")
         .setTimestamp()
       }
@@ -40,7 +39,7 @@ module.exports = {
         )
         .addField(":page_facing_up: Comandos:", "```work | balance(bal) | deposit(dep) | withdraw(with) ```")
         .setFooter(
-          "Para ver informacion detallada de un comando usa k-help (comando)"
+          `Para ver informacion detallada de un comando usa ${await message.guild.getPrefix()}help (comando)`
         )
         .setColor("RANDOM");
 
@@ -56,24 +55,24 @@ module.exports = {
         )
         .addField(":page_facing_up: Comandos:", "```addmoney | removemoney```")
         .setFooter(
-          "Para ver informacion detallada de un comando usa k-help (comando)"
+          `Para ver informacion detallada de un comando usa ${await message.guild.getPrefix()}help (comando)`
         )
-        .setColor("RANDOM");
+        .setColor(`RANDOM`);
         
         message.channel.send(embed2)
       } else if(elc === `nsfw`){
-        if(!message.channel.nsfw) return message.channel.send("Necesitas estar en un canal NSFW!")
+        if(!message.channel.nsfw) return message.channel.send(`Necesitas estar en un canal NSFW!`)
 
         const embed2 = new Discord.MessageEmbed()
-        .setTitle("Comandos de Kalion Ultimate")
+        .setTitle(`Comandos de Kalion Ultimate`)
         .setAuthor(message.author.username, message.author.displayAvatarURL())
         .addField(
-          ":underage: NSFW",
-          "Para ayuda adicional entra al: \n[Servidor de soporte](https://discord.gg/3RdZ9mD)"
+          `:underage: NSFW`,
+          `Para ayuda adicional entra al: \n[Servidor de soporte](https://discord.gg/3RdZ9mD)`
         )
         .addField(":page_facing_up: Comandos:", "```nsfwconfig | r34 | ass | furgay | furbara | furfuck | furgayfuck | fursolo```")
         .setFooter(
-          "Para ver informacion detallada de un comando usa k-help (comando)"
+          `Para ver informacion detallada de un comando usa ${await message.guild.getPrefix()}help (comando)`
         )
         .setColor("RANDOM");
         
@@ -89,7 +88,7 @@ module.exports = {
         )
         .addField(":page_facing_up: Comandos:", "```mine | minerales | minfo | backpack | sell```")
         .setFooter(
-          "Para ver informacion detallada de un comando usa k-help (comando)"
+          `Para ver informacion detallada de un comando usa ${await message.guild.getPrefix()}help (comando)`
         )
         .setColor("RANDOM");
         
@@ -105,7 +104,7 @@ module.exports = {
         )
         .addField(":page_facing_up: Comandos:", "```play | allfilters | clear-queue | filter | loop | now-playing | pause | queue | resume | shuffle | skip | stop | volume```")
         .setFooter(
-          "Para ver informacion detallada de un comando usa k-help (comando)"
+          `Para ver informacion detallada de un comando usa ${await message.guild.getPrefix()}help (comando)`
         )
         .setColor("RANDOM");
         
@@ -121,7 +120,7 @@ module.exports = {
         )
         .addField(":page_facing_up: Comandos:", "```xboxlogro | geometryfont |chiste | meme | 8ball | love | rps | batslap | beautilful | blancoynegro(byn) | bobross | circle | confusedstonks(cstonks) | doublestonks(dstonks) | eliminar | gay | lisapresentation(lpresentation) | notstonks(nstonks) | putin | rip | spank | stonks | thomas | trash | triggered | wanted | emojify | fancify | ascii | snipe | usersay```")
         .setFooter(
-          "Para ver informacion detallada de un comando usa k-help (comando)"
+          `Para ver informacion detallada de un comando usa ${await message.guild.getPrefix()}help (comando)`
         )
         .setColor("RANDOM");
          
@@ -137,7 +136,7 @@ module.exports = {
         )
         .addField(":page_facing_up: Comandos:", "```angry | dance | hug | punch | run```")
         .setFooter(
-          "Para ver informacion detallada de un comando usa k-help (comando)"
+          `Para ver informacion detallada de un comando usa ${await message.guild.getPrefix()}help (comando)`
         )
         .setColor("RANDOM");
         
@@ -153,7 +152,7 @@ module.exports = {
         )
         .addField(":page_facing_up: Comandos:", "```ban | unban | kick | warns | warn | delwarn | clearwarns | config | checkinvites | lockdown | cooldown ```")
         .setFooter(
-          "Para ver informacion detallada de un comando usa k-help (comando)"
+          `Para ver informacion detallada de un comando usa ${await message.guild.getPrefix()}help (comando)`
         )
         .setColor("RANDOM");
         
@@ -177,7 +176,7 @@ module.exports = {
           .addField(`:page_facing_up: Comandos General:`, 
           `\`\`\`avatar | calc | canvassay | djsdocs | discord-reputation | fortnite-store | fortnite-user | geometryfont | hex | jumbo | lyrics | morse | pokedex | qr | reverse | say | shortlink | steamuser | tagSearch | usersay | xboxlogro | youtube\`\`\``)
           .setFooter(
-            "Para ver informacion detallada de un comando usa k-help (comando)"
+            "Para ver informacion detallada de un comando usa ${await message.guild.getPrefix()}help (comando)"
           )
           .setColor("RANDOM");
   
@@ -192,8 +191,7 @@ module.exports = {
 
         let help = searchCommand.help
 
-        let res0 = await prefixModel.findOne({servidor: message.guild.id})
-        let prefix = res0 ? res0.prefix : 'k-'
+        let prefix = await message.guild.getPrefix()
 
         const e = new Discord.MessageEmbed()
         .setTitle(`Comando ${prefix}${help.name}`)

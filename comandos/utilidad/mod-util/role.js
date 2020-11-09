@@ -11,6 +11,7 @@ run: async (bot, message, args, send) => {
 
     let ex = args[0]
     let a = ['clone','humans','bots','withrole','everyone']
+    let prefix = await message.guild.getPrefix()
 
         if(!ex){
             const e = new MessageEmbed()
@@ -19,21 +20,21 @@ run: async (bot, message, args, send) => {
             .setDescription(`
             **Usos**
             
-            k-role everyone @role - Le da el rol especificado a todos
-            k-role bots @role - Le da el rol especificado a los bots solamente
-            k-role humans @role - Le da el rol especificado a solo los usuarios
-            k-role clone @role - Clona el rol especificado
-            k-role withrole @role - Te muestra los miembros con ese rol
-            k-role @usuario @role - Le da el rol especificado al usuario
+            ${prefix}role everyone @role - Le da el rol especificado a todos
+            ${prefix}role bots @role - Le da el rol especificado a los bots solamente
+            ${prefix}role humans @role - Le da el rol especificado a solo los usuarios
+            ${prefix}role clone @role - Clona el rol especificado
+            ${prefix}role withrole @role - Te muestra los miembros con ese rol
+            ${prefix}role @usuario @role - Le da el rol especificado al usuario
 
             **Ejemplos**
 
-            k-role @NoobLance @coolboy
-            k-role withrole @coolboy
-            k-role everyone @badboys
-            k-role humans @users
-            k-role bots @goodboys
-            k-role clone @badboys
+            ${prefix}role @NoobLance @coolboy
+            ${prefix}role withrole @coolboy
+            ${prefix}role everyone @badboys
+            ${prefix}role humans @users
+            ${prefix}role bots @goodboys
+            ${prefix}role clone @badboys
             `)
 
             return send(e)
@@ -463,6 +464,6 @@ name: 'role',
 description: 'Un comando de roles con varios usos',
 cooldown: [],
 alias: [],
-usage: 'k-role @usuario @role - Le da el rol especificado al usuario\n k-role withrole @role - Te muestra los miembros con ese rol\nk-role everyone @role - Le da el rol especificado a todos\nk-role bots @role - Le da el rol especificado a los bots solamente\nk-role humans @role - Le da el rol especificado a solo los usuarios\nk-role clone @role - Clona el rol especificado',
-example: 'k-role @NoobLance @coolboy\nk-role withrole @coolboy\nk-role everyone @badboys\nk-role humans @users\nk-role bots @goodboys\nk-role clone @badboys'
+usage: '${prefix}role @usuario @role - Le da el rol especificado al usuario\n ${prefix}role withrole @role - Te muestra los miembros con ese rol\n${prefix}role everyone @role - Le da el rol especificado a todos\n${prefix}role bots @role - Le da el rol especificado a los bots solamente\n${prefix}role humans @role - Le da el rol especificado a solo los usuarios\n${prefix}role clone @role - Clona el rol especificado',
+example: '${prefix}role @NoobLance @coolboy\n${prefix}role withrole @coolboy\n${prefix}role everyone @badboys\n${prefix}role humans @users\n${prefix}role bots @goodboys\n${prefix}role clone @badboys'
 }

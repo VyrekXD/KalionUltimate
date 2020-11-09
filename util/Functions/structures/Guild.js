@@ -4,7 +4,7 @@ module.exports = Guild => {
     return class extends Guild {
       constructor(client, data) {
         super(client, data);
-        this.prefix = 'k!'
+        this.prefix = 'k-'
       }
     /**
     * @returns {object} - Devuelve el documento de mongoose
@@ -12,7 +12,11 @@ module.exports = Guild => {
     async getPrefix(){
       let find = await configModel.findOne({guildID: this.id})
 
-      if(!find)return undefined;
+      if(!find){
+        let nue = new configModel({guildID: this.id})
+        nue.save()
+        find = nue
+      }
       this.prefix = find.guildPrefix
       return this.prefix;
     }
@@ -29,6 +33,17 @@ module.exports = Guild => {
       let doc = await configModel.updateOne({guildID: this.id}, {$set: {guildPrefix: newprefix}}).catch(a=>{})
 
       return doc;
+    }
+    async getConfig(){
+      let find = await configModel.findOne({guildID: this.id})
+
+      if(!find){
+        let nue = new configModel({guildID: this.id})
+        nue.save()
+        find = nue
+      }
+
+      return find;
     }
     }
 }

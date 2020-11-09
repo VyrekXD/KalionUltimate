@@ -17,7 +17,7 @@ module.exports = {
         .setAuthor(usuario.username, usuario.displayAvatarURL())
         .setTitle(`**Inventario**`)
         .setColor('920e0e')
-        .setFooter('Usa k-sell para vender tus items')
+        .setFooter(`Usa ${await message.guild.getPrefix()}sell para vender tus items`)
         if(consulta.piedra || consulta.carbon){
             embed.addField(`**Minerales Simples:**`, 
             !consulta.piedra ? "<:piedra:741084392696446976> **Piedra:** " + consulta.piedra : "\u200B" + 

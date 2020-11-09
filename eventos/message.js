@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const configModel = require('../database/models/guildConfig')
-const blackModel = require('../database/models/blacklist')
 const moment = require('moment')
 
 module.exports.run = async(bot, statcord, message) => {
@@ -10,13 +9,7 @@ module.exports.run = async(bot, statcord, message) => {
 
       if(message.author.bot) return;
       
-      let res = await configModel.findOne({guildID: server.id})
-
-      if(!res){
-        let nuevo = new configModel({guildID: server.id})
-        await nuevo.save()
-        res = await configModel.findOne({guildID: server.id})
-      }
+      let res = await message.guild.getConfig()
       let prefix = res.guildPrefix
 
       if(message.content.match(new RegExp(`^<@!?${bot.user.id}>( |)$`))) return message.channel.send(`Mi prefix es ${prefix} puedes hacer ${prefix}help para iniciar`)
@@ -62,7 +55,7 @@ module.exports.run = async(bot, statcord, message) => {
 
         let cmdname = cmd.help ? cmd.help.name : 'private'
 
-        //statcord.postCommand(cmdname, message.author.id)
+        statcord.postCommand(cmdname, message.author.id)
 
       }
 }

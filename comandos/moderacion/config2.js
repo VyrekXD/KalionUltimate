@@ -154,7 +154,7 @@ console.log(args[1])
                 let evn = ['channelCreate','channelDelete','guildBoostAdd','guildBoostRemove','banAdd','banRemove','memberAdd','memberRemove','memberUpdate','inviteCreate','inviteDelete','messageDelete','messageUpdate','roleCreate','roleDelete','roleUpdate','memberMuted','memberUnmuted']
                 
                 if(!elcca.toLowerCase)return send(`Debes incluir un evento`)
-                if(!evn.includes(elcc))return send(`No pusiste un evento correcto, para ver los eventos disponibles usa \`${find.prefix}config\` (Atencion: Debes de incluir el evento tal como es su nombre!)`)
+                if(!evn.includes(elcc))return send(`No pusiste un evento correcto, para ver los eventos disponibles usa \`${find.guildPrefix}config\` (Atencion: Debes de incluir el evento tal como es su nombre!)`)
 
                 let elcsa = args[3]
 

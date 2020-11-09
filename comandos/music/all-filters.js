@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const prefixModel = require('../../database/models/guildPrefix')
 
 module.exports = {
 aliases: ['allfilters','afilters'],
@@ -7,8 +6,6 @@ guildOnly: true,
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','CONNECT','SPEAK'],
 run: async (client, message, args) => {
     
-    let res = await prefixModel.findOne({servidor: message.guild.id}).exec()
-    let prefix = res ? res.prefix : 'k-'
 
     const enabledEmoji = client.emotes.success;
     const disabledEmoji = client.emotes.error;
@@ -22,7 +19,7 @@ run: async (client, message, args) => {
 
     //List embed
     const list = new Discord.MessageEmbed()
-    .setDescription(`Lista de filtros activados y desactivados.\nPara añadir un filtro usa \`${prefix}filter\``)
+    .setDescription(`Lista de filtros activados y desactivados.\nPara añadir un filtro usa \`${await message.guild.getPrefix()}filter\``)
     .addField("**Filters**", filtersStatuses[0].join('\n'), true)
     .addField("** **", filtersStatuses[1].join('\n'), true)
     .setColor(client.colors.succes);

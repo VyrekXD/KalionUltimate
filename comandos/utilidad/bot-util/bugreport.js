@@ -34,7 +34,7 @@ module.exports = {
     .setAuthor(message.author.username, message.author.displayAvatarURL())
     .setTitle(`Gracias Por Reportar!`)
     .setDescription(`Se agradece mucho que reporten los **bugs** para poder hacer mejor al bot!`)
-    .setFooter(`Para reportar usa k-bugreport`)
+    .setFooter(`Para reportar usa ${await message.guild.getPrefix()}bugreport`)
     .setTimestamp()
     .setColor(`GREEN`)
 

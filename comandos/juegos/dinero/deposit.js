@@ -1,16 +1,11 @@
 const Discord = require('discord.js');
 const moneyModel = require('../../../database/models/dinero');
-const prefixModel = require('../../../database/models/guildPrefix')
 
 module.exports = {
     aliases: ['dep'],
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
     guildOnly: true,
     run: async(client, message, args) => {
-
-        let servidor = message.guild;
-        let res = await prefixModel.findOne({servidor: servidor.id})
-        let prefix = res ? res.prefix : 'k-'
 
         let usuario = message.author
         
@@ -27,7 +22,7 @@ module.exports = {
             .setTitle(message.author.username)
             .setDescription(`:white_check_mark: Depositado :dollar:${DbServidor.dinero} a tu banco`)
             .setTimestamp()
-            .setFooter(`Puedes ver tu dinero con ${prefix}bal o ${prefix}balance`)
+            .setFooter(`Puedes ver tu dinero con ${await message.guild.getPrefix()}bal o ${await message.guild.getPrefix()}balance`)
             .setColor("3b4ad6")
             
             let dinerototal = DbServidor.dinero
@@ -42,7 +37,7 @@ module.exports = {
         .setTitle(message.author.username)
         .setDescription(`:white_check_mark: Depositado :dollar:${depositar} a tu banco`)
         .setTimestamp()
-        .setFooter(`Puedes ver tu dinero con ${prefix}bal o ${prefix}balance`)
+        .setFooter(`Puedes ver tu dinero con ${await message.guild.getPrefix()}bal o ${await message.guild.getPrefix()}balance`)
         .setColor("3b4ad6")
         
         await moneyModel.updateOne({servidor: servidor.id, usuario: usuario.id}, {$inc: {banco: parseInt(depositar), dinero: parseInt(-depositar)}})

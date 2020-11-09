@@ -38,7 +38,7 @@ module.exports = {
 
         let ptot = p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8
 
-        if(ptot === 0)return message.channel.send('No tienes minerales para vender! Usa `k-mine` para minar')
+        if(ptot === 0)return message.channel.send(`No tienes minerales para vender! Usa \`${await message.guild.getPrefix()}mine\` para minar`)
         
 
         const embed = new Discord.MessageEmbed()

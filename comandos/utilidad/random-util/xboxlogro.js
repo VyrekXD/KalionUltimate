@@ -10,6 +10,7 @@ module.exports = {
         let elec2 = args[1]
         let elec3 = args.slice(2).join("+")
         let array = ['estilonotif','estilosincro','estilologro','estilosat','estilofallo','estiloone','oneverde','oneazul','onerojo','oneamarillo','oneverdeosc','onerosa']
+        let prefix = await message.guild.getPrefix()
 
         if(!elec1){
             const attach = new Discord.MessageAttachment(`https://cdn.discordapp.com/attachments/721128332959285258/733094048918667274/Screenshot_2.png`)
@@ -17,8 +18,8 @@ module.exports = {
             const embed = new Discord.MessageEmbed()
             .setTitle(`<a:error:721475630688108554> Error de sintaxis`)
             .setDescription(`Puedes elegir entre todos estos estilos todos son gifs`)
-            .addField(`Estilos xbox360 :`, 'Estilo notificacion: `k-xboxfonts estilonotif`\nEstilo Sincronismo: `k-xboxfonts estilosincro`\nEstilo Logro: `k-xboxfonts estilologro`\nEstilo SAT: `k-xboxfonts estilosat`\nEstilo Fallo `k-xboxfonts estilofallo`')
-            .addField(`Estlos xbox One:`, 'Estilo One: `k-xboxfonts estiloone`\nEstilo One verde: `k-xboxfonts oneverde`\nEstilo One Azul: `k-xboxfonts oneazul`\nEstilo One Rojo: `k-xboxfonts onerojo`\nEstilo One Amarillo: `k-xboxfonts oneamarillo`\nEstilo One Verde Oscuro: `k-xboxfonts oneverdeosc`\nEstilo One Rosa: `k-xboxfonts onerosa`')
+            .addField(`Estilos xbox360 :`, `Estilo notificacion: \`${prefix}xboxfonts estilonotif\`\nEstilo Sincronismo: \`${prefix}xboxfonts estilosincro\`\nEstilo Logro: \`${prefix}xboxfonts estilologro\`\nEstilo SAT: \`${prefix}xboxfonts estilosat\`\nEstilo Fallo \`${prefix}xboxfonts estilofallo\``)
+            .addField(`Estlos xbox One:`, `Estilo One: \`${prefix}xboxfonts estiloone\`\nEstilo One verde: \`${prefix}xboxfonts oneverde\`\nEstilo One Azul: \`${prefix}xboxfonts oneazul\`\nEstilo One Rojo: \`${prefix}xboxfonts onerojo\`\nEstilo One Amarillo: \`${prefix}xboxfonts oneamarillo\`\nEstilo One Verde Oscuro: \`${prefix}xboxfonts oneverdeosc\`\nEstilo One Rosa: \`${prefix}xboxfonts onerosa\``)
             .setColor(`RED`)
 
             message.channel.send(embed)
@@ -46,8 +47,8 @@ module.exports = {
             const embed = new Discord.MessageEmbed()
             .setTitle(`<a:error:721475630688108554> Error de sintaxis`)
             .setDescription(`Puedes elegir entre todos estos estilos todos son gifs`)
-            .addField(`Estilos xbox360 :`, 'Estilo notificacion: `k-xboxfonts estilonotif`\nEstilo Sincronismo: `k-xboxfonts estilosincro`\nEstilo Logro: `k-xboxfonts estilologro`\nEstilo SAT: `k-xboxfonts estilosat`\nEstilo Fallo `k-xboxfonts estilofallo`')
-            .addField(`Estlos xbox One:`, 'Estilo One: `k-xboxfonts estiloone`\nEstilo One verde: `k-xboxfonts oneverde`\nEstilo One Azul: `k-xboxfonts oneazul`\nEstilo One Rojo: `k-xboxfonts onerojo`\nEstilo One Amarillo: `k-xboxfonts oneamarillo`\nEstilo One Verde Oscuro: `k-xboxfonts oneverdeosc`\nEstilo One Rosa: `k-xboxfonts onerosa`')
+            .addField(`Estilos xbox360 :`, 'Estilo notificacion: `${prefix}xboxfonts estilonotif`\nEstilo Sincronismo: `${prefix}xboxfonts estilosincro`\nEstilo Logro: `${prefix}xboxfonts estilologro`\nEstilo SAT: `${prefix}xboxfonts estilosat`\nEstilo Fallo `${prefix}xboxfonts estilofallo`')
+            .addField(`Estlos xbox One:`, 'Estilo One: `${prefix}xboxfonts estiloone`\nEstilo One verde: `${prefix}xboxfonts oneverde`\nEstilo One Azul: `${prefix}xboxfonts oneazul`\nEstilo One Rojo: `${prefix}xboxfonts onerojo`\nEstilo One Amarillo: `${prefix}xboxfonts oneamarillo`\nEstilo One Verde Oscuro: `${prefix}xboxfonts oneverdeosc`\nEstilo One Rosa: `${prefix}xboxfonts onerosa`')
             .setColor(`RED`)
 
             message.channel.send(embed)

@@ -1,14 +1,11 @@
 const Discord = require('discord.js');
 const moneyModel = require('../../../database/models/dinero');
-const prefixModel = require('../../../database/models/guildPrefix')
-
 
 module.exports = {
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
     guildOnly: true,
     run: async(client, message, args) => {
-    let res = await prefixModel.findOne({servidor: message.guild.id}).exec()
-    let prefix = res ? res.prefix : 'k-'
+
 
     let user = message.author
     let user1 = message.mentions.users.first();
@@ -41,12 +38,13 @@ module.exports = {
         .setColor('GREEN')
         .setThumbnail('https://cdn.discordapp.com/attachments/721128332959285258/730563263070470295/dinero_1.png')
         .setDescription(`${user.username}, :white_check_mark: Le has dado :dollar: **${andin}** de dinero exitosamente a ${user1.username} `)
-        .setFooter(`Puedes ver tu dinero total con ${prefix}bal `)
+        .setFooter(`Puedes ver tu dinero total con ${await message.guild.getPrefix()}bal `)
         message.channel.send(emved)
 
-        db.collection("dinero").updateOne({servidor: servidor.id, usuario: user.id}, {$inc: {dinero: -parseInt(andin), dinerotot: -parseInt(andin)}})
-        db.collection("dinero").updateOne({servidor: servidor.id, usuario: user1.id}, {$inc: {dinero: parseInt(andin), dinerotot: parseInt(andin)}})
-}
+        await moneyModel.updateOne({servidor: servidor.id, usuario: user.id}, {$inc: {dinero: -parseInt(andin), dinerotot: -parseInt(andin)}})
+        await moneyModel.updateOne({servidor: servidor.id, usuario: user1.id}, {$inc: {dinero: parseInt(andin), dinerotot: parseInt(andin)}})
+
+    }
 }
 module.exports.help = {
 name: 'give',
