@@ -10,12 +10,12 @@ module.exports = {
     let winners = args[1]
     let tiempo = args[0]
 
-    if(!tiempo)return message.channel.send('<a:error:721475630688108554> Debes de incluir el tiempo la cantidad de ganadores y lo que quieres rifar\nEjemplo: `k!gstart 20m 2w Unas papitas uwu`')
-    if(!winners)return message.channel.send('<a:error:721475630688108554> Debes de incluir el tiempo la cantidad de ganadores y lo que quieres rifar\nEjemplo: `k!gstart 20m 2w Unas papitas uwu`')
-    if(!objeto)return message.channel.send('<a:error:721475630688108554> Debes de incluir el tiempo la cantidad de ganadores y lo que quieres rifar\nEjemplo: `k!gstart 20m 2w Unas papitas uwu`')
+    if(!tiempo)return message.channel.send('<a:error:721475630688108554> Debes de incluir el tiempo la cantidad de ganadores y lo que quieres rifar\nEjemplo: `k-gstart 20m 2w Unas papitas uwu`')
+    if(!winners)return message.channel.send('<a:error:721475630688108554> Debes de incluir el tiempo la cantidad de ganadores y lo que quieres rifar\nEjemplo: `k-gstart 20m 2w Unas papitas uwu`')
+    if(!objeto)return message.channel.send('<a:error:721475630688108554> Debes de incluir el tiempo la cantidad de ganadores y lo que quieres rifar\nEjemplo: `k-gstart 20m 2w Unas papitas uwu`')
 
-    if(!tiempo.match(/\d+[s|d|m|h]/))return message.channel.send('<a:error:721475630688108554> Debes de incluir el tiempo la cantidad de ganadores y lo que quieres rifar\nEjemplo: `k!gstart 20m 2w Unas papitas uwu`')
-    if(!winners.match(/\d+[w]/))return message.channel.send('<a:error:721475630688108554> Debes de incluir el tiempo la cantidad de ganadores y lo que quieres rifar\nEjemplo: `k!gstart 20m 2w Unas papitas uwu`')
+    if(!tiempo.match(/\d+[s|d|m|h]/))return message.channel.send('<a:error:721475630688108554> Debes de incluir el tiempo la cantidad de ganadores y lo que quieres rifar\nEjemplo: `k-gstart 20m 2w Unas papitas uwu`')
+    if(!winners.match(/\d+[w]/))return message.channel.send('<a:error:721475630688108554> Debes de incluir el tiempo la cantidad de ganadores y lo que quieres rifar\nEjemplo: `k-gstart 20m 2w Unas papitas uwu`')
     
     if(ms(tiempo) <= 5 * 1000 * 60)return message.channel.send("El tiempo es muy corto min: 5m")
     if(ms(tiempo) >= 30 * 1000 * 60 * 24)return message.channel.send("El tiempo es muy largo max: 30d")

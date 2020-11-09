@@ -10,7 +10,7 @@ module.exports = {
   run: async(client, message, args) => { 
 
     let res = await prefixModel.findOne({servidor: message.guild.id}).exec()
-    let prefix = res ? res.prefix : 'k!'
+    let prefix = res ? res.prefix : 'k-'
 
     let memoria = getMemoryUsage()
     const embed = new Discord.MessageEmbed()

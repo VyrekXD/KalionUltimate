@@ -9,7 +9,7 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
     .setAuthor(message.author.username, message.author.displayAvatarURL())
     .setTitle(`Tienda De Cajas`)
-    .setFooter(`Para comprar una caja usa k!buy [nombre de la caja]`)
+    .setFooter(`Para comprar una caja usa k-buy [nombre de la caja]`)
 
     message.channel.send(embed)
     }

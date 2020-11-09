@@ -8,9 +8,9 @@ module.exports = {
     .setThumbnail(`https://cdn.discordapp.com/attachments/721128332959285258/730573324958171208/minero.png`)
     .setColor('BLUE')
     .setTitle(`Informacion Sobre El Sistema De Mineria`)
-    .setDescription('Hola! '+ message.author.username +', Este es un sistema de mineria en el cual puedes ganar dinero vendiendo minerales que te encuentres en el mundo puedes encontrarme diferentes tipos de minerales para saber cuales minerales te puedes encontrar usa `k!minerales`. Para poder hacer paracer esto a lo mas parecido a la vida real tuve que investigar mucho sobre minerales etc')
-    .addField(`Como puedo comenzar?`, 'Para poder comenzar usa `k!mine` y para vender tus minerales puedes usar `k!sell` y para ver los minerales que tienes puedes usar `k!backpack`')
-    .setFooter(`Usa k!help para ver mas informacion sobre el Sistema De Mineria`)
+    .setDescription('Hola! '+ message.author.username +', Este es un sistema de mineria en el cual puedes ganar dinero vendiendo minerales que te encuentres en el mundo puedes encontrarme diferentes tipos de minerales para saber cuales minerales te puedes encontrar usa `k-minerales`. Para poder hacer paracer esto a lo mas parecido a la vida real tuve que investigar mucho sobre minerales etc')
+    .addField(`Como puedo comenzar?`, 'Para poder comenzar usa `k-mine` y para vender tus minerales puedes usar `k-sell` y para ver los minerales que tienes puedes usar `k-backpack`')
+    .setFooter(`Usa k-help para ver mas informacion sobre el Sistema De Mineria`)
     message.channel.send(embed)
 }
 }

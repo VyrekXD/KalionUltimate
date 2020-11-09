@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
     guildID: {type: String},
-    guildPrefix: {type: String, default: 'k!'},
+    guildPrefix: {type: String, default: 'k-'},
     modConfig: {
         status: {type: Boolean, default: true}, 
         onlyMod: {type: Boolean, default: false},

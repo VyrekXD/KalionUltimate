@@ -10,7 +10,7 @@ module.exports = {
 
         let servidor = message.guild;
         let res = await prefixModel.findOne({servidor: servidor.id})
-        let prefix = res ? res.prefix : 'k!'
+        let prefix = res ? res.prefix : 'k-'
 
         let usuario = message.author
         

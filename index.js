@@ -137,7 +137,7 @@ bot.on("ready", async () => {
   console.log(`Kalion Ultimate esta en ${bot.guilds.cache.size} servidores.`);
   var OpcionesDeEstados = [
     `Moderando y Jugando con ${bot.users.cache.size} usuarios.`,
-    `Usa k!help para ver la ayuda | Estoy en ${bot.guilds.cache.size} servers.`,
+    `Usa k-help para ver la ayuda | Estoy en ${bot.guilds.cache.size} servers.`,
     `Mi creador es Vyrek._.XD#5058`
   ];
   let Estado = OpcionesDeEstados[Math.floor(Math.random() * OpcionesDeEstados.length)];

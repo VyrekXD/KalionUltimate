@@ -8,7 +8,7 @@ permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','CONNECT','SPEAK'],
 run: async (client, message, args) => {
     
     let res = await prefixModel.findOne({servidor: message.guild.id}).exec()
-    let prefix = res ? res.prefix : 'k!'
+    let prefix = res ? res.prefix : 'k-'
 
     const enabledEmoji = client.emotes.success;
     const disabledEmoji = client.emotes.error;

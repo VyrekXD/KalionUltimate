@@ -17,8 +17,8 @@ module.exports = {
             const embed = new Discord.MessageEmbed()
             .setTitle(`<a:error:721475630688108554> Error de sintaxis`)
             .setDescription(`Puedes elegir entre todos estos estilos todos son gifs`)
-            .addField(`Estilos xbox360 :`, 'Estilo notificacion: `k!xboxfonts estilonotif`\nEstilo Sincronismo: `k!xboxfonts estilosincro`\nEstilo Logro: `k!xboxfonts estilologro`\nEstilo SAT: `k!xboxfonts estilosat`\nEstilo Fallo `k!xboxfonts estilofallo`')
-            .addField(`Estlos xbox One:`, 'Estilo One: `k!xboxfonts estiloone`\nEstilo One verde: `k!xboxfonts oneverde`\nEstilo One Azul: `k!xboxfonts oneazul`\nEstilo One Rojo: `k!xboxfonts onerojo`\nEstilo One Amarillo: `k!xboxfonts oneamarillo`\nEstilo One Verde Oscuro: `k!xboxfonts oneverdeosc`\nEstilo One Rosa: `k!xboxfonts onerosa`')
+            .addField(`Estilos xbox360 :`, 'Estilo notificacion: `k-xboxfonts estilonotif`\nEstilo Sincronismo: `k-xboxfonts estilosincro`\nEstilo Logro: `k-xboxfonts estilologro`\nEstilo SAT: `k-xboxfonts estilosat`\nEstilo Fallo `k-xboxfonts estilofallo`')
+            .addField(`Estlos xbox One:`, 'Estilo One: `k-xboxfonts estiloone`\nEstilo One verde: `k-xboxfonts oneverde`\nEstilo One Azul: `k-xboxfonts oneazul`\nEstilo One Rojo: `k-xboxfonts onerojo`\nEstilo One Amarillo: `k-xboxfonts oneamarillo`\nEstilo One Verde Oscuro: `k-xboxfonts oneverdeosc`\nEstilo One Rosa: `k-xboxfonts onerosa`')
             .setColor(`RED`)
 
             message.channel.send(embed)
@@ -46,8 +46,8 @@ module.exports = {
             const embed = new Discord.MessageEmbed()
             .setTitle(`<a:error:721475630688108554> Error de sintaxis`)
             .setDescription(`Puedes elegir entre todos estos estilos todos son gifs`)
-            .addField(`Estilos xbox360 :`, 'Estilo notificacion: `k!xboxfonts estilonotif`\nEstilo Sincronismo: `k!xboxfonts estilosincro`\nEstilo Logro: `k!xboxfonts estilologro`\nEstilo SAT: `k!xboxfonts estilosat`\nEstilo Fallo `k!xboxfonts estilofallo`')
-            .addField(`Estlos xbox One:`, 'Estilo One: `k!xboxfonts estiloone`\nEstilo One verde: `k!xboxfonts oneverde`\nEstilo One Azul: `k!xboxfonts oneazul`\nEstilo One Rojo: `k!xboxfonts onerojo`\nEstilo One Amarillo: `k!xboxfonts oneamarillo`\nEstilo One Verde Oscuro: `k!xboxfonts oneverdeosc`\nEstilo One Rosa: `k!xboxfonts onerosa`')
+            .addField(`Estilos xbox360 :`, 'Estilo notificacion: `k-xboxfonts estilonotif`\nEstilo Sincronismo: `k-xboxfonts estilosincro`\nEstilo Logro: `k-xboxfonts estilologro`\nEstilo SAT: `k-xboxfonts estilosat`\nEstilo Fallo `k-xboxfonts estilofallo`')
+            .addField(`Estlos xbox One:`, 'Estilo One: `k-xboxfonts estiloone`\nEstilo One verde: `k-xboxfonts oneverde`\nEstilo One Azul: `k-xboxfonts oneazul`\nEstilo One Rojo: `k-xboxfonts onerojo`\nEstilo One Amarillo: `k-xboxfonts oneamarillo`\nEstilo One Verde Oscuro: `k-xboxfonts oneverdeosc`\nEstilo One Rosa: `k-xboxfonts onerosa`')
             .setColor(`RED`)
 
             message.channel.send(embed)

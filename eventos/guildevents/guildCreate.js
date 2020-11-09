@@ -22,7 +22,7 @@ module.exports.run = async(bot, guild) => {
       
       let emved = new Discord.MessageEmbed()
       .setTitle(`Gracias por elegirme!`)
-      .setDescription('Hola! '+ servidor.owner.user.tag + ' soy un bot de moderacion y juegos y mas cosas usa `k!help` para empezar :D')
+      .setDescription('Hola! '+ servidor.owner.user.tag + ' soy un bot de moderacion y juegos y mas cosas usa `k-help` para empezar :D')
       .setColor("RANDOM")
       .setImage(servidor.iconURL() || "https://cdn.discordapp.com/attachments/721128332959285258/734918997308604426/imagen-no.png")
       .addField(

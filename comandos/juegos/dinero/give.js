@@ -8,7 +8,7 @@ module.exports = {
     guildOnly: true,
     run: async(client, message, args) => {
     let res = await prefixModel.findOne({servidor: message.guild.id}).exec()
-    let prefix = res ? res.prefix : 'k!'
+    let prefix = res ? res.prefix : 'k-'
 
     let user = message.author
     let user1 = message.mentions.users.first();

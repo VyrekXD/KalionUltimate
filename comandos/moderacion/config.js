@@ -16,7 +16,7 @@ module.exports = {
     if(!checkPerms(message.member, 'ADMINISTRATOR') || !devConsulta)return message.channel.send(`Permisos insuficientes`)
 
     let res0 = await prefixModel.findOne({servidor: message.guild.id})
-    let prefix = res0 ? res0.prefix : 'k!'
+    let prefix = res0 ? res0.prefix : 'k-'
     let res1 = await logsModel.findOne({servidor: message.guild.id})
     let res2 = await automodModel.findOne({servidor: message.guild.id})
 

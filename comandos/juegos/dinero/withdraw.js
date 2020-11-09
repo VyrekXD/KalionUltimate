@@ -27,7 +27,7 @@ module.exports = {
             .setTitle(message.author.username)
             .setDescription(`:white_check_mark: Retirado :dollar:${DbServidor.banco} de tu banco`)
             .setTimestamp()
-            .setFooter("Puedes ver tu dinero con k!bal o k!balance")
+            .setFooter("Puedes ver tu dinero con k-bal o k-balance")
             .setColor("3b4ad6")
             
             let dinerototal = DbServidor.banco
@@ -42,7 +42,7 @@ module.exports = {
         .setTitle(message.author.username)
         .setDescription(`:white_check_mark: Retirado :dollar:${depositar} de tu banco`)
         .setTimestamp()
-        .setFooter("Puedes ver tu dinero con k!bal o k!balance")
+        .setFooter("Puedes ver tu dinero con k-bal o k-balance")
         .setColor("429412")
         
         await moneyModel.updateOne({servidor: servidor.id, usuario: usuario.id}, {$inc: {dinero: parseInt(depositar), banco: parseInt(-depositar)}})

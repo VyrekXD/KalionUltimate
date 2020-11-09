@@ -10,7 +10,7 @@ guildOnly: true,
 run: async (bot, message, args, send) => {
 
     let res = await prefixModel.findOne({servidor: message.guild.id}).exec()
-    let prefix = res ? res.prefix : 'k!'
+    let prefix = res ? res.prefix : 'k-'
 
     if(!args[0])return send(`Debes poner una id de invitacion! Ejemplo: ${prefix}linfo vyrekcm`)
 
