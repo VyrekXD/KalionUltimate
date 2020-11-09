@@ -55,8 +55,8 @@ bot.colors = bot.utilconfig.colors;
 bot.invite = bot.utilconfig.invite;
 bot.support = bot.utilconfig.support;
 
-bot.tnai = require('tnai')
-bot.nekos = new nekosLife()
+bot.tnai = require('tnai');
+bot.nekos = new nekosLife();
 
 // -| Comandos |- //
 
