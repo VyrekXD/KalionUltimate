@@ -22,7 +22,7 @@ module.exports = {
 			if(!texto){
 			  return message.channel.send(`Escribe el mensaje que desees enviar`)
 			}
-			message.delete();
+			message.delete().catch(()=>{});
 			message.channel.send(texto, { allowedMentions: { parse: [] }});
 			
 		  used.set(message.author.id, Date.now() + milisegFromSeconds(1));
