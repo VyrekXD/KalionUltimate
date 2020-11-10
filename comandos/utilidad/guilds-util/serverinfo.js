@@ -14,10 +14,10 @@ module.exports = {
       
       }
     const boostedlevels = {
-      "0":"<:nitro:724001775987851385> No esta boosteado",
-      "1":"<:nitro:724001775987851385> Si esta boosteado, Su nivel es: 1",
-      "2":"<:nitro:724001775987851385> Si esta boosteado, Su nivel es: 2",
-      "3":"<:nitro:724001775987851385> Si esta boosteado, Su nivel es: 3",
+      "0":"<a:nitro:775776708195516436> No, no esta boosteado",
+      "1":"<a:nitro:775776708195516436> Si, esta boosteado, Su nivel es: 1",
+      "2":"<a:nitro:775776708195516436> Si, esta boosteado, Su nivel es: 2",
+      "3":"<a:nitro:775776708195516436> Si, esta boosteado, Su nivel es: 3",
       
     }
     const embed = new Discord.MessageEmbed()

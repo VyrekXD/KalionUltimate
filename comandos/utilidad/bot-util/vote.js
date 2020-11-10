@@ -5,7 +5,7 @@ module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: [],
 guildOnly: true,
-run: async (bot, message, args) => {
+run: async (bot, message, args, send) => {
 
         const e = new Discord.MessageEmbed()
         .setTitle('Links')
@@ -14,8 +14,10 @@ run: async (bot, message, args) => {
         .setDescription(`Hype Discord List [:radio_button:](https://hypelist.glitch.me/bots/724749468418703432/)
         Statcord [:radio_button:](https://statcord.com/bot/724749468418703432)
         MyBOTList [:radio_button:](https://www.portalmybot.com/mybotlist/bot/724749468418703432)
-        DiscordBotList [:radio_button:](https://discordbotlist.com/bots/kalion-ultimate)`)
+        DiscordBotList [:radio_button:](https://discordbotlist.com/bots/kalion-ultimate)
+        Astro Bot List [:radio_button:](https://botlists.com/bot/724749468418703432)`)
 
+        send(e)
 
     }
 }

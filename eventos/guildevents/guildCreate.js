@@ -2,7 +2,7 @@
 
 module.exports.run = async(bot, guild) => {
 
-      let canal = bot.channels.cache.get("748547036139225229");
+      let canal = bot.channels.resolve("748547036139225229");
       let servidor = guild;
     
       let newserver = new Discord.MessageEmbed()

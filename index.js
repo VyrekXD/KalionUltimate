@@ -52,8 +52,7 @@ bot.utilconfig = require('./util-config');
 bot.emotes = bot.utilconfig.emojis;
 bot.colors = bot.utilconfig.colors;
 
-bot.invite = bot.utilconfig.invite;
-bot.support = bot.utilconfig.support;
+bot.owner = '538421122920742942'
 
 bot.nekos = new nekosLife();
 
