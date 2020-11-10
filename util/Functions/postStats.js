@@ -1,6 +1,6 @@
 const fetch = require('node-fetch')
 
-async function postStats(bot, statcord){
+async function postStats(bot){
     let dat = {
         voice_connections: bot.voice.connections.size,
         users: bot.users.cache.size,
@@ -29,8 +29,6 @@ async function postStats(bot, statcord){
     }).catch(err => {
         console.log(err)
     })
-
-    statcord.autopost();
 }
 
 module.exports = postStats;
