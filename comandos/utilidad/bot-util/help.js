@@ -119,7 +119,8 @@ module.exports = {
           ":joy: Diversion ",
           "Para ayuda adicional entra al: \n[Servidor de soporte](https://discord.gg/3RdZ9mD)"
         )
-        .addField(":page_facing_up: Comandos:", "```xboxlogro | geometryfont |chiste | meme | 8ball | love | rps | batslap | beautilful | blancoynegro(byn) | bobross | circle | confusedstonks(cstonks) | doublestonks(dstonks) | eliminar | gay | lisapresentation(lpresentation) | notstonks(nstonks) | putin | rip | spank | stonks | thomas | trash | triggered | wanted | bigtext | fancify | ascii | snipe | usersay```")
+        .addField(`:page_facing_up: Comandos Image:`, `\`\`\`batslap | beautilful | blancoynegro(byn) | bobross | circle | confusedstonks(cstonks) | doublestonks(dstonks) | eliminar | gay | lisapresentation(lpresentation) | notstonks(nstonks) | putin | rip | spank | stonks | thomas | trash | triggered | wanted\`\`\``)
+        .addField(":page_facing_up: Comandos Otros:", "```xboxlogro | geometryfont | chiste | meme | 8ball | love | rps | bigtext | fancify | ascii | snipe | usersay```")
         .setFooter(
           `Para ver informacion detallada de un comando usa ${await message.guild.getPrefix()}help (comando)`
         )
