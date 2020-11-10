@@ -153,6 +153,8 @@ bot.on("ready", async () => {
   setInterval(async() => {
     await postStats(bot)
   }, 60000 * 5);
+  console.log(`Estadisticas posteadas en DiscordBotList`)
+  console.log(`Estadisticas posteadas en discord.bots.gg`)
 
   statcord.autopost();
   
