@@ -3,9 +3,6 @@ const configModel = require('../database/models/guildConfig')
 const moment = require('moment')
 
 module.exports.run = async(bot, statcord, message) => {
-      if (!message.guild) return;
-
-      let server = message.guild
 
       if(message.author.bot) return;
       
