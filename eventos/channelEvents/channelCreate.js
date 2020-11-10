@@ -3,7 +3,7 @@ const configModel = require('../../database/models/guildConfig')
 
 module.exports.run = async(bot, channel) => {
 
-  if (channel.type === "dm") return
+  if (channel.type === "dm") return;
 
   let find = (await configModel.findOne({guildID: channel.guild.id}))
   if(!find)return;

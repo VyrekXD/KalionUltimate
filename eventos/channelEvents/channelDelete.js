@@ -3,7 +3,7 @@ const configModel = require('../../database/models/guildConfig')
 
 module.exports.run = async(bot, channel) => {
 
-  if (channel.type === "dm") return
+  if (channel.type === "dm") return;
 
   let find = (await configModel.findOne({guildID: channel.guild.id}))
   if(!find)return;
@@ -18,7 +18,9 @@ module.exports.run = async(bot, channel) => {
   .setTitle("__**Canal Eliminado**__")
   .setColor("#ac0d0d")
   .addField("Canal", `${channel.name}\n${channel.id}`, true)
-  .addField(`Categoria`, `${channel.parent}\n${channel.parent.id}`, true)
+  if(channel.parent){
+    embed.addField(`Categoria`, `${channel.parent}\n${channel.parent.id}`, true)
+  }
 
   if(channel.guild.me.hasPermission('VIEW_AUDIT_LOGS')){
   const log = await channel.guild.fetchAuditLogs({
