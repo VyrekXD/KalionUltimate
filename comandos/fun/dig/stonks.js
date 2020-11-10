@@ -9,7 +9,7 @@ module.exports = {
     let user = message.mentions.users.first() || message.author
     let avatar = user.displayAvatarURL({ dynamic: false, format: 'png' })
 
-    let img = await new dig.Stonks().getImage(avatar)
+    let img = await new dig.Stonk().getImage(avatar)
 
     let attach = new Discord.MessageAttachment(img, "putin.png")
 
