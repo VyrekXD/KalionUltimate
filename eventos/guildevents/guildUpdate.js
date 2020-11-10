@@ -14,7 +14,7 @@ module.exports.run = async(bot, oldGuild, newGuild) => {
         let boost = {
             newGuild,
             newBoost: newGuild.premiumSubscriptionCount,
-            oldBoost: oldBoost.premiumSubscriptionCount
+            oldBoost: oldGuild.premiumSubscriptionCount
         }
         bot.emit('guildBoostRemove', boost)
     }
