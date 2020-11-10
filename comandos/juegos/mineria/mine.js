@@ -24,7 +24,7 @@ run: async (bot, message, args, send) => {
         }
     }
     
-    let usuario = message.author
+    const usuario = message.author;
 
     const e = new Discord.MessageEmbed()
     .setAuthor(usuario.tag, usuario.displayAvatarURL())
