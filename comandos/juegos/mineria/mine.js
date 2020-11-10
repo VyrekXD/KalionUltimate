@@ -32,7 +32,7 @@ run: async (bot, message, args, send) => {
     .setColor('f0e8e8')
     .setFooter(frases)
 
-    let msg = send(e)
+    let msg = await send(e)
 
     let i = ['piedra','piedra','piedra','piedra','piedra','carbon','carbon','carbon','hierro','esmeralda','diamante','zafiro','ruby']
     let c = i[Math.floor(i.length * Math.random())]
@@ -137,8 +137,8 @@ run: async (bot, message, args, send) => {
             break;
     }
 
-    setTimeout(() => {
-        msg.edit(ef)
+    setTimeout(async() => {
+        await msg.edit(ef)
     }, 3000);
 
     await message.author.setCooldown(message.guild.id, (Date.now() + 40 * 60000), 'mine')
