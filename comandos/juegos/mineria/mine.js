@@ -8,7 +8,7 @@ permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: [],
 guildOnly: true,
 run: async (bot, message, args, send) => {
-    return send(`Reconstruyendo comando`)
+
     let cul = await message.author.getCooldown(message.guild.id)
 
     if(cul){

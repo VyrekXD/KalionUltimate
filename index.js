@@ -56,6 +56,58 @@ bot.owner = '538421122920742942'
 
 bot.nekos = new nekosLife();
 
+// -| Modelos |- //
+
+bot.getData = async ({ ...find }, model) => {
+
+  const db_files = await fs.readdir(require("path").join(__dirname, "./database/models"));
+
+  const available_models = db_files.map(elem => elem.endsWith("js") ? elem.slice(0, -3) : elem);
+
+  if (!available_models.includes(model)) return console.log('[GET_DATA]Model no encontrado!')
+
+  let db = require('./database/models' + model + '.js');
+
+  let getModel = (await db.findOne(find));
+
+  if (!getModel) {
+
+      await db.create(find)
+      return (await db.findOne(find)) || {};
+
+  }
+
+  else return getModel || {};
+
+};
+
+bot.updateData = async ({ ...find }, { ...newValue }, model) => {
+
+  const db_files = await fs.readdir(require("path").join(__dirname, "./database/models"));
+
+  const available_models = db_files.map(elem => elem.endsWith("js") ? elem.slice(0, -3) : elem);
+ 
+  if (!available_models.includes(model)) return console.log('[UPDATE_DATA]Model no encontrado!')
+
+  let db = require('./database/models' + model + '.js');
+
+  let getModel = (await db.findOne(find));
+
+  if (!getModel) {
+
+      await db.create(find)
+
+      return await db.findOneAndUpdate(find, newValue, { new: true });
+
+  }
+  else {
+
+      return await db.findOneAndUpdate(find, newValue, { new: true });
+
+  }
+
+};
+
 // -| Comandos |- //
 
 (async function handleCommands(dir = "comandos") {
