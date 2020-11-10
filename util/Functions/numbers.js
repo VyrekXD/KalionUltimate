@@ -10,4 +10,4 @@ function separateNumbers(nStr) {
     return x1 + x2;
 }
 
-module.exports = { separateNumbers }
+module.exports = separateNumbers
