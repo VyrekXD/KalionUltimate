@@ -155,6 +155,7 @@ bot.on("ready", async () => {
   }, 60000 * 5);
   console.log(`Estadisticas posteadas en DiscordBotList`)
   console.log(`Estadisticas posteadas en discord.bots.gg`)
+  console.log(`Estadisticas posteadas en Astro Bot List`)
 
   statcord.autopost();
   

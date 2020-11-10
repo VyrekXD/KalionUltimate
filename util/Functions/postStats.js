@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+const { abl } = require('abl-wrapper');
 
 async function postStats(bot){
     let dat = {
@@ -26,6 +27,10 @@ async function postStats(bot){
     ).catch(err => {
         console.log(err)
     })
+
+    abl.count('be0e9771-69fc-465f-afd4-3e78b44546cc', bot, (error, success) => {
+        if(error) throw new Error(error);
+    });
 }
 
 module.exports = postStats;

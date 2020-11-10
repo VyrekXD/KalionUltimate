@@ -24,6 +24,7 @@
   "homepage": "",
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
+    "abl-wrapper": "^1.1.7",
     "beautify": "0.0.8",
     "booru": "^2.4.0",
     "buscador-letra": "0.0.1",
