@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
+const cmod = require('../../database/models/guildConfig')
 
-module.exports.run = (bot, guild) => {
+module.exports.run = async(bot, guild) => {
     
     let canal = bot.channels.resolve("748547036139225229");
 
@@ -13,4 +14,6 @@ module.exports.run = (bot, guild) => {
     .setImage(servidor.iconURL() || "https://cdn.discordapp.com/attachments/721128332959285258/734918997308604426/imagen-no.png")
 
     canal.send(e)
+
+    await cmod.deleteOne({guildID: guild.id})
 }
