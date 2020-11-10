@@ -168,7 +168,7 @@ module.exports = {
             "Para ayuda adicional entra al: \n[Servidor de soporte](https://discord.gg/3RdZ9mD)"
           )
           .addField(`:page_facing_up: Comandos Bot:`, 
-          `\`\`\`botinfo | botsuggest | bugreport | help | invite | ping | seeon | soporte | vote\`\`\``)
+          `\`\`\`botinfo | botsuggest | bugreport | help | invite | ping | seeon | soporte | vote | servers\`\`\``)
           .addField(`:page_facing_up: Comandos DSC.GG:`, 
           `\`\`\`link-info | link-user-info | user-links\`\`\``)
           .addField(`:page_facing_up: Comandos Guilds:`, 

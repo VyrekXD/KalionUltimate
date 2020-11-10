@@ -6,15 +6,15 @@ aliases: [],
 guildOnly: true,
 run: async (bot, message, args, send) => {
 
-    let usuario = client.users.cache.get(args[0]) || message.mentions.users.first() || message.author
+    let usuario = bot.users.cache.get(args[0]) || message.mentions.users.first() || message.author
 
-    let filtro = client.guilds.cache.filter(g => g.members.cache.has(usuario.id))
+    let filtro = bot.guilds.cache.filter(g => g.members.cache.has(usuario.id))
   
     let servers = filtro.map(g => '`'+g.name+'`').join(', ')
   
     let tamaño = filtro.size
   
-    if (filtro <= 1) return message.channel.send('`❌>` No se han encontrado resultados.')
+    if (tamaño <= 1) return message.channel.send('`❌>` No se han encontrado resultados.')
   
     const e = new Discord.MessageEmbed()
     .setTitle('Servidores en común con '+usuario.tag)
