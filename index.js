@@ -142,7 +142,7 @@ bot.on("ready", async () => {
   var OpcionesDeEstados = [
     `Moderando y Jugando con ${bot.users.cache.size} usuarios.`,
     `Usa k-help para ver la ayuda | Estoy en ${bot.guilds.cache.size} servers.`,
-    `Mi creador es Vyrek._.XD#5058`
+    `Mi creador es ѵ  ყ  ɾ  ε  ҡ#4003`
   ];
   let Estado = OpcionesDeEstados[Math.floor(Math.random() * OpcionesDeEstados.length)];
 

@@ -4,10 +4,9 @@ const { meme } = require('memejs');
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
 aliases: [],
-run: async (bot, message, args) => {
+run: async (bot, message, args, send) => {
 
-    let mensaje = await message.channel.send({embed: {color: 'RANDOM', description: `<a:loadingoogle:744334507242422302> Buscando memes de reddit...`}})
-    setTimeout(async () => {
+
         
         await meme(async function(err, data) {
             if (err) return console.error(err);
@@ -17,10 +16,8 @@ run: async (bot, message, args) => {
             .setImage(data.url)
             .setFooter(`Autor: ${data.author}`)
         
-           mensaje.edit(e)
+           send(e)
           });
-
-    }, 3 * 1000);
 
 
     }
