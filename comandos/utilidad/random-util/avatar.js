@@ -14,9 +14,9 @@ let user =
       message.author;
 
     const embed = new Discord.MessageEmbed()
-      .setImage(user.displayAvatarURL({ dynamic: true, size: 4096 }))
+      .setImage(user.displayAvatarURL({ format: 'png',dynamic: true, size: 4096 }))
       .setColor(message.guild.member(user).displayHexColor)
-      .setDescription(`[Avatar URL](${user.displayAvatarURL({ dynamic: true })})`)
+      .setDescription(`[Avatar URL](${user.displayAvatarURL({ format: 'png',dynamic: true, size: 4096 })})`)
       .setTitle(
         message.author == user
           ? `Avatar de: ${user.tag}`
