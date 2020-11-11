@@ -25,13 +25,13 @@ module.exports.run = async(bot, channel) => {
       type: 10
       });
       const entry = log.entries.first();
-      embed.addField(`Moderador`, `${entry.executor.tag}\n${entry.executor.id}`, true)
+      e.addField(`Moderador`, `${entry.executor.tag}\n${entry.executor.id}`, true)
   }
   
   
   
   
-  embed.addField(`Tipo`, tipo[channel.type])
+  e.addField(`Tipo`, tipo[channel.type])
         
 
 
