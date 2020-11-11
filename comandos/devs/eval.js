@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const devModel = require('../../database/models/developers')
-const lanx = require('lanx')
 
 module.exports = {
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS'],
