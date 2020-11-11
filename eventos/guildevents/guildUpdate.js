@@ -5,14 +5,14 @@ module.exports.run = async(bot, oldGuild, newGuild) => {
 
     if(oldGuild.premiumSubscriptionCount < newGuild.premiumSubscriptionCount){
         let boost = {
-            guild = newGuild,
+            guild: newGuild,
             newBoost: newGuild.premiumSubscriptionCount,
             oldBoost: oldGuild.premiumSubscriptionCount
         }
         bot.emit('guildBoostAdd', boost)
     }else if(oldGuild.premiumSubscriptionCount > newGuild.premiumSubscriptionCount){
         let boost = {
-            guild = newGuild,
+            guild: newGuild,
             newBoost: newGuild.premiumSubscriptionCount,
             oldBoost: oldGuild.premiumSubscriptionCount
         }
