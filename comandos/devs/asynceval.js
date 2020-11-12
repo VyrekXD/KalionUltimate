@@ -26,7 +26,7 @@ run: async (bot, message, args, send) => {
         
         let evaluated = await eval("(async () => { " + toEval + "})();")
         
-        if(typeof(evaluated) !== String)evaluated = require('util').inspect(evaluated, {depth: 0});
+        if(typeof(evaluated) !== String)evaluated = require('util').inspect(evaluated, {depth: 0, showHidden: true});
 
         const regex = new RegExp(bot.token, 'gi');
         
