@@ -176,7 +176,7 @@ module.exports = {
           .addField(`:page_facing_up: Comandos Mod:`, 
           `\`\`\`clear | createrole | nickname | setnsfw | role\`\`\``)
           .addField(`:page_facing_up: Comandos General:`, 
-          `\`\`\`avatar | calc | canvassay | djsdocs | discord-reputation | fortnite-store | fortnite-user | geometryfont | hex | jumbo | lyrics | morse | pokedex | qr | reverse | say | shortlink | steamuser | tagSearch | usersay | xboxlogro | youtube\`\`\``)
+          `\`\`\`kirby | avatar | calc | canvassay | djsdocs | discord-reputation | fortnite-store | fortnite-user | geometryfont | hex | jumbo | lyrics | morse | pokedex | qr | reverse | say | shortlink | steamuser | tagSearch | usersay | xboxlogro | youtube\`\`\``)
           .setFooter(
             "Para ver informacion detallada de un comando usa ${await message.guild.getPrefix()}help (comando)"
           )
