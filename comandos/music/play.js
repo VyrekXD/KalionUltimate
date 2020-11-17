@@ -6,7 +6,8 @@ module.exports = {
     guildOnly: true,
     permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','CONNECT','SPEAK'],
     run: async(client, message, args) => {
-
+        return message.channel.send(`Comandos en construccion...`)
+        
         const voiceChannel = message.member.voice.channel;
     
         if(!voiceChannel)return message.channel.send({embed: {color: client.colors.error, description: `${client.emotes.error} | Necesitas estar en un canal de voz!`}});

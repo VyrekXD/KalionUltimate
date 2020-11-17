@@ -5,7 +5,7 @@ aliases: ['np','nowp','nowplay'],
 guildOnly: true,
 permisos: ['VIEW_CHANNEL','SEND_MESSAGES','EMBED_LINKS','CONNECT','SPEAK'],
 run: async(client, message, args) => {
-
+    return message.channel.send(`Comandos en construccion...`)
 
     
     const voiceChannel = message.member.voice.channel;
