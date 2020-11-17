@@ -33,7 +33,7 @@ module.exports.run = async(bot, statcord, message) => {
 
       if(res.modConfig.onlyMod === true)return
 
-      const command = ctx.args.shift().toLowerCase()
+      const command = args.shift().toLowerCase()
 
       let cmd = bot.comandos.get(command) || bot.comandos.find(c => c.aliases && c.aliases.includes(command))
       if(cmd){
