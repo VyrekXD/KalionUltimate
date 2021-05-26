@@ -15,7 +15,7 @@ const path = require("path")
 const Statcord = require("statcord.js");
 const statcord = new Statcord.Client({
   client: bot,
-  key: "statcord.com-Nh93RmOMRb17s1yznEhD",
+  key: "xd",
 });
 
 const postStats = require('./util/Functions/postStats')
